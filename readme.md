@@ -1,0 +1,7 @@
+For this individual project, I’ll be making an app that helps users understand the financial impact of their mode of transportation. The app will allow users to compare the costs of owning a car (including maintenance, insurance, and depreciation) with alternative options like biking, public transit, or walking. The goal is to help people assess whether keeping or purchasing a car is financially wise and explore potential savings by switching to other transportation methods.
+
+The app will feature a future impact calculator that shows the 1, 2, and 5-year financial effects of car ownership versus alternative transportation. It will account for car-related costs (maintenance, gas, depreciation) and estimate how much users could save or earn by investing those funds in appreciating assets like stocks, bonds, or even a low-interest savings account.
+
+There will of course be a user login system - where users can input their savings, investments, and debts (e.g., student loans, car debt, credit card debt). The app will track progress and allow users to update information, such as extra debt payments or savings contributions. The idea was originally to include full asset or debt tracking, but I’m wondering if that would overcomplicate the project.
+
+But now that this is in a readme for the project it doesn't seem robust enough, it just appears to be a high functioning interactive calculator. Let me know if you can help me build it out further or incorporate this project idea into a large or broder project. 

@@ -32,8 +32,27 @@ Does have @Entity, is mapped correctly in hibernate.cfg.xml, is in pom file, and
 2/18 - 5 minutes reviewed feedback for project 1 check point - not at "met"
 2/18 total: 3 hours 50 minutes - 1:15 for codingbat
 
-need to complete
+2/19 - week 4 exercise test code continued - 6-8pm
+2/20 - 35 minutes in AM of CodingBat practice completed 2 challenges
+2/20 - finished and submitted week 4 exercise and stared week 5 material 700-830pm
+2/22 - 2.5 hours total from (10:20am - 1:45pm with breaks and walk) continued week 5 material
+~~3. finish week 4 exercise~~
+
+~~COMPLETED: start wk 5 if there is time :/~~
+**Week 6** 
+2/23-3/2 
+Continued working on week 5 material and exercise 5, reviewed project feedback, overwhelmed and decided to focus just on week 5 instead
+2-2.5 hours - 4 mornings of codingbat challenges ranging from 30-45 minutes each morning, 
+3-4 hours - restarted demo for week 4 so I could do branched demo for week 5 hibernate with updated files
+2/28 - 1.5 hours completing week 5 exercise nearly complete but 3 test errors still not passing
+3/1 day off
+3/2 1pm - 2:45pm project feedback redo - oh my I'm overwhelmed.
+
+Week 7
+need to complete:
 1. updated version of project 1 check point 
 2. start incorporating concepts into project or at least get a database started?
-3. finish week 4 exercise 
-4. start wk 5 if there is time :/
+4. FINISH wk 5 check point 
+5. Week 6 material 
+6. Week 7 material 
+7. Create JSP pages, update user stories, update other parts of project, hone in on project idea. 

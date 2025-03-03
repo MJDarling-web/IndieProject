@@ -47,7 +47,9 @@ Continued working on week 5 material and exercise 5, reviewed project feedback, 
 2/28 - 1.5 hours completing week 5 exercise nearly complete but 3 test errors still not passing
 3/1 day off
 3/2 1pm - 2:45pm & 430-5:00, & 915-945pm project feedback redo - ~~oh my I'm overwhelmed.~~
-3/3 715-815am - 1 hour on project part 1 review updates
+3/3 715-815am - 1 hour on project part 1 review updates for plan, user stories, and problem statement.
+3/3 830-9:00 - 30 minutes on codingbat logical challenges, what fun! 
+3/3 1:45-315pm - 1.5 hours on project 1 re-working wire frames and plan. 
 
 Week 7
 need to complete:

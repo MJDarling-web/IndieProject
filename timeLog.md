@@ -46,7 +46,8 @@ Continued working on week 5 material and exercise 5, reviewed project feedback, 
 3-4 hours - restarted demo for week 4 so I could do branched demo for week 5 hibernate with updated files
 2/28 - 1.5 hours completing week 5 exercise nearly complete but 3 test errors still not passing
 3/1 day off
-3/2 1pm - 2:45pm project feedback redo - oh my I'm overwhelmed.
+3/2 1pm - 2:45pm & 430-5:00, & 915-945pm project feedback redo - ~~oh my I'm overwhelmed.~~
+
 
 Week 7
 need to complete:

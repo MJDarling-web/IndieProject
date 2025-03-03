@@ -1,51 +1,41 @@
 **User Login and Profile Management**
 
 User Registration  *
-As a new user, I want to create an account so that I can securely access my financial data and track my transportation choices.
+As a new user, I want to create an account so that I can securely access my account information, history, and data
 
 User Login  *
-As a returning user, I want to log into my account so that I can access my saved information and track my progress.
+As a returning user, I want to log into my account so that I can access my saved information, track my progress, and be able to keep a monthly log of my commuting.
 
 Update Personal Information  *
-As a user, I want to update my personal details (such as contact info or password) so that my account stays up-to-date and secure.
+As a user, I want to update my personal details (such as contact info or password, commute distance, address for work/home, car and gas millage) so that my account stays up-to-date while remaining secure.
 
 Account Deletion  *
-As a user, I want to delete my account so that my personal information is removed from the app if I no longer wish to use it.
+As a user who has fully commited to one type of commute type, I want to delete my account so that my personal information is removed from the app if I no longer wish to use it.
 
 **Transportation Comparison**
 
-Car Ownership Costs Input * 
-As a user, I want to input the costs associated with owning a car (e.g., maintenance, gas, insurance) so that I can accurately compare it to alternative modes of transportation.
+Car Ownership Costs * 
+As a user, I want to input the costs associated with owning a car (e.g., maintenance, gas, insurance, payment if applicable) so that I can accurately compare it to alternative modes of transportation. And I want to do this on the main page without having to make an account.
 
-Alternative Transportation Input *
-As a user, I want to input costs for alternative modes of transportation (e.g., public transit, biking) so that I can see how these options compare to car ownership.
+Multiple forms of transport, update and change inputs *
+As a user who lives in an area with different seasons, I want to be able to see how much I could save based on a multiple of different types of transportation.
 
-Cost Comparison Visualization *
-As a user, I want to view a comparison of the costs of car ownership vs. alternative transportation so that I can make informed decisions on my transportation choices.
+Alternative Transportation ~~Input~~ Costs *
+As a user, I want to see cost auto generated for alternative transportation based on my commute distance (maybe commute is auto calculated based on Google Maps API for bus/public transit, or biking, or uber) compared to calculated cost of car ownership. For example walking would be $A-Pair-Of-Shoes/12 for a year = per month, or a bike already owned showed as yearly maintaince divided by 12 for a year. Like $120/12 = $10/month for bike vs default car ownership being $120 for an owned car and $380/month for a general finance or lease with data on page. 
 
-**Future Impact Calculator**
+Time (and health impact?)*
+As a user, I want to see how much time I spent commuting and what type of commuting such as walking, driving, or biking. This will give me a good idea of how much time I've spent in a car or walking/biking.
+
+User Logging* 
+As a user with an account, I want to be able to track, update, and change, my monthly commute, so I can see how much money and time I'm spending on my commute options each month. 
+
+**Future Impact Calculations**
 
 1-Year, 2-Year, and 5-Year Projections *
-As a user, I want to see financial projections for the next 1, 2, and 5 years based on my car ownership vs. alternative transportation choices so that I can understand the long-term financial impact.
+As a user, I want to see financial projections for the next 1, 2, and 5 years oh my transportation option of choice (Car ownership) in charts (Google Charts API).
 
-Depreciation Calculation for Car Ownership *
-As a user, I want the app to calculate and display the depreciation of my car over time so that I can assess its financial impact on my savings.
-
-Investment Opportunities Estimation  *
-As a user, I want to see how much I could potentially save or earn by investing the money saved from not owning a car into appreciating assets (stocks, bonds, savings accounts) over time.
-
-**Debt and Savings Tracking**
-Debt Input  *
-As a user, I want to input my debts (e.g., student loans, car debt, credit card debt) so that I can track my financial progress and make informed decisions about paying off my debts.
-
-Savings Contributions  *
-As a user, I want to input my savings contributions so that I can see how much I am saving over time and the impact of switching to alternative transportation on my savings.
-
-Track Debt Payments  *
-As a user, I want to track my progress in paying down my debts so that I can stay motivated and see how quickly I can become debt-free.
-
-Visualize Financial Goals  *
-As a user, I want to visualize my progress towards my savings and debt reduction goals so that I can easily see how switching transportation modes impacts my financial objectives.
+~~Depreciation Calculation for Car Ownership vs apprecatiating assets*
+As a user, I want the app to calculate and display the depreciation of my car over time so that I can assess its financial impact on my savings potential.~~
 
 **V2 or V3 maybe: Additional Features to Explore**
 

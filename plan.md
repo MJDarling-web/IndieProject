@@ -1,9 +1,9 @@
 https://github.com/users/MJDarling-web/projects/2/views/1
 started plan! Started to put it in Github as issues but wanted a more central space to view and review upcoming tasks instead of github issues
 
-[]Finish User Stories
+[x]Finish User Stories
 
-[]Creat Plan for project
+[x]Creat Plan for project
 
 []Update technologies used in project
 
@@ -11,6 +11,8 @@ started plan! Started to put it in Github as issues but wanted a more central sp
 
 []Project 1 Check Point Ready for review
 
+
+--creating project--
 []Car Ownership Costs - Brainstorm further database tables
 
 []Create JSP pages for Commuting Impact

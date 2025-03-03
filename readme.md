@@ -1,3 +1,16 @@
+_Technologies used: 
+* JSP pages for front end
+* Charts API (& TBD Google Maps API), 
+* Java for backend application development,
+* MySQL for storing user info input data and transportation cost logs
+* User Authentication 
+* AWS for hosting application
+* Git and GitHub for version control
+* Maven for dependency management and build automation
+* JUnit for testing application
+
+These technologies are well-suited for developing "My Commuting Impact" web app, covering everything from front-end user interface development to back-end server-side logic, data management, and deployment. Each technology is chosen based on its strengths in achieving key features: commuters analysis, data visualization, and user tracking._
+
 Title: "My Commuting Impact: A Web App for Analyzing the True Financial Costs of Commuting"
 
 **Problem Statement:**

@@ -5,14 +5,15 @@ started plan! Started to put it in Github as issues but wanted a more central sp
 
 [x]Creat Plan for project
 
-[]Update technologies used in project
+[x]Update technologies used in project
 
-[]Finish wire frames of screens
+[x]Finish wire frames of screens
 
-[]Project 1 Check Point Ready for review
+[x]Project 1 Check Point Ready for review
 
 
 --creating project--
+[]create necessary pom, configure tomcat, and hibernate for accurate deployment 
 []Car Ownership Costs - Brainstorm further database tables
 
 []Create JSP pages for Commuting Impact

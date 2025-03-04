@@ -50,6 +50,7 @@ Continued working on week 5 material and exercise 5, reviewed project feedback, 
 3/3 715-815am - 1 hour on project part 1 review updates for plan, user stories, and problem statement.
 3/3 830-9:00 - 30 minutes on codingbat logical challenges, what fun! 
 3/3 1:45-315pm - 1.5 hours on project 1 re-working wire frames and plan. 
+3/3 630-815pm - updated some of the pom and tomcat configurations to get the project to deploy the first index file, still titled "untitled1" but it will do for now so I can get a better start on this project, very exciting!
 
 Week 7
 need to complete:
@@ -59,3 +60,4 @@ need to complete:
 5. Week 6 material 
 6. Week 7 material 
 7. Create JSP pages, update user stories, update other parts of project, hone in on project idea. 
+8. 

@@ -53,8 +53,11 @@ Continued working on week 5 material and exercise 5, reviewed project feedback, 
 3/3 630-815pm - updated some of the pom and tomcat configurations to get the project to deploy the first index file, still titled "untitled1" but it will do for now so I can get a better start on this project, very exciting!
 
 Week 7
+3/4 .5 minutes 2-230pm exercise 5 errors for tests
+3/4 630-8.5 2 hours exercise 5 and project build-out
+
 need to complete:
-1. updated version of project 1 check point 
+~~1. updated version of project 1 check point~~ 
 2. start incorporating concepts into project or at least get a database started?
 4. FINISH wk 5 check point 
 5. Week 6 material 

@@ -2,18 +2,18 @@ https://github.com/users/MJDarling-web/projects/2/views/1
 started plan! Started to put it in Github as issues but wanted a more central space to view and review upcoming tasks instead of github issues
 
 [x]Finish User Stories
-
 [x]Creat Plan for project
-
 [x]Update technologies used in project
-
 [x]Finish wire frames of screens
-
 [x]Project 1 Check Point Ready for review
 
-
 --creating project--
-[]create necessary pom, configure tomcat, and hibernate for accurate deployment 
+[x]create necessary pom and configure tomcat accurate deployment  
+[]Index JSP files
+[]Update pom to have hibernate for deployment
+[]List out DB tables needed
+[]Start DAO
+[]
 []Car Ownership Costs - Brainstorm further database tables
 
 []Create JSP pages for Commuting Impact

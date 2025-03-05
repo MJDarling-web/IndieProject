@@ -11,6 +11,6 @@
     <title>Update Profile</title>
 </head>
 <body>
-  // A page one can navigate to if they need to udpate their profile or change details
+  <!-- A page one can navigate to if they need to update their profile or change details -->
 </body>
 </html>

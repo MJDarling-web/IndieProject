@@ -11,6 +11,6 @@
     <title>Login and Registration Page</title>
 </head>
 <body>
-
+<!--a page to login and register a new user -->
 </body>
 </html>

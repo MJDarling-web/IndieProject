@@ -9,11 +9,11 @@ started plan! Started to put it in Github as issues but wanted a more central sp
 
 --creating project--
 [x]create necessary pom and configure tomcat accurate deployment  
-[]Index JSP files
+[]Finish directory structure of project 
+[x]Start JSP files
 []Update pom to have hibernate for deployment
 []List out DB tables needed
-[]Start DAO
-[]
+[]Start DAO 
 []Car Ownership Costs - Brainstorm further database tables
 
 []Create JSP pages for Commuting Impact

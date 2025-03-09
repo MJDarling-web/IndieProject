@@ -21,13 +21,13 @@ _As a user, I want to input the costs associated with owning a car (e.g., mainte
 _As a user who lives in an area with different seasons, I want to be able to see how much I could save based on a multiple of different types of transportation._
 
 ### Alternative Transportation Costs
-_As a user, I want to see cost auto generated for alternative transportation based on my commute distance (maybe commute is auto calculated based on Google Maps API for bus/public transit, or biking, or uber) compared to calculated cost of car ownership. For example walking would be $A-Pair-Of-Shoes/12 for a year = per month, or a bike already owned showed as yearly maintaince divided by 12 for a year. Like $120/12 = $10/month for bike vs default car ownership being $120 for an owned car and $380/month for a general finance or lease with data on page. _
+_As a user, I want to see cost auto generated for alternative transportation based on my commute distance (maybe commute is auto calculated based on Google Maps API for bus/public transit, or biking, or uber) compared to calculated cost of car ownership. For example walking would be $A-Pair-Of-Shoes/12 for a year = per month, or a bike already owned showed as yearly maintaince divided by 12 for a year. Like $120/12 = $10/month for bike vs default car ownership being $120 for an owned car and $380/month for a general finance or lease with data on page._
 
 ### Time (and health impact?)
 _As a user, I want to see how much time I spent commuting and what type of commuting such as walking, driving, or biking. This will give me a good idea of how much time I've spent in a car or walking/biking._
 
 ### User Logging
-_As a user with an account, I want to be able to track, update, and change, my monthly commute, so I can see how much money and time I'm spending on my commute options each month. _
+_As a user with an account, I want to be able to track, update, and change, my monthly commute, so I can see how much money and time I'm spending on my commute options each month._
 
 ## Future Impact Calculations
 

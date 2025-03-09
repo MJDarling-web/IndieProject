@@ -75,7 +75,7 @@ Does have @Entity, is mapped correctly in hibernate.cfg.xml, is in pom file, and
 - [ ] 
 - 
 ### Checkpoint 2: 
-- [ ] Database designed and created, 
+- [] Database designed and created, 
 - [ ] at least one DAO with full CRUD (create, read, update, delete) implemented with Hibernate, 
 - [ ] DAO is fully unit tested, 
 - [ ] Log4J is implemented (no System.out.printlns)

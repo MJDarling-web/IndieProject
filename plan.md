@@ -1,7 +1,7 @@
 https://github.com/users/MJDarling-web/projects/2/views/1
 started plan! Started to put it in Github as issues but wanted a more central space to view and review upcoming tasks instead of github issues
 
-- [ ]Finish User Stories
+- []Finish User Stories
 - [x]Creat Plan for project
 [x]Update technologies used in project
 [x]Finish wire frames of screens

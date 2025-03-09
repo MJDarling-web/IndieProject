@@ -31,7 +31,7 @@ The main goal of "My Commuting Impact" is to empower individuals to make smarter
 ### _Feature/s that might be added later to strengthen project:_
 Integration with a google maps API to get the users commute data for each type of transportation method of driving, ride-share, biking, walking, bus. 
 
-### **Technologies used:**
+### Technologies used:
 * JSP pages for front end
 * Charts API (& TBD Google Maps API),
 * Java for backend application development,

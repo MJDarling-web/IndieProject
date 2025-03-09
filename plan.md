@@ -12,7 +12,7 @@ started plan! Started to put it in Github as issues but wanted a more central sp
 ## creating project 
 - [x]create necessary pom and configure tomcat accurate deployment  
 - [ ] Finish directory structure of project
-- [x]Start JSP files
+- [ x ]Start JSP files
 - [ ] Update pom to have hibernate for deployment
 - [ ] List out DB tables needed
 - [ ] Start DAO 

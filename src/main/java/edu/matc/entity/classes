@@ -1,6 +1,8 @@
-public class classes {
+
+    classes to get started on :{
+
     /**
-     * classes to get started on:
+     *
      * User - a model class for a new user and their details
      * TransportationCost
      * CostCalculator

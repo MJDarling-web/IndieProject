@@ -1,17 +1,4 @@
-_Technologies used: 
-* JSP pages for front end
-* Charts API (& TBD Google Maps API), 
-* Java for backend application development,
-* MySQL for storing user info input data and transportation cost logs
-* User Authentication 
-* AWS for hosting application
-* Git and GitHub for version control
-* Maven for dependency management and build automation
-* JUnit for testing application
-
-These technologies are well-suited for developing "My Commuting Impact" web app, covering everything from front-end user interface development to back-end server-side logic, data management, and deployment. Each technology is chosen based on its strengths in achieving key features: commuters analysis, data visualization, and user tracking._
-
-Title: "My Commuting Impact: A Web App for Analyzing the True Financial Costs of Commuting"
+## Title: "My Commuting Impact: A Web App for Analyzing the True Financial Costs of Commuting"
 
 **Problem Statement:**
 In the United States, car ownership is often seen as a necessity, with many individuals purchasing or leasing cars based on their perceived need to drive, rather than fully understanding the financial implications. People generally focus on the upfront costs or loan payments, but overlook long-term expenses such as maintenance, insurance, fuel, and depreciation. Additionally, environmental and alternative commuting options are seldom considered in the financial equation. This leads to people making decisions that are not financially optimal or sustainable.
@@ -43,3 +30,16 @@ The main goal of "My Commuting Impact" is to empower individuals to make smarter
 
 **Feature/s that might be added later to strengthen project:**
 Integration with a google maps API to get the users commute data for each type of transportation method of driving, ride-share, biking, walking, bus. 
+
+_Technologies used:
+* JSP pages for front end
+* Charts API (& TBD Google Maps API),
+* Java for backend application development,
+* MySQL for storing user info input data and transportation cost logs
+* User Authentication
+* AWS for hosting application
+* Git and GitHub for version control
+* Maven for dependency management and build automation
+* JUnit for testing application
+
+These technologies are well-suited for developing "My Commuting Impact" web app, covering everything from front-end user interface development to back-end server-side logic, data management, and deployment. Each technology is chosen based on its strengths in achieving key features: commuters analysis, data visualization, and user tracking._

@@ -17,12 +17,19 @@ _As a registered user who has fully commited to one type of commute type, I want
 ### Car Ownership Costs
 _As a guest user (no account), I want to input the costs associated with owning a car (e.g., maintenance, gas, insurance, payment if applicable) so that I can accurately compare it to alternative modes of transportation. And I want to do this on the main page without having to make an account._
 
-*updated to three separate stories
+*updated to three separate stories as crud 
 ~~### Multiple forms of transport, update and change inputs~~
 ~~_As a registered user who lives in an area with different seasons, I want to be able to see how much I could save based on a multiple of different types of transportation when I need to account for my commute over different transportation methods._~~
 
 ### Multiple forms of transport (Create)
 _As a registered user, I want to be able to create inputs for multiple types of transportation so that I can compare various transportation methods for my commute._
+
+### Multiple Forms of Transport (Update)
+_As a registered user, I want to update my inputs for different transportation types so that I can adjust my savings and compare them across seasons and different types of transportation methods._
+
+### Multiple Forms of Transport (Read)
+_As a registered user, I want to view my inputted transportation types and their associated savings, so that I can make informed decisions about my commute._
+*updated to three separate stories as crud
 
 ### Multiple forms of transport, update and change inputs
 _As a registered user, I want to update my inputs for different transportation types so that I can adjust my savings and compare them across seasons and different types of transportation methods._

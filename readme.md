@@ -4,7 +4,7 @@
 In the United States, car ownership is often seen as a necessity, with many individuals purchasing or leasing cars based on their perceived need to drive, rather than fully understanding the financial implications. People generally focus on the upfront costs or loan payments, but overlook long-term expenses such as maintenance, insurance, fuel, and depreciation. Additionally, environmental and alternative commuting options are seldom considered in the financial equation. This leads to people making decisions that are not financially optimal or sustainable.
 
 ## **Proposed Solution:**
-"My Commuting Impact" is a web application designed to help individuals make informed decisions about their transportation choices by providing a comprehensive breakdown of the true financial costs of car ownership compared to alternative methods, including biking, public transportation, and walking. By offering clear and accessible insights into the real costs—both financially and in terms of time—users can better assess whether owning or maintaining a car is the best option for them.
+"My Commuting Impact" is a web application designed to help individuals make informed decisions about their transportation choices by providing a comprehensive breakdown of the true financial costs of car ownership compared to alternative methods, including biking, public transportation, and walking. By offering clear and accessible insights into the real costs—both financially and in terms of time. Users can better assess whether owning or maintaining a car is the best option for them.
 
 ## _**Key Features of the App:**_
 

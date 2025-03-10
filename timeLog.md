@@ -57,15 +57,19 @@ Does have @Entity, is mapped correctly in hibernate.cfg.xml, is in pom file, and
 * 3/4 630-8.5 2 hours exercise 5 and project build-out
 * 3/8 20 minutes review project feedback for checkpoint 1 submission
 * 3/8 1/5 hours on project user stories, jsp page, api research, and formatting readme, plan, & time log,
-* 
+* 3/9 peer review and feedback - 1 hour meeting and 1 hour of notes/digest review
+
 ### need to complete:
 - [x] Updated version of project 1 check point
 - [x] start incorporating concepts into project or at least get a database started?
 - [x] FINISH wk 5
 - [x] Hone in on project idea.
+- [x] Code review with classmate
+### week 8 
+* 615 - coding project entity files and DAO
+* 
 - [ ] Week 6 material 
-- [ ] Week 7 material 
-- [ ] Code review with classmate
+- [ ] Week 7 material
 - [ ] Create JSP pages
 - [ ] create entity files
 - [ ] create dao files

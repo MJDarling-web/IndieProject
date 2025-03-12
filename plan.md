@@ -13,22 +13,26 @@ started plan! Started to put it in Github as issues but wanted a more central sp
 - [x]create necessary pom and configure tomcat accurate deployment  
 - [ ] Finish directory structure of project
 - [x]Start JSP files
-- [ ] Update pom to have hibernate for deployment
-- [ ] List out DB tables needed
-- [ ] Start DAO 
+- [x] Update pom to have hibernate for deployment
+- [X] List out DB tables needed
+- [x] Start DAO 
 - [ ] Car Ownership Costs - Brainstorm further database tables
 - [ ] Create JSP pages for Commuting Impact
 - [ ] Brainstorm and psuedocode database tables needed for project
-- [ ] Create database for user, transportation type, others?
-- [ ] Create Properties files
-- [ ] Create Hibernate file
-- [ ] Create Implement pom file
+- [x] Create database for user, transportation type, others?
+- [x] Create Properties files
+- [x] Create Hibernate file
+- [x] Create Implement pom file
 - [ ] Research API options further on Google Maps for distance and time of commute types and Google Graphs
 - [ ] Create JSP pages for Commuting Impact
 
 ## entity files
 - [ ] Outline entity classes need
-- [ ] write out and brainstorm psuedocode/javadocs of necessary entity classes
+- [x] write out and brainstorm psuedocode/javadocs of necessary entity classes
+- [ ] finish persistence files
+- [ ] build out controller/logic files
+- [ ] create tests for project Daos
+- [ ] Submit project for review
 - [ ] Unit tests for entity files... create dump SQL file for Main and cleanDB.sql for testing.
 - [ ] create entity classes
 

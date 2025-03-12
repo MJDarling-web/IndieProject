@@ -67,12 +67,20 @@ Does have @Entity, is mapped correctly in hibernate.cfg.xml, is in pom file, and
 - [x] Code review with classmate
 ### week 8 
 * 3/10 615-945 (2 hours) coding project entity files and DAO
-* 3/11 515-615 (1 hour) rest of entities and DAO)
+* 3/11 515-615 (1 hour) rest of entities and DAO) worked on generic DAO and plan for checkpoint 2 8pm-9pm (1 hour)
+* TODO 3/12 
+* [ ] write out Database (that is already designed and created in system) in Virtobello for
+* [ ] create dumb sql for dao file
+* [ ] at least one DAO with full CRUD (create, read, update, delete) implemented with Hibernate,
+* TODO 3/13
+* [ ] Log4J is implemented (no System.out.printlns)
+* [ ] DAO is fully unit tested,
+* TODO 3/14 upload to AWS
 * 
 - [ ] Week 6 material 
 - [ ] Week 7 material
 - [ ] Create JSP pages
-- [ ] create entity files
+- [x] create entity files
 - [ ] create dao files
 - [ ] unit tests for dao files
 - [ ] review pom file for necessary dependencies

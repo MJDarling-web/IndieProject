@@ -66,7 +66,8 @@ Does have @Entity, is mapped correctly in hibernate.cfg.xml, is in pom file, and
 - [x] Hone in on project idea.
 - [x] Code review with classmate
 ### week 8 
-* 615 - coding project entity files and DAO
+* 3/10 615-945 (2 hours) coding project entity files and DAO
+* 3/11 515-615 (1 hour) rest of entities and DAO)
 * 
 - [ ] Week 6 material 
 - [ ] Week 7 material

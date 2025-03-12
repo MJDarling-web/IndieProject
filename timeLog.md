@@ -70,7 +70,7 @@ Does have @Entity, is mapped correctly in hibernate.cfg.xml, is in pom file, and
 * 3/11 515-615 (1 hour) rest of entities and DAO) worked on generic DAO and plan for checkpoint 2 8pm-9pm (1 hour)
 * TODO 3/12 
 * [ ] write out Database (that is already designed and created in system) in Virtobello for
-* [ ] create dumb sql for dao file
+* [ ] create dump sql for dao file
 * [ ] at least one DAO with full CRUD (create, read, update, delete) implemented with Hibernate,
 * TODO 3/13
 * [ ] Log4J is implemented (no System.out.printlns)

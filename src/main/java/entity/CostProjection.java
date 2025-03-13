@@ -1,6 +1,6 @@
 package entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -13,7 +13,7 @@ public class CostProjection {
     private int logId;
 
     @ManyToOne
-    @JoinColumn(name = "user_id"  )
+    @JoinColumn(name = "user_id")
     private User user; // Relationship to the User entity
 
     @Column(name = "transportation_mode"  )

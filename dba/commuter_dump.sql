@@ -19,12 +19,14 @@ DROP TABLE IF EXISTS `commuting_logs`;
 /*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `commuting_logs` (
-                                  `log_id` int NOT NULL AUTO_INCREMENT,
-                                  `user_id` int NOT NULL,
-                                  `transportation_mode` varchar(50) NOT NULL,
+                                  `log_id` int    AUTO_INCREMENT,
+                                  `user_id` int   ,
+                                  `transportation_mode` varchar(50)   ,
                                   `date_added` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-                                  `duration_in_minutes` int NOT NULL,
-                                  `distance_in_miles` float NOT NULL,
+                                  `duration_in_minutes` int   ,
+                                  `commute_type` varchar(50) DEFAULT 'Work',
+                                  `distance_in_miles` float   ,
+    `cost` int,
                                   PRIMARY KEY (`log_id`),
                                   KEY `user_id` (`user_id`),
                                   CONSTRAINT `commuting_logs_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
@@ -48,13 +50,13 @@ DROP TABLE IF EXISTS `cost_analyses`;
 /*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cost_analyses` (
-                                 `analysis_id` int NOT NULL AUTO_INCREMENT,
-                                 `user_id` int NOT NULL,
-                                 `commute_type` enum('Personal','Work','Business') NOT NULL,
-                                 `one_year_cost` float NOT NULL,
-                                 `two_year_cost` float NOT NULL,
-                                 `five_year_cost` float NOT NULL,
-                                 `total_cost` float NOT NULL,
+                                 `analysis_id` int    AUTO_INCREMENT,
+                                 `user_id` int   ,
+                                 `commute_type` enum('Personal','Work','Business')   ,
+                                 `one_year_cost` float   ,
+                                 `two_year_cost` float   ,
+                                 `five_year_cost` float   ,
+                                 `total_cost` float   ,
                                  PRIMARY KEY (`analysis_id`),
                                  KEY `user_id` (`user_id`),
                                  CONSTRAINT `cost_analyses_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
@@ -78,12 +80,12 @@ DROP TABLE IF EXISTS `cost_projections`;
 /*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cost_projections` (
-                                    `log_id` int NOT NULL,
-                                    `user_id` int NOT NULL,
-                                    `transportation_mode` varchar(50) NOT NULL,
+                                    `log_id` int AUTO_INCREMENT ,
+                                    `user_id` int   ,
+                                    `transportation_mode` varchar(50)   ,
                                     `date_added` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-                                    `duration_in_minutes` int NOT NULL,
-                                    `distance_in_miles` float NOT NULL,
+                                    `duration_in_minutes` int   ,
+                                    `distance_in_miles` float   ,
                                     PRIMARY KEY (`log_id`,`user_id`),
                                     KEY `user_id` (`user_id`),
                                     CONSTRAINT `cost_projections_ibfk_1` FOREIGN KEY (`log_id`) REFERENCES `commuting_logs` (`log_id`) ON DELETE CASCADE,
@@ -108,13 +110,13 @@ DROP TABLE IF EXISTS `transportation_costs`;
 /*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `transportation_costs` (
-                                        `cost_id` int NOT NULL AUTO_INCREMENT,
-                                        `user_id` int NOT NULL,
-                                        `insurance_cost` float NOT NULL,
-                                        `vehicle_type` varchar(50) NOT NULL,
-                                        `fuel_cost` float NOT NULL,
-                                        `maintenance_cost` float NOT NULL,
-                                        `public_transport_cost` float NOT NULL,
+                                        `cost_id` int    AUTO_INCREMENT,
+                                        `user_id` int   ,
+                                        `insurance_cost` float   ,
+                                        `vehicle_type` varchar(50)   ,
+                                        `fuel_cost` float   ,
+                                        `maintenance_cost` float   ,
+                                        `public_transport_cost` float   ,
                                         `created_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
                                         PRIMARY KEY (`cost_id`),
                                         KEY `user_id` (`user_id`),
@@ -139,15 +141,15 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
-                         `id` int NOT NULL AUTO_INCREMENT,
-                         `first_name` varchar(100) NOT NULL,
-                         `last_name` varchar(100) NOT NULL,
-                         `email` varchar(100) NOT NULL,
-                         `password` varchar(255) NOT NULL,
+                         `id` int AUTO_INCREMENT,
+                         `first_name` varchar(100),
+                         `last_name` varchar(100),
+                         `email` varchar(100),   -- No UNIQUE constraint
+                         `password` varchar(255),
                          PRIMARY KEY (`id`),
-                         UNIQUE KEY `email` (`email`)
+                         INDEX (`email`)  -- Create an index for performance on the email column
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+
 
 --
 -- Dumping data for table `users`

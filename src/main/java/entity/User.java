@@ -1,6 +1,8 @@
-package edu.matc.entity;
+package entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
+import java.util.Date;
 
 @Entity
 @Table(name = "users")

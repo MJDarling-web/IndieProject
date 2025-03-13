@@ -1,4 +1,4 @@
-package edu.matc.entity;
+package entity;
 
 import javax.persistence.*;
 

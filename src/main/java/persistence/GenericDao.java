@@ -1,11 +1,10 @@
-package edu.matc.persistence;
+package persistence;
 
 import jakarta.persistence.criteria.CriteriaBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.query.criteria.HibernateCriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Expression;
 import jakarta.persistence.criteria.Root;
@@ -54,15 +53,25 @@ public class GenericDao<T> {
      * @return the int
      */
     public int insert(T entity) {
-            int id = 0;
-            Session session = getSession();
-            Transaction transaction = session.beginTransaction();
-            session.persist(entity);
-            transaction.commit();
-            id = (int) session.getIdentifier(entity);
-            session.close();
-            return id;
+        int id = 0;
+        Session session = getSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            session.persist(entity);  // Ensure this is a new entity and does not conflict with others.
+            session.flush(); // Flush changes to the database.
+            transaction.commit(); // Commit the transaction
+            id = (int) session.getIdentifier(entity); // Retrieve the ID after commit
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();  // Rollback on error
+            }
+            throw e;  // Propagate the error
+        } finally {
+            session.close();  // Always close the session
+        }
+        return id;
     }
+
 
     /**
      * Update.
@@ -72,7 +81,7 @@ public class GenericDao<T> {
     public void update(T entity) {
         Session session = getSession();
         Transaction transaction = session.beginTransaction();
-        session.merge(entity);  // Merge is used for update and insert if the entity is detached
+        session.update(entity);  // Merge is used for update and insert if the entity is detached
         transaction.commit();
         session.close();
     }
@@ -85,10 +94,20 @@ public class GenericDao<T> {
     public void deleteEntity(T entity) {
         Session session = getSession();
         Transaction transaction = session.beginTransaction();
-        session.remove(entity);
-        session.delete(entity);
-        transaction.commit();
+        try {
+            session.remove(entity);
+            session.flush();  // Ensures that the entity is immediately deleted from DB
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            logger.error("Error during delete operation", e);
+        } finally {
+            session.close();
+        }
     }
+
 
     /**
      * Gets all entities.

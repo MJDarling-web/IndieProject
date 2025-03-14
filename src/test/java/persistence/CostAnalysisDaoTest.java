@@ -30,6 +30,7 @@ public class CostAnalysisDaoTest {
     @Test
     public void testGetById() {
         CostAnalysis costAnalysis = new CostAnalysis();
+        costAnalysis.setCommuteType("Work");
         int analysisId = costAnalysisDao.insert(costAnalysis);
         CostAnalysis retrievedAnalysis = costAnalysisDao.getById(analysisId);
         assertNotNull(retrievedAnalysis, "Cost analysis should be retrieved by ID");

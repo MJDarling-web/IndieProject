@@ -1,6 +1,7 @@
 package entity;
 import jakarta.persistence.*;
 import java.util.Date;
+import org.apache.logging.log4j.*;
 
 
 @Entity
@@ -9,24 +10,35 @@ public class CommutingLog {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "log_id")
     private int id;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Column(name = "date")
+    @Column(name = "date_added")
     private Date date;
 
     @Column(name = "commute_type")
     private String commuteType;
 
-    @Column(name = "time_spent")
+    @Column(name = "duration_in_minutes")
     private double timeSpent;
+
+    @Column(name = "distance_in_miles")
+    private double distanceInMiles;
 
     @Column(name = "cost")
     private double cost;
+
+    public double getDistanceInMiles() {
+        return distanceInMiles;
+    }
+
+    public void setDistanceInMiles(double distanceInMiles) {
+        this.distanceInMiles = distanceInMiles;
+    }
 
     // Getters and Setters
     public int getId() {

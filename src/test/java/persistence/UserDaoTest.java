@@ -3,7 +3,7 @@ package persistence;
 import entity.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
+import org.apache.logging.log4j.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
@@ -11,6 +11,9 @@ import java.util.List;
 public class UserDaoTest {
 
     private GenericDao<User> userDao;
+
+    // Declare the logger at the class level
+    private static final Logger logger = LogManager.getLogger(UserDaoTest.class);
 
     @BeforeEach
     void setUp() {
@@ -22,6 +25,7 @@ public class UserDaoTest {
 
     @Test
     public void testCreate() {
+        logger.debug("Testing save method...");
         User user = new User("John", "Doe", "john.doe@example.com", "password123");
         int userId = userDao.insert(user);
         assertNotEquals(0, userId, "User ID should not be zero after insertion");
@@ -29,6 +33,7 @@ public class UserDaoTest {
 
     @Test
     public void testGetById() {
+        logger.debug("Testing retrieval by ID...");
         User user = new User("Jane", "Doe", "jane.doe@example.com", "password123");
         int userId = userDao.insert(user);
         User retrievedUser = userDao.getById(userId);
@@ -38,6 +43,7 @@ public class UserDaoTest {
 
     @Test
     public void testUpdate() {
+        logger.debug("Testing update method...");
         User user = new User("John", "Smith", "john.smith@example.com", "password123");
         int userId = userDao.insert(user);
 
@@ -51,6 +57,7 @@ public class UserDaoTest {
 
     @Test
     public void testDelete() {
+        logger.debug("Testing delete method...");
         User user = new User("Jo", "Do", "jo.d@example.com", "password123");
         int userId = userDao.insert(user);
 
@@ -65,6 +72,7 @@ public class UserDaoTest {
 
     @Test
     public void testGetAll() {
+        logger.debug("Testing retrieval of all users...");
         User user1 = new User("Alice", "Wonderland", "alice@example.com", "password123");
         User user2 = new User("Bob", "Builder", "bob@example.com", "password123");
         userDao.insert(user1);

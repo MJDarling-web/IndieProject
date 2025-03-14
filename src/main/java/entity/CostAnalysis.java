@@ -87,16 +87,5 @@ public class CostAnalysis {
         this.totalCost = totalCost;
     }
 
-    @Override
-    public String toString() {
-        return "CostAnalysis{" +
-                "analysisId=" + analysisId +
-                ", user=" + user.getId() + // Assuming User entity has getId() method
-                ", commuteType='" + commuteType + '\'' +
-                ", oneYearCost=" + oneYearCost +
-                ", twoYearCost=" + twoYearCost +
-                ", fiveYearCost=" + fiveYearCost +
-                ", totalCost=" + totalCost +
-                '}';
-    }
+
 }

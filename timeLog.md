@@ -73,6 +73,7 @@ Does have @Entity, is mapped correctly in hibernate.cfg.xml, is in pom file, and
 * [x] create dump sql for dao file
 * [x] at ~~least one~~ Generic DAO with full CRUD (create, read, update, delete) implemented with Hibernate,
 * TODO 3/13 
+* 5-545: test logs updated
 * [ ] Log4J is implemented (no System.out.printlns)
 * [ ] DAO is fully unit tested,
 * TODO 3/14 upload to AWS

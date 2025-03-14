@@ -73,26 +73,27 @@ Does have @Entity, is mapped correctly in hibernate.cfg.xml, is in pom file, and
 * [x] create dump sql for dao file
 * [x] at ~~least one~~ Generic DAO with full CRUD (create, read, update, delete) implemented with Hibernate,
 * TODO 3/13 
-* 5-545: test logs updated
-* [ ] Log4J is implemented (no System.out.printlns)
-* [ ] DAO is fully unit tested,
+* 5-545: test logs updated (45 minutes)
+* 845-945 (1 hour) log4j updated and DaoTests mostly complete
+* [x] Log4J is implemented (no System.out.printlns)
+* [x] DAO is mostly unit tested,
 * TODO 3/14 upload to AWS
 * 
 - [ ] Week 6 material 
 - [ ] Week 7 material
 - [ ] Create JSP pages
 - [x] create entity files
-- [ ] create dao files
+- [x] create dao files
 - [ ] unit tests for dao files
-- [ ] review pom file for necessary dependencies
-- [ ] create hibernate file
+- [x] review pom file for necessary dependencies
+- [x] create hibernate file
 - [ ] 
 - 
 ### Checkpoint 2: 
-- [ ] Database designed and created, 
-- [ ] at least one DAO with full CRUD (create, read, update, delete) implemented with Hibernate, 
-- [ ] DAO is fully unit tested, 
-- [ ] Log4J is implemented (no System.out.printlns)
+- [x] Database designed and created, 
+- [x] at least one DAO with full CRUD (create, read, update, delete) implemented with Hibernate, 
+- [x] DAO is fully unit tested, 
+- [x] Log4J is implemented (no System.out.printlns)
 
 ### Checkpoint 3:
 - [ ] Deployed to AWS, 

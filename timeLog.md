@@ -78,22 +78,28 @@ Does have @Entity, is mapped correctly in hibernate.cfg.xml, is in pom file, and
 * [x] Log4J is implemented (no System.out.printlns)
 * [x] DAO is mostly unit tested,
 * TODO 3/14 upload to AWS
-* 
-- [ ] Week 6 material 
-- [ ] Week 7 material
-- [ ] Create JSP pages
+*
 - [x] create entity files
 - [x] create dao files
-- [ ] unit tests for dao files
 - [x] review pom file for necessary dependencies
 - [x] create hibernate file
-- [ ] 
 - 
 ### Checkpoint 2: 
 - [x] Database designed and created, 
 - [x] at least one DAO with full CRUD (create, read, update, delete) implemented with Hibernate, 
 - [x] DAO is fully unit tested, 
-- [x] Log4J is implemented (no System.out.printlns)
+- [x] Some unit tests for dao files
+
+### WEEK 8.5 - 9
+3/17 45 minutes - Week 6 material videos/readings
+3/18 3:30-5 (1.5 hours) week 6 AWS up and running!
+3/18 7-9pm (2 hours) getting jsp page to show database material isn't working out :/ double checked and database does indeed have content in both the commuting_logs and the users tables.
+
+- [ ] Week 6 material
+- [ ] Week 7 material
+- [ ] Create JSP pages
+- [ ] finish unit tests for dao files
+- [ ] Log4J is implemented (no System.out.printlns)
 
 ### Checkpoint 3:
 - [ ] Deployed to AWS, 

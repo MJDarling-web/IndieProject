@@ -6,11 +6,18 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Header</title>
-</head>
-<body>
-
-</body>
-</html>
+<header>
+    <nav>
+        <ul style="list-style-type: none; padding: 0;">
+            <li style="display: inline; margin-right: 20px;">
+                <a href="LoginRegister.jsp">Login / Register</a>
+            </li>
+            <li style="display: inline; margin-right: 20px;">
+                <a href="ComparisonResults.jsp">Comparison Results</a>
+            </li>
+            <li style="display: inline; margin-right: 20px;">
+                <a href="CommutingCostLog.jsp">Commute Cost Log</a>
+            </li>
+        </ul>
+    </nav>
+</header>

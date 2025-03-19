@@ -21,12 +21,13 @@ public class UserDaoTest {
         SessionFactoryProvider.createSessionFactory();
         database.runSQL("cleandb.sql");
         userDao = new GenericDao<>(User.class);
+
     }
 
     @Test
     public void testCreate() {
         logger.debug("Testing save method...");
-        User user = new User("John", "Doe", "john.doe@example.com", "password123");
+        User user = new User("John", "Doe", "john.doe" + System.currentTimeMillis() + "@example.com", "password123");
         int userId = userDao.insert(user);
         assertNotEquals(0, userId, "User ID should not be zero after insertion");
     }
@@ -34,7 +35,7 @@ public class UserDaoTest {
     @Test
     public void testGetById() {
         logger.debug("Testing retrieval by ID...");
-        User user = new User("Jane", "Doe", "jane.doe@example.com", "password123");
+        User user = new User("Jane", "Doe", "jane" + System.currentTimeMillis() + "@example.com", "password123");
         int userId = userDao.insert(user);
         User retrievedUser = userDao.getById(userId);
         assertNotNull(retrievedUser, "User should be retrieved by ID");
@@ -44,7 +45,7 @@ public class UserDaoTest {
     @Test
     public void testUpdate() {
         logger.debug("Testing update method...");
-        User user = new User("John", "Smith", "john.smith@example.com", "password123");
+        User user = new User("John", "Smith", "john.smith" + System.currentTimeMillis() + "@example.com", "password123");
         int userId = userDao.insert(user);
 
         // Update user information
@@ -58,7 +59,7 @@ public class UserDaoTest {
     @Test
     public void testDelete() {
         logger.debug("Testing delete method...");
-        User user = new User("Jo", "Do", "jo.d@example.com", "password123");
+        User user = new User("Jo", "Do", "jo.d" + System.currentTimeMillis() + "@example.com", "password123");
         int userId = userDao.insert(user);
 
         // Delete user
@@ -73,8 +74,8 @@ public class UserDaoTest {
     @Test
     public void testGetAll() {
         logger.debug("Testing retrieval of all users...");
-        User user1 = new User("Alice", "Wonderland", "alice@example.com", "password123");
-        User user2 = new User("Bob", "Builder", "bob@example.com", "password123");
+        User user1 = new User("Alice", "Wonderland", "alice" + System.currentTimeMillis() + "@example.com", "password123");
+        User user2 = new User("Bob", "Builder", "bob" + System.currentTimeMillis() + "@example.com", "password123");
         userDao.insert(user1);
         userDao.insert(user2);
 

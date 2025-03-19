@@ -11,6 +11,7 @@
     <title>Comparison Results</title>
 </head>
 <body>
+<%@include file="Header.jsp" %>
 //A page to display and compare transport costs the user has logged over time
 </body>
 </html>

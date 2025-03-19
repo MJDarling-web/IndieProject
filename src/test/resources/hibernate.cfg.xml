@@ -16,30 +16,13 @@
         <property name="hibernate.c3p0.max_statements">50</property>
         <property name="hibernate.c3p0.idle_test_period">3000</property>
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.show_sql">true</property>
 
         <mapping class="entity.CommutingLog" />
         <mapping class="entity.CostAnalysis" />
         <mapping class="entity.CostProjection" />
         <mapping class="entity.TransportationCost" />
         <mapping class="entity.User" />
-
-
-
-        <!--
-        <mapping class="edu.matc.entity.Author" />
-
-         User - a model class for a new user and their details
-     * TransportationCost
-     * CostCalculator
-     * ProjectionCalculator
-     * UserRegisterLogin
-     * UserUpdate
-     * CommutingLog - logs the users commute data over time such as transportation modes and dates
-     * ChartData for the ComparisonResults jsp page to use a Google Charts API to display charts on those transportation costs
-     * authentication...?
-
-
-        -->
 
     </session-factory>
 

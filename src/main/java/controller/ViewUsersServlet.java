@@ -1,7 +1,7 @@
 package controller;
 
 import entity.User;
-import persistence.GenericDao;
+import persistence.UserDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,28 +20,28 @@ public class ViewUsersServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // Create GenericDao for User entity
-        GenericDao<User> userDao = new GenericDao<>(User.class);
+        // Create UserDao
+        UserDao userDao = new UserDao();
 
-        // HQL query to fetch all users
-        String hql = "FROM users";  // HQL to get all users
+        // Fetch all users
+        List<User> users = userDao.getAll();
 
-        List<User> users = null;
-        try {
-            // Fetch users using the GenericDao
-            users = userDao.getByCustomQuery(hql);
+        // Log the number of users retrieved
+        logger.info("Fetched " + (users != null ? users.size() : 0) + " users from the database.");
 
-            // Log the number of users retrieved
-            logger.info("Fetched " + (users != null ? users.size() : 0) + " users from the database.");
-        } catch (Exception e) {
-            logger.severe("Error fetching users: " + e.getMessage());
-            e.printStackTrace();
+        // Log the users to check the data
+        if (users != null && !users.isEmpty()) {
+            for (User user : users) {
+                logger.info("User: " + user.getFirstName() + " " + user.getLastName() + " - " + user.getEmail());
+            }
+        } else {
+            logger.warning("No users found in the database.");
         }
 
         // Set users as a request attribute
         req.setAttribute("users", users);
 
-        // Forward the request to viewUsers.jsp
+        // Forward the request to LoginRegister.jsp
         RequestDispatcher dispatcher = req.getRequestDispatcher("/LoginRegister.jsp");
         dispatcher.forward(req, resp);
     }

@@ -11,6 +11,7 @@
     <title>All Users will be login page</title>
 </head>
 <body>
+<%@ include file="taglib.jsp"%>
 <%@ include file="Header.jsp" %>
 
 <h2>All Users</h2>
@@ -39,6 +40,7 @@
 
 <!-- If no users, display this message -->
 <c:if test="${empty users}">
+    <c:out value="${users}"/>
     <p>No users found.</p>
 </c:if>
 

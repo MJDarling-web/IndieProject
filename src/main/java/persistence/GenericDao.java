@@ -116,12 +116,10 @@ public class GenericDao<T> {
      */
     public List<T> getAll() {
         try (Session session = getSession()) {
-            CriteriaBuilder builder = session.getCriteriaBuilder();
-            CriteriaQuery<T> query = builder.createQuery(type);
-            Root<T> root = query.from(type);
-            return session.createQuery(query).getResultList();
+            return session.createQuery("FROM " + type.getSimpleName(), type).getResultList();
         }
     }
+
 
     /**
      * Gets entities by property like.

@@ -93,7 +93,7 @@ Does have @Entity, is mapped correctly in hibernate.cfg.xml, is in pom file, and
 ### WEEK 8.5 - 9
 3/17 45 minutes - Week 6 material videos/readings
 3/18 3:30-5 (1.5 hours) week 6 AWS up and running!
-3/18 7-9pm (2 hours) getting jsp page to show database material isn't working out :/ double checked and database does indeed have content in both the commuting_logs and the users tables.
+3/18 7-9:35pm (2.52 hours) getting jsp page to show database material isn't working out :/ double checked and database does indeed have content in both the commuting_logs and the users tables.
 
 - [ ] Week 6 material
 - [ ] Week 7 material

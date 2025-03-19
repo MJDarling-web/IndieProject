@@ -4,6 +4,7 @@
     <title>Commuting Cost Log</title>
 </head>
 <body>
+<%@ include file="taglib.jsp"%>
 <%@ include file="Header.jsp" %>
 
 <h2>Your Commuting Logs</h2>

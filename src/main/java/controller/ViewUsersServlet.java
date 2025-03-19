@@ -24,7 +24,7 @@ public class ViewUsersServlet extends HttpServlet {
         GenericDao<User> userDao = new GenericDao<>(User.class);
 
         // HQL query to fetch all users
-        String hql = "FROM User";  // HQL to get all users
+        String hql = "FROM users";  // HQL to get all users
 
         List<User> users = null;
         try {

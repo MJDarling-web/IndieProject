@@ -10,7 +10,7 @@
     <nav>
         <ul style="list-style-type: none; padding: 0;">
             <li style="display: inline; margin-right: 20px;">
-                <a href="LoginRegister.jsp">Login / Register</a>
+                <a href="viewUsers.jsp">Login / Register</a>
             </li>
             <li style="display: inline; margin-right: 20px;">
                 <a href="ComparisonResults.jsp">Comparison Results</a>

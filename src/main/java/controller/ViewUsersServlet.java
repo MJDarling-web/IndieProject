@@ -1,7 +1,7 @@
 package controller;
 
 import entity.User;
-import persistence.UserDao;
+import persistence.GenericDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,18 +12,24 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/viewUsers")
+@WebServlet(urlPatterns = "/viewUsers")
 public class ViewUsersServlet extends HttpServlet {
-    private UserDao userDao;
-    @Override
-            public void init() {
-        userDao = new UserDao();
-    }
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<User> users = userDao.getAllUsers();
+        response.setContentType("text/html");
+
+        // Create an instance of GenericDao for User entity
+        GenericDao<User> userDao = new GenericDao<>(User.class);
+
+        // Get all users from the database
+        List<User> users = userDao.getAll();
+
+        // Set the list of users as a request attribute
         request.setAttribute("users", users);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/LoginRegister.jsp");
+
+        // Forward the request to the JSP for displaying the data
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/viewUsers.jsp");
         dispatcher.forward(request, response);
     }
 }

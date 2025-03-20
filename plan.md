@@ -16,9 +16,19 @@ started plan! Started to put it in Github as issues but wanted a more central sp
 - [x] Update pom to have hibernate for deployment
 - [X] List out DB tables needed
 - [x] Start DAO 
-- [ ] Car Ownership Costs - Brainstorm further database tables
-- [ ] Create JSP pages for Commuting Impact
-- [ ] Brainstorm and psuedocode database tables needed for project
+- [x] Car Ownership Costs - Brainstorm further database tables
+
+Week 8  
+- [x] week 6 AWS project upload 
+- [ ] week 6 database display on awd and aws connectiong
+- Week 7 & 8 material...
+- Other...
+- [ ] Finish JSP pages for Commuting Impact
+- [ ] Finish service files for processing input data
+- [ ] DAO test files
+- [ ] check database to ensure proper configuration for displaying data
+- [ ] check/update session for getting data from DAO for jsp/servlet pages to display correctly
+- [x] Brainstorm and psuedocode database tables needed for project
 - [x] Create database for user, transportation type, others?
 - [x] Create Properties files
 - [x] Create Hibernate file

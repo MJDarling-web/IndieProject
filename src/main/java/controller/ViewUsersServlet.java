@@ -11,15 +11,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
-import java.util.logging.Logger;
 
 @WebServlet("/viewUsers")
 public class ViewUsersServlet extends HttpServlet {
-    private UserDao userDao = new UserDao();
+    private UserDao userDao;
+    @Override
+            public void init() {
+        userDao = new UserDao();
+    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<User> userList = userDao.getAllUsers();
-        request.setAttribute("users", userList);
-        request.getRequestDispatcher("/LoginRegister.jsp").forward(request, response);
+        List<User> users = userDao.getAllUsers();
+        request.setAttribute("users", users);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/LoginRegister.jsp");
+        dispatcher.forward(request, response);
     }
 }

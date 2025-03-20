@@ -16,35 +16,10 @@
 <%@ include file="Header.jsp" %>
 
 <h2>All Users</h2>
-<c:out value="Hello, JSTL is working!" />
-<!-- Display all users -->
-<c:if test="${not empty users}">
-
-    <table border="1">
-        <thead>
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach var="user" items="${users}">
-            <tr>
-                <td>${user.firstName}</td>
-                <td>${user.lastName}</td>
-                <td>${user.email}</td>
-            </tr>
-        </c:forEach>
-        </tbody>
-    </table>
-</c:if>
-
-<!-- If no users, display this message -->
-<c:if test="${empty users}">
-    <c:out value="${users}"/>
-    <p>No users found.</p>
-</c:if>
+<c:out value="Users from request: ${users}" />
+<c:forEach var="user" items="${users}">
+    <p>${user.firstName} ${user.lastName} (${user.email})</p>
+</c:forEach>
 
 </body>
 </html>

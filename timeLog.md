@@ -95,7 +95,7 @@ Does have @Entity, is mapped correctly in hibernate.cfg.xml, is in pom file, and
 3/18 3:30-5 (1.5 hours) week 6 AWS up and running!
 3/18 7-9:35pm (2.52 hours) getting jsp page to show database material isn't working out :/ double checked and database does indeed have content in both the commuting_logs and the users tables.
 3/19 4-630pm (2.5 hours) at a loss can't jsp page to display from database even with extra checks that data is being pulled and inserted :/ 
-
+3/19 830-930 (1 hour) continued problem solving, no luck sured up test database. Need to keep working on this project.  
 - [ ] Week 6 material
 - [ ] Week 7 material
 - [ ] Create JSP pages

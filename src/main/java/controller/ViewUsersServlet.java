@@ -15,34 +15,11 @@ import java.util.logging.Logger;
 
 @WebServlet("/viewUsers")
 public class ViewUsersServlet extends HttpServlet {
+    private UserDao userDao = new UserDao();
 
-    private static final Logger logger = Logger.getLogger(ViewUsersServlet.class.getName());
-
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // Create UserDao
-        UserDao userDao = new UserDao();
-
-        // Fetch all users
-        List<User> users = userDao.getAll();
-
-        // Log the number of users retrieved
-        logger.info("Fetched " + (users != null ? users.size() : 0) + " users from the database.");
-
-        // Log the users to check the data
-        if (users != null && !users.isEmpty()) {
-            for (User user : users) {
-                logger.info("User: " + user.getFirstName() + " " + user.getLastName() + " - " + user.getEmail());
-            }
-        } else {
-            logger.warning("No users found in the database.");
-        }
-
-        // Set users as a request attribute
-        req.setAttribute("users", users);
-
-        // Forward the request to LoginRegister.jsp
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/LoginRegister.jsp");
-        dispatcher.forward(req, resp);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<User> userList = userDao.getAllUsers();
+        request.setAttribute("users", userList);
+        request.getRequestDispatcher("/LoginRegister.jsp").forward(request, response);
     }
 }

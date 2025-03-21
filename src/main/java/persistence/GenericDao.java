@@ -19,7 +19,6 @@ import java.util.List;
 public class GenericDao<T> {
     private Class<T> type;
     private final Logger logger = LogManager.getLogger(this.getClass());
-
     /**
      * Instantiates a new Generic dao.
      *
@@ -27,6 +26,7 @@ public class GenericDao<T> {
      */
     public GenericDao(Class<T> type) {
         this.type = type;
+        logger.info("connect");
     }
 
     private Session getSession() {
@@ -119,7 +119,6 @@ public class GenericDao<T> {
             return session.createQuery("FROM " + type.getSimpleName(), type).getResultList();
         }
     }
-
 
     /**
      * Gets entities by property like.

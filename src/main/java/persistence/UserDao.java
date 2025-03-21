@@ -29,7 +29,8 @@ public class UserDao {
     public List<User> getAllUsers() {
         List<User> usersList = null;
         Transaction transaction = null;
-
+        logger.info("Get all users");
+        logger.info("connecting");
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
 

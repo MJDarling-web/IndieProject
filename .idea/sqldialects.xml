@@ -3,6 +3,7 @@
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/dba/commuter_dump.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/resources/usersDumb.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/usersDumb2.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/test/resources/cleandb.sql" dialect="MySQL" />
   </component>
 </project>

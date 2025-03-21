@@ -1,0 +1,513 @@
+[INFO ] 2025-03-21 10:12:29.947 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:12:29.948 [main] UserDaoTest - Testing retrieval by ID...
+[INFO ] 2025-03-21 10:12:30.167 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:12:30.167 [main] UserDaoTest - Testing save method...
+[INFO ] 2025-03-21 10:12:30.277 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:12:30.277 [main] UserDaoTest - Testing delete method...
+[INFO ] 2025-03-21 10:12:30.409 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:12:30.409 [main] UserDaoTest - Testing retrieval of all users...
+[INFO ] 2025-03-21 10:12:30.789 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:12:30.789 [main] UserDaoTest - Testing update method...
+[INFO ] 2025-03-21 10:12:30.923 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:12:30.924 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:12:31.024 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:12:31.024 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:12:31.116 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:12:31.116 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:12:31.199 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:12:31.199 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:12:31.507 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:12:31.508 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:12:31.596 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:12:31.685 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:12:31.759 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:12:31.835 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:12:31.940 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:17:25.428 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:17:25.428 [main] UserDaoTest - Testing retrieval by ID...
+[INFO ] 2025-03-21 10:17:25.640 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:17:25.640 [main] UserDaoTest - Testing save method...
+[INFO ] 2025-03-21 10:17:25.746 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:17:25.746 [main] UserDaoTest - Testing delete method...
+[INFO ] 2025-03-21 10:17:25.856 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:17:25.856 [main] UserDaoTest - Testing retrieval of all users...
+[INFO ] 2025-03-21 10:17:26.214 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:17:26.215 [main] UserDaoTest - Testing update method...
+[INFO ] 2025-03-21 10:17:26.342 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:17:26.342 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:17:26.441 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:17:26.441 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:17:26.531 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:17:26.531 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:17:26.623 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:17:26.623 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:17:26.972 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:17:26.972 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:17:27.082 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:17:27.171 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:17:27.249 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:17:27.336 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:17:27.433 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:19:28.642 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:19:28.643 [main] UserDaoTest - Testing retrieval by ID...
+[INFO ] 2025-03-21 10:19:28.875 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:19:28.875 [main] UserDaoTest - Testing save method...
+[INFO ] 2025-03-21 10:19:28.991 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:19:28.991 [main] UserDaoTest - Testing delete method...
+[INFO ] 2025-03-21 10:19:29.121 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:19:29.121 [main] UserDaoTest - Testing retrieval of all users...
+[INFO ] 2025-03-21 10:19:29.501 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:19:29.501 [main] UserDaoTest - Testing update method...
+[INFO ] 2025-03-21 10:19:29.616 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:19:29.617 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:19:29.720 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:19:29.720 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:19:29.821 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:19:29.822 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:19:29.907 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:19:29.907 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:19:30.258 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:19:30.258 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:19:30.349 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:19:30.452 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:19:30.528 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:19:30.612 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:19:30.739 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:28:54.707 [main] GenericDao - Initializing GenericDao for type: User
+[DEBUG] 2025-03-21 10:28:54.708 [main] UserDaoTest - Testing retrieval by ID...
+[DEBUG] 2025-03-21 10:28:54.710 [main] GenericDao - Inserting entity: User{id=0, firstName='Jane', lastName='Doe', email='jane1742570934708@example.com'}
+[INFO ] 2025-03-21 10:28:54.777 [main] GenericDao - Entity inserted successfully with ID 623
+[DEBUG] 2025-03-21 10:28:54.777 [main] GenericDao - Fetching entity of type User with ID 623
+[INFO ] 2025-03-21 10:28:54.930 [main] GenericDao - Initializing GenericDao for type: User
+[DEBUG] 2025-03-21 10:28:54.931 [main] UserDaoTest - Testing save method...
+[DEBUG] 2025-03-21 10:28:54.931 [main] GenericDao - Inserting entity: User{id=0, firstName='John', lastName='Doe', email='john.doe1742570934931@example.com'}
+[INFO ] 2025-03-21 10:28:54.936 [main] GenericDao - Entity inserted successfully with ID 624
+[INFO ] 2025-03-21 10:28:55.037 [main] GenericDao - Initializing GenericDao for type: User
+[DEBUG] 2025-03-21 10:28:55.037 [main] UserDaoTest - Testing delete method...
+[DEBUG] 2025-03-21 10:28:55.037 [main] GenericDao - Inserting entity: User{id=0, firstName='Jo', lastName='Do', email='jo.d1742570935037@example.com'}
+[INFO ] 2025-03-21 10:28:55.041 [main] GenericDao - Entity inserted successfully with ID 625
+[DEBUG] 2025-03-21 10:28:55.041 [main] GenericDao - Fetching entity of type User with ID 625
+[DEBUG] 2025-03-21 10:28:55.043 [main] GenericDao - Deleting entity: User{id=625, firstName='Jo', lastName='Do', email='jo.d1742570935037@example.com'}
+[INFO ] 2025-03-21 10:28:55.050 [main] GenericDao - Entity deleted successfully: User{id=625, firstName='Jo', lastName='Do', email='jo.d1742570935037@example.com'}
+[DEBUG] 2025-03-21 10:28:55.050 [main] GenericDao - Fetching entity of type User with ID 625
+[INFO ] 2025-03-21 10:28:55.150 [main] GenericDao - Initializing GenericDao for type: User
+[DEBUG] 2025-03-21 10:28:55.150 [main] UserDaoTest - Testing retrieval of all users...
+[DEBUG] 2025-03-21 10:28:55.150 [main] GenericDao - Inserting entity: User{id=0, firstName='Alice', lastName='Wonderland', email='alice1742570935150@example.com'}
+[INFO ] 2025-03-21 10:28:55.155 [main] GenericDao - Entity inserted successfully with ID 626
+[DEBUG] 2025-03-21 10:28:55.155 [main] GenericDao - Inserting entity: User{id=0, firstName='Bob', lastName='Builder', email='bob1742570935150@example.com'}
+[INFO ] 2025-03-21 10:28:55.158 [main] GenericDao - Entity inserted successfully with ID 627
+[DEBUG] 2025-03-21 10:28:55.158 [main] GenericDao - Fetching all entities of type User
+[INFO ] 2025-03-21 10:28:55.384 [main] GenericDao - Retrieved 575 entities of type User
+[INFO ] 2025-03-21 10:28:55.498 [main] GenericDao - Initializing GenericDao for type: User
+[DEBUG] 2025-03-21 10:28:55.498 [main] UserDaoTest - Testing update method...
+[DEBUG] 2025-03-21 10:28:55.498 [main] GenericDao - Inserting entity: User{id=0, firstName='John', lastName='Smith', email='john.smith1742570935498@example.com'}
+[INFO ] 2025-03-21 10:28:55.505 [main] GenericDao - Entity inserted successfully with ID 628
+[DEBUG] 2025-03-21 10:28:55.505 [main] GenericDao - Updating entity: User{id=628, firstName='John Updated', lastName='Smith', email='john.smith1742570935498@example.com'}
+[INFO ] 2025-03-21 10:28:55.511 [main] GenericDao - Entity updated successfully: User{id=628, firstName='John Updated', lastName='Smith', email='john.smith1742570935498@example.com'}
+[DEBUG] 2025-03-21 10:28:55.511 [main] GenericDao - Fetching entity of type User with ID 628
+[INFO ] 2025-03-21 10:28:55.635 [main] GenericDao - Initializing GenericDao for type: CommutingLog
+[INFO ] 2025-03-21 10:28:55.635 [main] GenericDao - Initializing GenericDao for type: User
+[DEBUG] 2025-03-21 10:28:55.635 [main] GenericDao - Inserting entity: User{id=0, firstName='Jane', lastName='Doe', email='jane.doe1742570935635@example.com'}
+[INFO ] 2025-03-21 10:28:55.641 [main] GenericDao - Entity inserted successfully with ID 629
+[DEBUG] 2025-03-21 10:28:55.641 [main] GenericDao - Inserting entity: entity.CommutingLog@9a37591
+[INFO ] 2025-03-21 10:28:55.652 [main] GenericDao - Entity inserted successfully with ID 313
+[DEBUG] 2025-03-21 10:28:55.653 [main] GenericDao - Fetching entity of type CommutingLog with ID 313
+[INFO ] 2025-03-21 10:28:55.747 [main] GenericDao - Initializing GenericDao for type: CommutingLog
+[INFO ] 2025-03-21 10:28:55.748 [main] GenericDao - Initializing GenericDao for type: User
+[DEBUG] 2025-03-21 10:28:55.748 [main] GenericDao - Inserting entity: User{id=0, firstName='Jake', lastName='Smith', email='Jake.smith1742570935748@example.com'}
+[INFO ] 2025-03-21 10:28:55.753 [main] GenericDao - Entity inserted successfully with ID 630
+[DEBUG] 2025-03-21 10:28:55.753 [main] GenericDao - Inserting entity: entity.CommutingLog@2cd2c764
+[INFO ] 2025-03-21 10:28:55.757 [main] GenericDao - Entity inserted successfully with ID 314
+[INFO ] 2025-03-21 10:28:55.877 [main] GenericDao - Initializing GenericDao for type: CommutingLog
+[INFO ] 2025-03-21 10:28:55.877 [main] GenericDao - Initializing GenericDao for type: User
+[DEBUG] 2025-03-21 10:28:55.877 [main] GenericDao - Inserting entity: User{id=0, firstName='Jo', lastName='Doe', email='jo.doe1742570935877 @example.com'}
+[INFO ] 2025-03-21 10:28:55.882 [main] GenericDao - Entity inserted successfully with ID 631
+[DEBUG] 2025-03-21 10:28:55.882 [main] GenericDao - Inserting entity: entity.CommutingLog@6ae6a77b
+[INFO ] 2025-03-21 10:28:55.887 [main] GenericDao - Entity inserted successfully with ID 315
+[DEBUG] 2025-03-21 10:28:55.887 [main] GenericDao - Deleting entity: entity.CommutingLog@6ae6a77b
+[INFO ] 2025-03-21 10:28:55.890 [main] GenericDao - Entity deleted successfully: entity.CommutingLog@6ae6a77b
+[DEBUG] 2025-03-21 10:28:55.890 [main] GenericDao - Fetching entity of type CommutingLog with ID 315
+[INFO ] 2025-03-21 10:28:55.994 [main] GenericDao - Initializing GenericDao for type: CommutingLog
+[INFO ] 2025-03-21 10:28:55.994 [main] GenericDao - Initializing GenericDao for type: User
+[DEBUG] 2025-03-21 10:28:55.994 [main] GenericDao - Inserting entity: User{id=0, firstName='Alice', lastName='Wonderland', email='alice1742570935994 @example.com'}
+[INFO ] 2025-03-21 10:28:56.001 [main] GenericDao - Entity inserted successfully with ID 632
+[DEBUG] 2025-03-21 10:28:56.001 [main] GenericDao - Inserting entity: entity.CommutingLog@5542418c
+[INFO ] 2025-03-21 10:28:56.005 [main] GenericDao - Entity inserted successfully with ID 316
+[DEBUG] 2025-03-21 10:28:56.005 [main] GenericDao - Inserting entity: User{id=0, firstName='Bob', lastName='Builder', email='bob1742570936005@example.com'}
+[INFO ] 2025-03-21 10:28:56.009 [main] GenericDao - Entity inserted successfully with ID 633
+[DEBUG] 2025-03-21 10:28:56.009 [main] GenericDao - Inserting entity: entity.CommutingLog@118879d2
+[INFO ] 2025-03-21 10:28:56.013 [main] GenericDao - Entity inserted successfully with ID 317
+[DEBUG] 2025-03-21 10:28:56.013 [main] GenericDao - Fetching all entities of type CommutingLog
+[INFO ] 2025-03-21 10:28:56.270 [main] GenericDao - Retrieved 264 entities of type CommutingLog
+[INFO ] 2025-03-21 10:28:56.350 [main] GenericDao - Initializing GenericDao for type: CommutingLog
+[INFO ] 2025-03-21 10:28:56.351 [main] GenericDao - Initializing GenericDao for type: User
+[DEBUG] 2025-03-21 10:28:56.351 [main] GenericDao - Inserting entity: User{id=0, firstName='James', lastName='Snow', email='james.s1742570936351 @example.com'}
+[INFO ] 2025-03-21 10:28:56.354 [main] GenericDao - Entity inserted successfully with ID 634
+[DEBUG] 2025-03-21 10:28:56.354 [main] GenericDao - Inserting entity: entity.CommutingLog@c651286
+[INFO ] 2025-03-21 10:28:56.357 [main] GenericDao - Entity inserted successfully with ID 318
+[DEBUG] 2025-03-21 10:28:56.357 [main] GenericDao - Updating entity: entity.CommutingLog@c651286
+[INFO ] 2025-03-21 10:28:56.359 [main] GenericDao - Entity updated successfully: entity.CommutingLog@c651286
+[DEBUG] 2025-03-21 10:28:56.360 [main] GenericDao - Fetching entity of type CommutingLog with ID 318
+[INFO ] 2025-03-21 10:28:56.441 [main] GenericDao - Initializing GenericDao for type: CostAnalysis
+[DEBUG] 2025-03-21 10:28:56.441 [main] GenericDao - Inserting entity: entity.CostAnalysis@19565b5
+[INFO ] 2025-03-21 10:28:56.445 [main] GenericDao - Entity inserted successfully with ID 307
+[DEBUG] 2025-03-21 10:28:56.445 [main] GenericDao - Fetching entity of type CostAnalysis with ID 307
+[INFO ] 2025-03-21 10:28:56.515 [main] GenericDao - Initializing GenericDao for type: CostAnalysis
+[DEBUG] 2025-03-21 10:28:56.515 [main] GenericDao - Inserting entity: entity.CostAnalysis@63bb719d
+[INFO ] 2025-03-21 10:28:56.519 [main] GenericDao - Entity inserted successfully with ID 308
+[INFO ] 2025-03-21 10:28:56.590 [main] GenericDao - Initializing GenericDao for type: CostAnalysis
+[DEBUG] 2025-03-21 10:28:56.591 [main] GenericDao - Inserting entity: entity.CostAnalysis@a703934
+[INFO ] 2025-03-21 10:28:56.594 [main] GenericDao - Entity inserted successfully with ID 309
+[DEBUG] 2025-03-21 10:28:56.594 [main] GenericDao - Deleting entity: entity.CostAnalysis@a703934
+[INFO ] 2025-03-21 10:28:56.596 [main] GenericDao - Entity deleted successfully: entity.CostAnalysis@a703934
+[DEBUG] 2025-03-21 10:28:56.596 [main] GenericDao - Fetching entity of type CostAnalysis with ID 309
+[INFO ] 2025-03-21 10:28:56.674 [main] GenericDao - Initializing GenericDao for type: CostAnalysis
+[DEBUG] 2025-03-21 10:28:56.674 [main] GenericDao - Inserting entity: entity.CostAnalysis@47fb30ca
+[INFO ] 2025-03-21 10:28:56.678 [main] GenericDao - Entity inserted successfully with ID 310
+[DEBUG] 2025-03-21 10:28:56.678 [main] GenericDao - Inserting entity: entity.CostAnalysis@c925ae1
+[INFO ] 2025-03-21 10:28:56.680 [main] GenericDao - Entity inserted successfully with ID 311
+[DEBUG] 2025-03-21 10:28:56.680 [main] GenericDao - Fetching all entities of type CostAnalysis
+[INFO ] 2025-03-21 10:28:56.699 [main] GenericDao - Retrieved 259 entities of type CostAnalysis
+[INFO ] 2025-03-21 10:28:56.778 [main] GenericDao - Initializing GenericDao for type: CostAnalysis
+[DEBUG] 2025-03-21 10:28:56.778 [main] GenericDao - Inserting entity: entity.CostAnalysis@7b381066
+[INFO ] 2025-03-21 10:28:56.783 [main] GenericDao - Entity inserted successfully with ID 312
+[DEBUG] 2025-03-21 10:28:56.783 [main] GenericDao - Updating entity: entity.CostAnalysis@7b381066
+[INFO ] 2025-03-21 10:28:56.785 [main] GenericDao - Entity updated successfully: entity.CostAnalysis@7b381066
+[DEBUG] 2025-03-21 10:28:56.785 [main] GenericDao - Fetching entity of type CostAnalysis with ID 312
+[INFO ] 2025-03-21 10:29:41.074 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:29:41.074 [main] UserDaoTest - Testing retrieval by ID...
+[INFO ] 2025-03-21 10:29:41.298 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:29:41.298 [main] UserDaoTest - Testing save method...
+[INFO ] 2025-03-21 10:29:41.407 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:29:41.407 [main] UserDaoTest - Testing delete method...
+[INFO ] 2025-03-21 10:29:41.559 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:29:41.559 [main] UserDaoTest - Testing retrieval of all users...
+[INFO ] 2025-03-21 10:29:41.997 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:29:41.997 [main] UserDaoTest - Testing update method...
+[INFO ] 2025-03-21 10:29:42.153 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:29:42.154 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:29:42.262 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:29:42.262 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:29:42.354 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:29:42.355 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:29:42.437 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:29:42.437 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:29:42.807 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:29:42.807 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:29:42.898 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:29:42.989 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:29:43.067 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:29:43.148 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:29:43.252 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:31:36.977 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:31:36.979 [main] UserDaoTest - Testing retrieval by ID...
+[INFO ] 2025-03-21 10:31:37.196 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:31:37.197 [main] UserDaoTest - Testing save method...
+[INFO ] 2025-03-21 10:31:37.308 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:31:37.308 [main] UserDaoTest - Testing delete method...
+[INFO ] 2025-03-21 10:31:37.444 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:31:37.444 [main] UserDaoTest - Testing retrieval of all users...
+[INFO ] 2025-03-21 10:31:37.792 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:31:37.792 [main] UserDaoTest - Testing update method...
+[INFO ] 2025-03-21 10:31:37.902 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:31:37.903 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:31:38.019 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:31:38.019 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:31:38.132 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:31:38.132 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:31:38.228 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:31:38.228 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:31:38.572 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:31:38.572 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:31:38.664 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:31:38.749 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:31:38.828 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:31:38.901 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:31:38.997 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:34:07.029 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:34:07.030 [main] UserDaoTest - Testing retrieval by ID...
+[INFO ] 2025-03-21 10:34:07.256 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:34:07.257 [main] UserDaoTest - Testing save method...
+[INFO ] 2025-03-21 10:34:07.364 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:34:07.364 [main] UserDaoTest - Testing delete method...
+[INFO ] 2025-03-21 10:34:07.502 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:34:07.502 [main] UserDaoTest - Testing retrieval of all users...
+[INFO ] 2025-03-21 10:34:07.996 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:34:07.997 [main] UserDaoTest - Testing update method...
+[INFO ] 2025-03-21 10:34:08.102 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:34:08.102 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:34:08.234 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:34:08.234 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:34:08.320 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:34:08.320 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:34:08.408 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:34:08.408 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:34:08.751 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:34:08.751 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:34:08.837 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:34:08.910 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:34:08.986 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:34:09.059 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:34:09.166 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:35:11.474 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:35:11.476 [main] UserDaoTest - Testing retrieval by ID...
+[INFO ] 2025-03-21 10:35:11.692 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:35:11.692 [main] UserDaoTest - Testing save method...
+[INFO ] 2025-03-21 10:35:11.814 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:35:11.814 [main] UserDaoTest - Testing delete method...
+[INFO ] 2025-03-21 10:35:11.934 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:35:11.934 [main] UserDaoTest - Testing retrieval of all users...
+[INFO ] 2025-03-21 10:35:12.273 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:35:12.273 [main] UserDaoTest - Testing update method...
+[INFO ] 2025-03-21 10:35:12.384 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:35:12.384 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:35:12.486 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:35:12.486 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:35:12.572 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:35:12.572 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:35:12.665 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:35:12.665 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:35:12.975 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:35:12.975 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:35:13.083 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:35:13.160 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:35:13.242 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:35:13.325 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:35:13.444 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:44:33.438 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:44:33.439 [main] UserDaoTest - Testing retrieval by ID...
+[INFO ] 2025-03-21 10:44:33.655 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:44:33.655 [main] UserDaoTest - Testing save method...
+[INFO ] 2025-03-21 10:44:33.768 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:44:33.769 [main] UserDaoTest - Testing delete method...
+[INFO ] 2025-03-21 10:44:33.884 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:44:33.884 [main] UserDaoTest - Testing retrieval of all users...
+[INFO ] 2025-03-21 10:44:34.231 [main] GenericDao - connect
+[DEBUG] 2025-03-21 10:44:34.231 [main] UserDaoTest - Testing update method...
+[INFO ] 2025-03-21 10:44:34.339 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:44:34.339 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:44:34.449 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:44:34.449 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:44:34.559 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:44:34.559 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:44:34.646 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:44:34.646 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:44:35.008 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:44:35.008 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:44:35.100 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:44:35.176 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:44:35.256 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:44:35.353 [main] GenericDao - connect
+[INFO ] 2025-03-21 10:44:35.485 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:30:42.595 [main] GenericDao - connect
+[DEBUG] 2025-03-21 11:30:42.597 [main] UserDaoTest - Testing retrieval by ID...
+[INFO ] 2025-03-21 11:30:42.816 [main] GenericDao - connect
+[DEBUG] 2025-03-21 11:30:42.816 [main] UserDaoTest - Testing save method...
+[INFO ] 2025-03-21 11:30:42.923 [main] GenericDao - connect
+[DEBUG] 2025-03-21 11:30:42.923 [main] UserDaoTest - Testing delete method...
+[INFO ] 2025-03-21 11:30:43.045 [main] GenericDao - connect
+[DEBUG] 2025-03-21 11:30:43.045 [main] UserDaoTest - Testing retrieval of all users...
+[INFO ] 2025-03-21 11:30:43.394 [main] GenericDao - connect
+[DEBUG] 2025-03-21 11:30:43.395 [main] UserDaoTest - Testing update method...
+[INFO ] 2025-03-21 11:30:43.526 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:30:43.526 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:30:43.656 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:30:43.656 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:30:43.777 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:30:43.778 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:30:43.908 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:30:43.908 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:30:44.270 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:30:44.270 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:30:44.356 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:30:44.433 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:30:44.505 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:30:44.582 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:30:44.694 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:32:54.149 [main] GenericDao - connect
+[DEBUG] 2025-03-21 11:32:54.150 [main] UserDaoTest - Testing retrieval by ID...
+[INFO ] 2025-03-21 11:32:54.365 [main] GenericDao - connect
+[DEBUG] 2025-03-21 11:32:54.365 [main] UserDaoTest - Testing save method...
+[INFO ] 2025-03-21 11:32:54.474 [main] GenericDao - connect
+[DEBUG] 2025-03-21 11:32:54.474 [main] UserDaoTest - Testing delete method...
+[INFO ] 2025-03-21 11:32:54.596 [main] GenericDao - connect
+[DEBUG] 2025-03-21 11:32:54.596 [main] UserDaoTest - Testing retrieval of all users...
+[INFO ] 2025-03-21 11:32:54.925 [main] GenericDao - connect
+[DEBUG] 2025-03-21 11:32:54.926 [main] UserDaoTest - Testing update method...
+[INFO ] 2025-03-21 11:32:55.049 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:32:55.049 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:32:55.169 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:32:55.169 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:32:55.272 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:32:55.272 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:32:55.402 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:32:55.403 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:32:55.807 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:32:55.807 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:32:55.900 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:32:55.977 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:32:56.050 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:32:56.122 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:32:56.232 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:52:45.586 [main] GenericDao - connect
+[DEBUG] 2025-03-21 11:52:45.588 [main] UserDaoTest - Testing retrieval by ID...
+[INFO ] 2025-03-21 11:52:45.804 [main] GenericDao - connect
+[DEBUG] 2025-03-21 11:52:45.804 [main] UserDaoTest - Testing save method...
+[INFO ] 2025-03-21 11:52:45.912 [main] GenericDao - connect
+[DEBUG] 2025-03-21 11:52:45.913 [main] UserDaoTest - Testing delete method...
+[INFO ] 2025-03-21 11:52:46.048 [main] GenericDao - connect
+[DEBUG] 2025-03-21 11:52:46.048 [main] UserDaoTest - Testing retrieval of all users...
+[INFO ] 2025-03-21 11:52:46.456 [main] GenericDao - connect
+[DEBUG] 2025-03-21 11:52:46.456 [main] UserDaoTest - Testing update method...
+[INFO ] 2025-03-21 11:52:46.574 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:52:46.575 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:52:46.686 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:52:46.686 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:52:46.774 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:52:46.774 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:52:46.859 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:52:46.860 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:52:47.233 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:52:47.233 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:52:47.325 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:52:47.402 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:52:47.473 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:52:47.551 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:52:47.645 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:53:38.155 [main] GenericDao - connect
+[DEBUG] 2025-03-21 11:53:38.157 [main] UserDaoTest - Testing retrieval by ID...
+[INFO ] 2025-03-21 11:53:38.383 [main] GenericDao - connect
+[DEBUG] 2025-03-21 11:53:38.383 [main] UserDaoTest - Testing save method...
+[INFO ] 2025-03-21 11:53:38.494 [main] GenericDao - connect
+[DEBUG] 2025-03-21 11:53:38.494 [main] UserDaoTest - Testing delete method...
+[INFO ] 2025-03-21 11:53:38.628 [main] GenericDao - connect
+[DEBUG] 2025-03-21 11:53:38.628 [main] UserDaoTest - Testing retrieval of all users...
+[INFO ] 2025-03-21 11:53:38.986 [main] GenericDao - connect
+[DEBUG] 2025-03-21 11:53:38.986 [main] UserDaoTest - Testing update method...
+[INFO ] 2025-03-21 11:53:39.086 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:53:39.086 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:53:39.194 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:53:39.194 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:53:39.285 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:53:39.285 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:53:39.374 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:53:39.374 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:53:39.766 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:53:39.766 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:53:39.872 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:53:39.961 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:53:40.051 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:53:40.144 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:53:40.261 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:54:52.115 [main] GenericDao - connect
+[DEBUG] 2025-03-21 11:54:52.116 [main] UserDaoTest - Testing retrieval by ID...
+[INFO ] 2025-03-21 11:54:52.342 [main] GenericDao - connect
+[DEBUG] 2025-03-21 11:54:52.342 [main] UserDaoTest - Testing save method...
+[INFO ] 2025-03-21 11:54:52.457 [main] GenericDao - connect
+[DEBUG] 2025-03-21 11:54:52.457 [main] UserDaoTest - Testing delete method...
+[INFO ] 2025-03-21 11:54:52.577 [main] GenericDao - connect
+[DEBUG] 2025-03-21 11:54:52.577 [main] UserDaoTest - Testing retrieval of all users...
+[INFO ] 2025-03-21 11:54:52.920 [main] GenericDao - connect
+[DEBUG] 2025-03-21 11:54:52.920 [main] UserDaoTest - Testing update method...
+[INFO ] 2025-03-21 11:54:53.016 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:54:53.016 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:54:53.117 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:54:53.117 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:54:53.208 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:54:53.208 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:54:53.300 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:54:53.300 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:54:53.663 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:54:53.663 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:54:53.763 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:54:53.844 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:54:53.918 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:54:53.991 [main] GenericDao - connect
+[INFO ] 2025-03-21 11:54:54.090 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:06:40.559 [main] GenericDao - connect
+[DEBUG] 2025-03-21 12:06:40.561 [main] UserDaoTest - Testing retrieval by ID...
+[INFO ] 2025-03-21 12:06:40.764 [main] GenericDao - connect
+[DEBUG] 2025-03-21 12:06:40.764 [main] UserDaoTest - Testing save method...
+[INFO ] 2025-03-21 12:06:40.869 [main] GenericDao - connect
+[DEBUG] 2025-03-21 12:06:40.869 [main] UserDaoTest - Testing delete method...
+[INFO ] 2025-03-21 12:06:40.993 [main] GenericDao - connect
+[DEBUG] 2025-03-21 12:06:40.993 [main] UserDaoTest - Testing retrieval of all users...
+[INFO ] 2025-03-21 12:06:41.365 [main] GenericDao - connect
+[DEBUG] 2025-03-21 12:06:41.365 [main] UserDaoTest - Testing update method...
+[INFO ] 2025-03-21 12:06:41.481 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:06:41.482 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:06:41.596 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:06:41.596 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:06:41.714 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:06:41.715 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:06:41.842 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:06:41.842 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:06:42.283 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:06:42.283 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:06:42.386 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:06:42.462 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:06:42.537 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:06:42.609 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:06:42.729 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:17:43.287 [main] GenericDao - connect
+[DEBUG] 2025-03-21 12:17:43.289 [main] UserDaoTest - Testing retrieval by ID...
+[INFO ] 2025-03-21 12:17:43.516 [main] GenericDao - connect
+[DEBUG] 2025-03-21 12:17:43.516 [main] UserDaoTest - Testing save method...
+[INFO ] 2025-03-21 12:17:43.636 [main] GenericDao - connect
+[DEBUG] 2025-03-21 12:17:43.636 [main] UserDaoTest - Testing delete method...
+[INFO ] 2025-03-21 12:17:43.784 [main] GenericDao - connect
+[DEBUG] 2025-03-21 12:17:43.785 [main] UserDaoTest - Testing retrieval of all users...
+[INFO ] 2025-03-21 12:17:44.132 [main] GenericDao - connect
+[DEBUG] 2025-03-21 12:17:44.132 [main] UserDaoTest - Testing update method...
+[INFO ] 2025-03-21 12:17:44.232 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:17:44.232 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:17:44.343 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:17:44.343 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:17:44.440 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:17:44.440 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:17:44.538 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:17:44.538 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:17:44.897 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:17:44.897 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:17:45.003 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:17:45.081 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:17:45.154 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:17:45.230 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:17:45.329 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:18:41.011 [main] GenericDao - connect
+[DEBUG] 2025-03-21 12:18:41.012 [main] UserDaoTest - Testing retrieval by ID...
+[INFO ] 2025-03-21 12:18:41.253 [main] GenericDao - connect
+[DEBUG] 2025-03-21 12:18:41.253 [main] UserDaoTest - Testing save method...
+[INFO ] 2025-03-21 12:18:41.358 [main] GenericDao - connect
+[DEBUG] 2025-03-21 12:18:41.358 [main] UserDaoTest - Testing delete method...
+[INFO ] 2025-03-21 12:18:41.471 [main] GenericDao - connect
+[DEBUG] 2025-03-21 12:18:41.471 [main] UserDaoTest - Testing retrieval of all users...
+[INFO ] 2025-03-21 12:18:41.798 [main] GenericDao - connect
+[DEBUG] 2025-03-21 12:18:41.798 [main] UserDaoTest - Testing update method...
+[INFO ] 2025-03-21 12:19:56.617 [main] GenericDao - connect
+[DEBUG] 2025-03-21 12:19:56.618 [main] UserDaoTest - Testing retrieval of all users...
+[INFO ] 2025-03-21 12:24:09.817 [main] GenericDao - connect
+[DEBUG] 2025-03-21 12:24:09.818 [main] UserDaoTest - Testing retrieval by ID...
+[INFO ] 2025-03-21 12:24:10.047 [main] GenericDao - connect
+[DEBUG] 2025-03-21 12:24:10.048 [main] UserDaoTest - Testing save method...
+[INFO ] 2025-03-21 12:24:10.168 [main] GenericDao - connect
+[DEBUG] 2025-03-21 12:24:10.168 [main] UserDaoTest - Testing delete method...
+[INFO ] 2025-03-21 12:24:10.294 [main] GenericDao - connect
+[DEBUG] 2025-03-21 12:24:10.294 [main] UserDaoTest - Testing retrieval of all users...
+[INFO ] 2025-03-21 12:24:10.702 [main] GenericDao - connect
+[DEBUG] 2025-03-21 12:24:10.702 [main] UserDaoTest - Testing update method...
+[INFO ] 2025-03-21 12:24:10.827 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:24:10.827 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:24:10.928 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:24:10.928 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:24:11.017 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:24:11.017 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:24:11.102 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:24:11.102 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:24:11.442 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:24:11.442 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:24:11.529 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:24:11.622 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:24:11.692 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:24:11.766 [main] GenericDao - connect
+[INFO ] 2025-03-21 12:24:11.868 [main] GenericDao - connect

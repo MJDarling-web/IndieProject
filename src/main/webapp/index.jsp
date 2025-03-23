@@ -27,6 +27,7 @@
 </head>
 <body>
 <%@include file="Header.jsp" %>
+<%@include file="taglib.jsp" %>
 <h2>Welcome to Commuter</h2>
 <h3>A commuting cost calcultor and comparison tracker for your true cost of transportation needs</h3>
 

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.*;
 
-@WebServlet("/viewUsers.jsp")
+@WebServlet("/viewUsers")
 public class ViewUsersServlet extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
 
@@ -36,5 +36,6 @@ public class ViewUsersServlet extends HttpServlet {
         // Forward the request to the JSP for displaying the data
         RequestDispatcher dispatcher = request.getRequestDispatcher("/viewUsers.jsp");
         dispatcher.forward(request, response);
+
     }
 }

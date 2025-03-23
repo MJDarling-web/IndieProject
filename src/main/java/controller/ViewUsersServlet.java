@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.*;
 
-@WebServlet("/viewUsers")
+@WebServlet("/viewUsers.jsp")
 public class ViewUsersServlet extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
 

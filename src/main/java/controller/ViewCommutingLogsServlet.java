@@ -18,12 +18,12 @@ import jakarta.persistence.*;
 
 @WebServlet("/viewCommutingLogs")
 public class ViewCommutingLogsServlet extends HttpServlet {
-
     // Create a logger instance for this class
-    private static final Logger logger = LogManager.getLogger(ViewCommutingLogsServlet.class);
+    private final Logger logger = LogManager.getLogger(this.getClass());
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html");
         // Create a list to hold log messages
         List<String> logMessages = new ArrayList<>();
 
@@ -33,12 +33,12 @@ public class ViewCommutingLogsServlet extends HttpServlet {
         logMessages.add("Starting to fetch commuting logs for user ID: " + userId);
         logger.info("Starting to fetch commuting logs for user ID: " + userId);
 
-        // Fetch commuting logs for this user
+        // Fetch commuting logs for this user with generic Dao
         GenericDao<CommutingLog> commutingLogDao = new GenericDao<>(CommutingLog.class);
 
         // HQL query to fetch logs for the user
         String hql = "FROM CommutingLog";  // Query to get all logs for now
-
+        logger.info("Fetching commuting logs for user ID: " + userId);
         try {
             // Get logs from the database
             List<CommutingLog> logs = commutingLogDao.getByCustomQuery(hql);
@@ -46,24 +46,24 @@ public class ViewCommutingLogsServlet extends HttpServlet {
             // Log the number of records fetched
             if (logs.isEmpty()) {
                 logMessages.add("No commuting logs found for user ID: " + userId);
-                logger.warn("No commuting logs found for user ID: " + userId);
+                logger.info("No commuting logs found for user ID: " + userId);
             } else {
                 logMessages.add("Fetched " + logs.size() + " commuting logs for user ID: " + userId);
                 logger.info("Fetched " + logs.size() + " commuting logs for user ID: " + userId);
             }
 
             // Set logs as a request attribute to pass them to the JSP
-            req.setAttribute("commutingLogs", logs);
-            req.setAttribute("logMessages", logMessages); // Pass log messages to JSP
+            request.setAttribute("commutingLogs", logs);
+            request.setAttribute("logMessages", logMessages); // Pass log messages to JSP
 
             // Forward the request to the JSP page
-            RequestDispatcher dispatcher = req.getRequestDispatcher("/CommutingCostLog.jsp");
-            dispatcher.forward(req, resp);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/CommutingCostLog.jsp");
+            dispatcher.forward(request, response);
         } catch (Exception e) {
             // Log an error if the database query fails
             logMessages.add("Error occurred while fetching commuting logs for user ID: " + userId);
             logger.error("Error occurred while fetching commuting logs for user ID: " + userId, e);
-            resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Unable to fetch commuting logs");
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Unable to fetch commuting logs");
         }
     }
 }

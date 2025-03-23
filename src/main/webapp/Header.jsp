@@ -10,13 +10,13 @@
     <nav>
         <ul style="list-style-type: none; padding: 0;">
             <li style="display: inline; margin-right: 20px;">
-                <a href="viewUsers.jsp">Login / Register</a>
+                <a href="viewUsers">Login / Register</a>
             </li>
             <li style="display: inline; margin-right: 20px;">
-                <a href="ComparisonResults.jsp">Comparison Results</a>
+                <a href="ComparisonResults">Comparison Results</a>
             </li>
             <li style="display: inline; margin-right: 20px;">
-                <a href="CommutingCostLog.jsp">Commute Cost Log</a>
+                <a href="CommutingCostLog">Commute Cost Log</a>
             </li>
         </ul>
     </nav>

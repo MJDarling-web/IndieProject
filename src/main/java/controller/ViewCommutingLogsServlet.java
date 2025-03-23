@@ -12,8 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import jakarta.persistence.*;
+
 
 @WebServlet("/viewCommutingLogs")
 public class ViewCommutingLogsServlet extends HttpServlet {

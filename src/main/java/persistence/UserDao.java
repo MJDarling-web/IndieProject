@@ -7,6 +7,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import java.util.List;
+import jakarta.persistence.*;
+
 
 /**
  * Data Access Object (DAO) for the User entity.

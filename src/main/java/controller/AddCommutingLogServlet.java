@@ -4,6 +4,7 @@ import entity.CommutingLog;
 import entity.User;
 import persistence.GenericDao;
 
+import jakarta.persistence.*;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

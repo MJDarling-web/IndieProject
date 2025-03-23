@@ -10,6 +10,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 import java.util.logging.*;
+import jakarta.persistence.*;
+
+
 /**
  * Provides access to the database
  * Created on 8/31/16.

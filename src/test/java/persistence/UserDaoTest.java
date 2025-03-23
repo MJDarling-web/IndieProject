@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.apache.logging.log4j.*;
 import static org.junit.jupiter.api.Assertions.*;
+import jakarta.persistence.*;
 
 import java.util.List;
 

@@ -7887,3 +7887,77 @@ Caused by: javax.el.PropertyNotFoundException: Property 'dateAdded' not found on
 	... 37 more
 [INFO ] 2025-03-23 13:14:04.085 [http-nio-9090-exec-5] ViewUsersServlet - connected
 [INFO ] 2025-03-23 13:14:04.094 [http-nio-9090-exec-5] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}]
+[INFO ] 2025-03-23 13:17:40.433 [http-nio-9090-exec-4] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-03-23 13:17:40.442 [http-nio-9090-exec-4] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-03-23 13:17:42.055 [http-nio-9090-exec-4] ViewCommutingLogsServlet - Fetched 1 commuting logs for user ID: 1
+[ERROR] 2025-03-23 13:17:42.153 [http-nio-9090-exec-4] ViewCommutingLogsServlet - Error occurred while fetching commuting logs for user ID: 1
+org.apache.jasper.JasperException: An exception occurred processing JSP page /CommutingCostLog.jsp at line 39
+
+36:         <c:forEach var="log" items="${commutingLogs}">
+37:             <tr>
+38:                 <td>${log.commuteType}</td>
+39:                 <td>${log.durationInMinutes}</td>
+40:                 <td>${log.distanceInMiles}</td>
+41:                 <td>${log.cost}</td>
+42:             </tr>
+
+
+Stacktrace:
+	at org.apache.jasper.servlet.JspServletWrapper.handleJspException(JspServletWrapper.java:584) ~[jasper.jar:8.5.5]
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:481) ~[jasper.jar:8.5.5]
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:385) ~[jasper.jar:8.5.5]
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:329) ~[jasper.jar:8.5.5]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729) ~[servlet-api.jar:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:230) ~[catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) ~[catalina.jar:8.5.5]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-websocket.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) ~[catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) ~[catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:726) ~[catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:469) ~[catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:394) ~[catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:311) ~[catalina.jar:8.5.5]
+	at controller.ViewCommutingLogsServlet.doGet(ViewCommutingLogsServlet.java:61) ~[classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622) ~[servlet-api.jar:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729) ~[servlet-api.jar:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:230) ~[catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) ~[catalina.jar:8.5.5]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-websocket.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) ~[catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) ~[catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) ~[catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:108) ~[catalina.jar:8.5.5]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472) ~[catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) ~[catalina.jar:8.5.5]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79) ~[catalina.jar:8.5.5]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:620) ~[catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) ~[catalina.jar:8.5.5]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:349) ~[catalina.jar:8.5.5]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:784) ~[tomcat-coyote.jar:8.5.5]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) ~[tomcat-coyote.jar:8.5.5]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:802) ~[tomcat-coyote.jar:8.5.5]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1410) ~[tomcat-coyote.jar:8.5.5]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:8.5.5]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:8.5.5]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+Caused by: javax.el.PropertyNotFoundException: Property 'durationInMinutes' not found on type entity.CommutingLog
+	at javax.el.BeanELResolver$BeanProperties.get(BeanELResolver.java:259) ~[el-api.jar:3.0.FR]
+	at javax.el.BeanELResolver$BeanProperties.access$300(BeanELResolver.java:212) ~[el-api.jar:3.0.FR]
+	at javax.el.BeanELResolver.property(BeanELResolver.java:346) ~[el-api.jar:3.0.FR]
+	at javax.el.BeanELResolver.getValue(BeanELResolver.java:92) ~[el-api.jar:3.0.FR]
+	at org.apache.jasper.el.JasperELResolver.getValue(JasperELResolver.java:110) ~[jasper.jar:8.5.5]
+	at org.apache.el.parser.AstValue.getValue(AstValue.java:169) ~[jasper-el.jar:8.5.5]
+	at org.apache.el.ValueExpressionImpl.getValue(ValueExpressionImpl.java:184) ~[jasper-el.jar:8.5.5]
+	at org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate(PageContextImpl.java:944) ~[jasper.jar:8.5.5]
+	at org.apache.jsp.CommutingCostLog_jsp._jspx_meth_c_005fforEach_005f1(CommutingCostLog_jsp.java:362) ~[?:?]
+	at org.apache.jsp.CommutingCostLog_jsp._jspx_meth_c_005fif_005f1(CommutingCostLog_jsp.java:319) ~[?:?]
+	at org.apache.jsp.CommutingCostLog_jsp._jspService(CommutingCostLog_jsp.java:167) ~[?:?]
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70) ~[jasper.jar:8.5.5]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729) ~[servlet-api.jar:?]
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:443) ~[jasper.jar:8.5.5]
+	... 37 more
+[INFO ] 2025-03-23 13:19:16.982 [http-nio-9090-exec-4] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-03-23 13:19:16.989 [http-nio-9090-exec-4] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-03-23 13:19:18.663 [http-nio-9090-exec-4] ViewCommutingLogsServlet - Fetched 1 commuting logs for user ID: 1

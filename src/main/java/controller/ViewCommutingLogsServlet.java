@@ -16,7 +16,7 @@ import java.util.*;
 import jakarta.persistence.*;
 
 
-@WebServlet("/viewCommutingLogs")
+@WebServlet("/CommutingCostLog")
 public class ViewCommutingLogsServlet extends HttpServlet {
     // Create a logger instance for this class
     private final Logger logger = LogManager.getLogger(this.getClass());

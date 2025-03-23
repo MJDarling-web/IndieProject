@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/addCommutingLog")
+@WebServlet("/ComparisonResults")
 public class AddCommutingLogServlet extends HttpServlet {
 
     @Override
@@ -45,7 +45,7 @@ public class AddCommutingLogServlet extends HttpServlet {
         commutingLogDao.insert(log);
 
         // Redirect back to the view page to see the updated list of logs
-        resp.sendRedirect("viewCommutingLogs");
+        resp.sendRedirect("ComparisonResults.jsp");
     }
 
     // Example method to get the logged-in user's ID

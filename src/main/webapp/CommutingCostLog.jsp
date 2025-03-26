@@ -35,7 +35,7 @@
         <tbody>
         <c:forEach var="log" items="${commutingLogs}">
             <tr>
-                <td>log.date</td>
+                <td>${log.date}</td>
                 <td>${log.commuteType}</td>
                 <td>${log.timeSpent}</td>
                 <td>${log.distanceInMiles}</td>

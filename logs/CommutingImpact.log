@@ -7969,3 +7969,48 @@ Caused by: javax.el.PropertyNotFoundException: Property 'durationInMinutes' not 
 [INFO ] 2025-03-25 19:21:25.902 [http-nio-9090-exec-4] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}]
 [INFO ] 2025-03-25 19:27:29.779 [http-nio-9090-exec-4] ViewUsersServlet - connected
 [INFO ] 2025-03-25 19:27:31.406 [http-nio-9090-exec-4] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}]
+[INFO ] 2025-03-25 20:35:47.416 [http-nio-9090-exec-4] ViewUsersServlet - connected
+[INFO ] 2025-03-25 20:35:49.501 [http-nio-9090-exec-4] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}]
+[INFO ] 2025-03-26 14:59:49.497 [http-nio-9090-exec-4] ViewUsersServlet - connected
+[INFO ] 2025-03-26 15:00:10.465 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-03-26 15:00:10.466 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-03-26 15:00:12.519 [http-nio-9090-exec-9] ViewUsersServlet - connected
+[INFO ] 2025-03-26 15:00:59.146 [http-nio-9090-exec-1] ViewUsersServlet - connected
+[INFO ] 2025-03-26 15:03:32.898 [http-nio-9090-exec-4] ViewUsersServlet - connected
+[INFO ] 2025-03-26 15:06:36.726 [http-nio-9090-exec-4] ViewUsersServlet - connected
+[INFO ] 2025-03-26 15:24:58.806 [http-nio-9090-exec-4] ViewUsersServlet - connected
+[INFO ] 2025-03-26 15:25:41.660 [http-nio-9090-exec-7] ViewUsersServlet - connected
+[INFO ] 2025-03-26 15:25:46.335 [http-nio-9090-exec-8] ViewUsersServlet - connected
+[INFO ] 2025-03-26 17:10:24.340 [http-nio-9090-exec-4] ViewUsersServlet - connected
+[INFO ] 2025-03-26 17:10:28.830 [http-nio-9090-exec-6] ViewUsersServlet - connected
+[INFO ] 2025-03-26 17:13:32.659 [http-nio-9090-exec-8] ViewUsersServlet - connected
+[INFO ] 2025-03-26 17:14:22.759 [http-nio-9090-exec-5] ViewUsersServlet - connected
+[INFO ] 2025-03-26 17:16:02.867 [http-nio-9090-exec-4] ViewUsersServlet - connected
+[INFO ] 2025-03-26 17:20:18.502 [http-nio-9090-exec-6] ViewUsersServlet - connected
+[INFO ] 2025-03-26 17:26:06.202 [http-nio-9090-exec-4] ViewUsersServlet - connected
+[INFO ] 2025-03-26 17:27:03.742 [http-nio-9090-exec-7] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-03-26 17:27:03.744 [http-nio-9090-exec-7] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-03-26 17:27:09.468 [http-nio-9090-exec-1] ViewUsersServlet - connected
+[INFO ] 2025-03-26 17:32:06.799 [http-nio-9090-exec-4] ViewUsersServlet - connected
+[INFO ] 2025-03-26 17:32:08.895 [http-nio-9090-exec-4] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}]
+[INFO ] 2025-03-26 17:34:06.241 [http-nio-9090-exec-9] ViewUsersServlet - connected
+[INFO ] 2025-03-26 17:34:06.270 [http-nio-9090-exec-9] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}]
+[INFO ] 2025-03-26 17:34:08.118 [http-nio-9090-exec-10] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-03-26 17:34:08.118 [http-nio-9090-exec-10] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-03-26 17:34:08.157 [http-nio-9090-exec-10] ViewCommutingLogsServlet - Fetched 1 commuting logs for user ID: 1
+[INFO ] 2025-03-26 17:34:11.129 [http-nio-9090-exec-2] ViewUsersServlet - connected
+[INFO ] 2025-03-26 17:34:11.138 [http-nio-9090-exec-2] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}]
+[INFO ] 2025-03-26 17:34:12.985 [http-nio-9090-exec-3] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-03-26 17:34:12.986 [http-nio-9090-exec-3] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-03-26 17:34:12.992 [http-nio-9090-exec-3] ViewCommutingLogsServlet - Fetched 1 commuting logs for user ID: 1
+[INFO ] 2025-03-26 17:34:50.565 [http-nio-9090-exec-6] ViewUsersServlet - connected
+[INFO ] 2025-03-26 17:34:50.576 [http-nio-9090-exec-6] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}]
+[INFO ] 2025-03-26 17:42:55.198 [http-nio-9090-exec-10] ViewUsersServlet - connected
+[INFO ] 2025-03-26 17:42:55.214 [http-nio-9090-exec-10] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}]
+[INFO ] 2025-03-26 17:43:08.827 [http-nio-9090-exec-8] ViewUsersServlet - connected
+[INFO ] 2025-03-26 17:43:08.835 [http-nio-9090-exec-8] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}]
+[INFO ] 2025-03-26 17:43:11.029 [http-nio-9090-exec-7] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-03-26 17:43:11.030 [http-nio-9090-exec-7] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-03-26 17:43:11.042 [http-nio-9090-exec-7] ViewCommutingLogsServlet - Fetched 1 commuting logs for user ID: 1
+[INFO ] 2025-03-26 17:43:16.920 [http-nio-9090-exec-10] ViewUsersServlet - connected
+[INFO ] 2025-03-26 17:43:16.927 [http-nio-9090-exec-10] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}]

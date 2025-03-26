@@ -1,24 +1,29 @@
 package persistence;
 
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
+import entity.FuelPrice;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class fuelAPITest {
-    private static final String API_URL = "https://www.fueleconomy.gov/ws/rest/fuelprices";
 
     @Test
-    public void testFuelPricesAPI() throws Exception {
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder().uri(URI.create(API_URL)).header("Accept", "application/json").build();
+    public void testRegularPriceExists() {
+        try {
+            // 1. Create DAO instance
+            FuelApiDao dao = new FuelApiDao();
 
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            // 2. Get fuel prices from API
+            FuelPrice prices = dao.getFuelPrices();
 
-        assertEquals(200, response.statusCode());
-        assertNotNull(response.body());
-        System.out.println("Response: " + response.body());
+            // 3. Verify regular price exists and is not empty
+            assertNotNull(prices.getRegular(), "Regular price should not be null");
+            assertFalse(prices.getRegular().isEmpty(), "Regular price should not be empty");
+
+            System.out.println("Regular price exists: $" + prices.getRegular());
+
+        } catch (Exception e) {
+            fail("Test failed with exception: " + e.getMessage());
+        }
     }
 }

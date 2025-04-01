@@ -18,9 +18,21 @@ started plan! Started to put it in Github as issues but wanted a more central sp
 - [x] Start DAO 
 - [x] Car Ownership Costs - Brainstorm further database tables
 
-Week 8  
-- [x] week 6 AWS project upload 
-- [ ] week 6 database display on awd and aws connectiong
+> Week 10 breakdown (don't break down)
+-  _Monday_ [X] Plan the week because I'm very tired from restful weekend. 
+- _Tuesday_ [ ] **Week 10** team project exercise (start Tuesday Videos in morning and exercise in night)
+- _Wednesday_ [ ] Team meeting at 430-530 team project that night
+- _Thursday Morning_ [ ] **Week 9** RESTful API exercise
+- _Thursday Night_ [ ] Checkpoint 3 chugg along for completion by Sunday night.
+  * [ ] Deployed to AWS - **week 7**, 
+  * [x] at least one JSP that displays data from the database is implemented, 
+  * [ ] Authentication implemented - **Week 8**. Add link to your deployed application here. 
+  * 
+
+
+week 10
+- [ ] week 6 AWS project upload 
+- [ ] week 6 database display on awd and aws connection
 - Week 7 & 8 material...
 - Other...
 - [ ] Finish JSP pages for Commuting Impact

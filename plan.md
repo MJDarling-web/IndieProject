@@ -20,14 +20,26 @@ started plan! Started to put it in Github as issues but wanted a more central sp
 
 > Week 10 breakdown (don't break down)
 -  _Monday_ [X] Plan the week because I'm very tired from restful weekend. 
-- _Tuesday_ [ ] **Week 10** team project exercise (start Tuesday Videos in morning and exercise in night)
-- _Wednesday_ [ ] Team meeting at 430-530 team project that night
-- _Thursday Morning_ [ ] **Week 9** RESTful API exercise
-- _Thursday Night_ [ ] Checkpoint 3 chugg along for completion by Sunday night.
+- _Tuesday-started_ [ ] **Week 10** team project exercise (start Tuesday Videos in morning and exercise in night)
+- _Wednesday_ [x] Team meeting at 430-530 start team project that night
+- _Thursday Night_ [x] Team project work - mostly done w entities
+- _Friday Night_ [ ] Checkpoint 3 chugg along for completion by Sunday night.
   * [ ] Deployed to AWS - **week 7**, 
   * [x] at least one JSP that displays data from the database is implemented, 
-  * [ ] Authentication implemented - **Week 8**. Add link to your deployed application here. 
-  * 
+  * [ ] Authentication implemented - **Week 8**. Add link to your deployed application here.
+- _Saturday_ [ ] **Week 9** RESTful API exercise
+
+> Indie project 
+- [ ] check point 3
+
+- **suggestions for module 3 to stay on time:**
+- [ ] Create all entities and daos (remember to use a generic/abstract dao to minimize the number of daos you need to write)
+- [ ] Display your entities on your jsps - essentially, have the data view pages complete, i.e. you should be able to view data (from the database) on your jsps 
+- [ ] Begin implementing add/edit functionality 
+- [ ] The site is professional-looking (CSS, Bootstrap or some other framework is implemented) 
+- [ ] If you are using a public api/web service, call the service from your application to retrieve the data you need (you may not have the response mapped to objects yet, but you can at least see the data is correctly returned)
+- [ ] Implement all changes based on peer and instructor feedback 
+- [ ] Write unit tests for all non-entity/non-servlet classes. If your servlets perform significant bits of logic, put that code into testable classes or methods.
 
 
 week 10

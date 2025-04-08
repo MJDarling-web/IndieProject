@@ -22,7 +22,6 @@ public class GenericDao<T> {
     private final Logger logger = LogManager.getLogger(this.getClass());
     /**
      * Instantiates a new Generic dao.
-     *
      * @param type the type
      */
     public GenericDao(Class<T> type) {

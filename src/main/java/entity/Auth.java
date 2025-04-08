@@ -1,12 +1,12 @@
 package entity;
 
-
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import auth.*;
+import persistence.UserDao;
 import util.PropertiesLoader;
 import org.apache.commons.io.*;
 import org.apache.logging.log4j.LogManager;
@@ -39,7 +39,6 @@ import java.util.Base64;
 import java.util.HashMap;
 import java.util.Properties;
 import java.util.stream.Collectors;
-
 
 @WebServlet(
         urlPatterns = {"/auth"}
@@ -93,6 +92,29 @@ public class Auth extends HttpServlet implements PropertiesLoader {
                 //storing in session
                 HttpSession session = req.getSession();
                 session.setAttribute("userName", userName);
+                UserDao userDao = new UserDao();
+                User exisitingUser = userDao.getByEmail(userName);
+
+                //check if user already exisists
+                if(exisitingUser == null) {
+                    // Decode the ID token again to pull extra user info
+                    DecodedJWT jwt = JWT.decode(tokenResponse.getIdToken());
+                    String email = jwt.getClaim("email").asString();
+                    String firstName = jwt.getClaim("username").asString();
+                    String password = jwt.getClaim("password").asString();
+
+                    User newUser = new User();
+                    newUser.setEmail(email);
+                    newUser.setFirstName(firstName);
+                    newUser.setPassword(password);
+
+                    userDao.insertUser(newUser);
+                    logger.debug("Inserted new user");
+                } else {
+                    logger.debug("User already registered");
+                }
+                User user = new User();
+                user.setEmail(userName);
             } catch (IOException e) {
                 logger.error("Error getting or validating the token: " + e.getMessage(), e);
                 //TODO forward to an error page

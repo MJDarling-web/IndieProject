@@ -29,6 +29,28 @@ started plan! Started to put it in Github as issues but wanted a more central sp
   * [ ] Authentication implemented - **Week 8**. Add link to your deployed application here.
 - _Saturday_ [ ] **Week 9** RESTful API exercise
 
+> Week 11 breakdown - Check point 3 (week 7), week 9, week 11
+* [ ] _Sunday_ 4-5 hours 
+* - [X] Last of Week 10 activity, 
+  - [x] Review authentication material from week 7
+  - [x] Exercise for week 7 
+
+- _Monday_ 
+  - [x] Exercise for week 7
+  - [ ] TODOs for week 7 exercise   
+  - [ ] Authentication to project from week 7
+  - [ ] Submit check point 3
+  - [ ] Start Week 9 Restful API material
+- _Tuesday_
+  * [ ] Finish and Submit group work material 
+  * [ ] Indie Project - see suggestions below do 1 of them
+  * [ ] Week 11 start
+- _Wednesday_
+  - [ ] Week 11 continue / indie project
+- _Thursday_ 
+  - [ ] Indie project - see suggestions below do 2 of them
+- 
+- 
 > Indie project 
 - [ ] check point 3
 

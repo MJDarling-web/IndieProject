@@ -3,31 +3,17 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Users</title>
+head>
+<title>Login</title>
 </head>
 <body>
-<h1>User List</h1>
-<table border="1">
-    <thead>
-    <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Email</th>
-    </tr>
-    </thead>
-    <tbody>
-    <!-- Loop through the list of users -->
-    <c:forEach var="user" items="${users}">
-        <tr>
-            <td>${user.firstName}</td>
-            <td>${user.lastName}</td>
-            <td>${user.email}</td>
-        </tr>
-    </c:forEach>
-    </tbody>
-</table>
+<c:choose>
+    <c:when test="${empty userName}">
+        <a href = "logIn">Log in</a>
+    </c:when>
+    <c:otherwise>
+        <h3>Welcome ${userName}</h3>
+    </c:otherwise>
+</c:choose>
 </body>
 </html>

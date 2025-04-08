@@ -102,8 +102,18 @@ Does have @Entity, is mapped correctly in hibernate.cfg.xml, is in pom file, and
 - [ ] finish unit tests for dao files
 - [ ] Log4J is implemented (no System.out.printlns)
 
+### Week 10 
+-[x] Week 10 exercise:
+  * 30 minutes: 4/1 530-6pm Started branching exercise 30 minutes
+  * branching exercise 8am-9am
+-[x] 730pm-930pm team project and merging
+-[ ] week 9 exercise and implemented in project
+-[ ] Check point 3
+-[ ] JSP pages
+-[ ] Log4J
+
 ### Checkpoint 3:
-- [ ] Deployed to AWS, 
-- [ ] at least one JSP that displays data from the database is implemented 
+- ~~[X]~~ Got it deployed to AWS but was being charged for using the database :( maybe someone else knows of a way to do this with a home server or an alternative to AWS? ~~Deployed to AWS~~, 
+- [x] at least one JSP that displays data from the database is implemented 
 - [ ] authentication implemented. 
-- [ ] Add link to your deployed application https://paulawaite.com/education/java113/IndividualProject.html
+- ~~[ ]~~ ~~Add link to your deployed application~~ https://paulawaite.com/education/java113/IndividualProject.html

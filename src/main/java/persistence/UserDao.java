@@ -49,4 +49,36 @@ public class UserDao {
         }
         return usersList;
     }
+    /**
+     * insert a new user or update a user
+     * @param user the User to save or update
+     */
+    public void insertUser(User user) {
+        Transaction transaction = null;
+        try (Session session = sessionFactory.openSession()) {
+            transaction = session.beginTransaction();
+            session.save(user);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback();
+            logger.error("Error inserting user: ", e);
+        }
+    }
+
+    /* get user by email address
+     * @param email
+     */
+
+    public User getByEmail(String email) {
+        User user = null;
+        try (Session session = sessionFactory.openSession()) {
+            user = session.createQuery("FROM User WHERE email = :email", User.class)
+                    .setParameter("email", email)
+                    .uniqueResult();
+        } catch (Exception e) {
+            logger.error("Error getting user by email", e);
+        }
+        return user;
+    }
+
 }

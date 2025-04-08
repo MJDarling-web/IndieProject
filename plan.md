@@ -11,7 +11,7 @@ started plan! Started to put it in Github as issues but wanted a more central sp
 
 ## creating project 
 - [x]create necessary pom and configure tomcat accurate deployment  
-- [ ] Finish directory structure of project
+- [x] Finish directory structure of project
 - [x]Start JSP files
 - [x] Update pom to have hibernate for deployment
 - [X] List out DB tables needed
@@ -24,9 +24,9 @@ started plan! Started to put it in Github as issues but wanted a more central sp
 - _Wednesday_ [x] Team meeting at 430-530 start team project that night
 - _Thursday Night_ [x] Team project work - mostly done w entities
 - _Friday Night_ [ ] Checkpoint 3 chugg along for completion by Sunday night.
-  * [ ] Deployed to AWS - **week 7**, 
+  * [ / ] Deployed to AWS - **week 7**, 
   * [x] at least one JSP that displays data from the database is implemented, 
-  * [ ] Authentication implemented - **Week 8**. Add link to your deployed application here.
+  * [x] Authentication implemented - **Week 8**. Add link to your deployed application here.
 - _Saturday_ [ ] **Week 9** RESTful API exercise
 
 > Week 11 breakdown - Check point 3 (week 7), week 9, week 11
@@ -38,7 +38,8 @@ started plan! Started to put it in Github as issues but wanted a more central sp
 - _Monday_ 
   - [x] Exercise for week 7
   - [ ] TODOs for week 7 exercise   
-  - [ ] Authentication to project from week 7
+  - [x] Authentication to project from week 7
+  - [ ] Add new users to database after cognito
   - [ ] Submit check point 3
   - [ ] Start Week 9 Restful API material
 - _Tuesday_

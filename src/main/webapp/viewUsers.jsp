@@ -5,6 +5,8 @@
 <html lang="en">
 head>
 <title>Login</title>
+<link rel="stylesheet" href="style/main.css" type="text/css" />
+
 </head>
 <body>
 <c:choose>

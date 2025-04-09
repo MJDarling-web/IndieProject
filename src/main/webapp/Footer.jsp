@@ -10,6 +10,8 @@
 <html>
 <head>
     <title>Footer</title>
+    <link rel="stylesheet" href="style/main.css" type="text/css" />
+
 </head>
 <body>
 

@@ -4,26 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Commuter Cost Calculator</title>
-    <style>
-        body {
-            text-align: center;
-            font-family: Arial, sans-serif;
-            margin: 30px;
-        }
-        label {
-            display: block;
-            margin-top: 10px;
-        }
-        input, select {
-            margin-top: 5px;
-            padding: 5px;
-            font-size: 16px;
-        }
-        #result {
-            margin-top: 20px;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="style/main.css" type="text/css" />
 </head>
 <body>
 <%@include file="Header.jsp" %>
@@ -34,10 +15,10 @@
 <form id="commuteForm">
     <label for="miles">Enter your commute distance (miles):</label>
     <input type="number" id="miles" name="miles" required>
-
+    <br>
     <label for="daysPerWeek">How many days per week do you commute to work?</label>
     <input type="number" id="daysPerWeek" name="daysPerWeek" required>
-
+    <br>
     <label for="transportation">Choose your mode of transportation:</label>
     <select id="transportation" name="transportation">
         <option value="car">Car</option>
@@ -45,6 +26,7 @@
         <option value="bike">Bike</option>
         <option value="walk">Walk</option>
     </select>
+    <br>
 
     <button type="button" onclick="calculateCommuteCost()">Calculate</button>
 </form>

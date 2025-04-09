@@ -11,6 +11,8 @@
 <html>
 <head>
     <title>Comparison Results</title>
+    <link rel="stylesheet" href="style/main.css" type="text/css" />
+
 </head>
 <body>
 <%@include file="Header.jsp" %>

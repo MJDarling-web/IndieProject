@@ -11,6 +11,7 @@
 <html>
 <head>
   <title>User Profile</title>
+  <link rel="stylesheet" href="style/main.css" type="text/css" />
 </head>
 <body>
 <h1>Hello, ${sessionScope.userName}!</h1>

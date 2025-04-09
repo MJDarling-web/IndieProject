@@ -1,12 +1,14 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@include file="taglib.jsp" %>
+<%@include file="Header.jsp" %>
 <html>
 <head>
     <title>Commuting Cost Log</title>
+    <link rel="stylesheet" href="style/main.css" type="text/css" />
 </head>
 <body>
 <%@include file="taglib.jsp" %>
-<%@include file="Header.jsp" %>
+
 
 <h2>Your Commuting Logs</h2>
 

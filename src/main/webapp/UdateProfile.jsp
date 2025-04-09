@@ -12,6 +12,8 @@
 <html>
 <head>
     <title>Update Profile</title>
+    <link rel="stylesheet" href="style/main.css" type="text/css" />
+
 </head>
 <body>
   <!-- A page one can navigate to if they need to update their profile or change details -->

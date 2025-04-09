@@ -55,20 +55,34 @@ public class UserDao {
      */
     public void insertUser(User user) {
         Transaction transaction = null;
-        try (Session session = sessionFactory.openSession()) {
+        Session session = null;
+        try {
+            session = sessionFactory.openSession();
             transaction = session.beginTransaction();
-            session.save(user);
+
+            session.merge(user);
+
             transaction.commit();
         } catch (Exception e) {
-            if (transaction != null) transaction.rollback();
+            if (transaction != null && transaction.getStatus().canRollback()) {
+                try {
+                    transaction.rollback();
+                } catch (Exception rollbackEx) {
+                    logger.error("Rollback failed: ", rollbackEx);
+                }
+            }
             logger.error("Error inserting user: ", e);
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
         }
     }
+
 
     /* get user by email address
      * @param email
      */
-
     public User getByEmail(String email) {
         User user = null;
         try (Session session = sessionFactory.openSession()) {

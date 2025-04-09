@@ -1,0 +1,7 @@
+client.secret=dfqvg1qpt6l9r8s9vrs6u9euisqnc2r9pm7crmkgnfqvfr60etb
+client.id=gd3bnmkhkbbierekf5gmjak4o
+oauthURL=https://us-east-2zfukcvlvl.auth.us-east-2.amazoncognito.com/oauth2/token
+loginURL=https://us-east-2zfukcvlvl.auth.us-east-2.amazoncognito.com/login
+redirectURL=http://localhost:9090/CommutingImpact_war/auth
+region=us-east-2
+poolId=us-east-2_ZFuKCvlvL

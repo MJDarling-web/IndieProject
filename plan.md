@@ -37,23 +37,29 @@ started plan! Started to put it in Github as issues but wanted a more central sp
 
 - _Monday_ 
   - [x] Exercise for week 7
-  - [ ] TODOs for week 7 exercise   
+  - [x] TODOs for week 7 exercise   
   - [x] Authentication to project from week 7
-  - [ ] Add new users to database after cognito
-  - [ ] Submit check point 3
+  - [x] Add new users to database after cognito
+  - [x] Submit check point 3
   - [ ] Start Week 9 Restful API material
 - _Tuesday_
-  * [ ] Finish and Submit group work material 
+  * [x] Finish and Submit group work material 
   * [ ] Indie Project - see suggestions below do 1 of them
-  * [ ] Week 11 start
+  * [x] Week 11 start
 - _Wednesday_
-  - [ ] Week 11 continue / indie project
+  - [x] Week 11 continue / indie project
 - _Thursday_ 
+
+- Week 12
+  - [ ] Complete group project recording and meetings
+  - [ ] Complete JSP pages indie project
+  - [ ] Complete 
+  - [ ] Start Week 9 Restful API material
   - [ ] Indie project - see suggestions below do 2 of them
 - 
 - 
 > Indie project 
-- [ ] check point 3
+- [x] check point 3
 
 - **suggestions for module 3 to stay on time:**
 - [ ] Create all entities and daos (remember to use a generic/abstract dao to minimize the number of daos you need to write)

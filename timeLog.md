@@ -117,3 +117,6 @@ Does have @Entity, is mapped correctly in hibernate.cfg.xml, is in pom file, and
 - [x] at least one JSP that displays data from the database is implemented 
 - [ ] authentication implemented. 
 - ~~[ ]~~ ~~Add link to your deployed application~~ https://paulawaite.com/education/java113/IndividualProject.html
+
+### Week 12? 
+45 minutes revisiting plan, updating needed criteria for finalizing project, re-planned jsp pages. Created list for to-do's needed to be done for peer review in week 13. 

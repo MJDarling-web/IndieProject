@@ -120,3 +120,4 @@ Does have @Entity, is mapped correctly in hibernate.cfg.xml, is in pom file, and
 
 ### Week 12? 
 45 minutes revisiting plan, updating needed criteria for finalizing project, re-planned jsp pages. Created list for to-do's needed to be done for peer review in week 13. 
+4/23 - 2.5 hours getting your commuting logs to generate by correct user who is logged in, by query hql request, also fixed congnito request, add commuting log servlet request, auth, profile fixes and userDao fixes.

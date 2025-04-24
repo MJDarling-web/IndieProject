@@ -5,6 +5,8 @@ import entity.User;
 import persistence.GenericDao;
 
 import jakarta.persistence.*;
+import persistence.UserDao;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,43 +15,59 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
-
-@WebServlet("/ComparisonResults")
+@WebServlet("/addCommutingLog")
 public class AddCommutingLogServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // Get the logged-in user's ID (you might use session or another method)
         int userId = getLoggedInUserId(req);
 
-        // Retrieve the form parameters
+        // Grab form inputs
         String commuteType = req.getParameter("commuteType");
         double timeSpent = Double.parseDouble(req.getParameter("timeSpent"));
         double distanceInMiles = Double.parseDouble(req.getParameter("distanceInMiles"));
         double cost = Double.parseDouble(req.getParameter("cost"));
 
-        // Create a new CommutingLog instance
+        // Create and populate log
         CommutingLog log = new CommutingLog();
         log.setCommuteType(commuteType);
         log.setTimeSpent(timeSpent);
         log.setDistanceInMiles(distanceInMiles);
         log.setCost(cost);
+        log.setDate(new java.util.Date());
 
-        // Set the user for the log
-        User user = new User();
-        user.setId(userId);  // Set the ID of the logged-in user
+        // Assign user by ID
+        UserDao userDao = new UserDao();
+        User user = userDao.getById(userId);
         log.setUser(user);
 
-        // Save the log to the database
+        // Save
         GenericDao<CommutingLog> commutingLogDao = new GenericDao<>(CommutingLog.class);
         commutingLogDao.insert(log);
 
-        // Redirect back to the view page to see the updated list of logs
-        resp.sendRedirect("ComparisonResults.jsp");
+        // update to show updated logs
+        String hql = "from CommutingLog where user.id=" + user.getId();
+        List<CommutingLog> userLogs = commutingLogDao.getByCustomQuery(hql);
+        req.setAttribute("commutingLogs", userLogs);
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("CommutingCostLog.jsp");
+        dispatcher.forward(req, resp);
     }
 
-    // Example method to get the logged-in user's ID
     private int getLoggedInUserId(HttpServletRequest req) {
-        return (int) req.getSession().getAttribute("userId");
+        String userEmail = (String) req.getSession().getAttribute("userName");
+
+        if (userEmail == null) {
+            throw new IllegalStateException("No user is logged in.");
+        }
+
+        UserDao userDao = new UserDao();
+        User user = userDao.getByEmail(userEmail);
+
+        if (user == null) {
+            throw new IllegalStateException("User not found in the database.");
+        }
+
+        return user.getId();
     }
 }

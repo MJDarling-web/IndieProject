@@ -8129,3 +8129,570 @@ Caused by: javax.el.PropertyNotFoundException: Property 'durationInMinutes' not 
 [INFO ] 2025-04-08 20:57:48.936 [http-nio-9090-exec-2] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
 [INFO ] 2025-04-08 20:57:48.937 [http-nio-9090-exec-2] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
 [INFO ] 2025-04-08 20:57:48.961 [http-nio-9090-exec-2] ViewCommutingLogsServlet - Fetched 1 commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:24:55.268 [http-nio-9090-exec-7] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:24:55.273 [http-nio-9090-exec-7] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:24:57.162 [http-nio-9090-exec-7] ViewCommutingLogsServlet - Fetched 1 commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:25:15.538 [http-nio-9090-exec-9] ViewUsersServlet - connected
+[INFO ] 2025-04-23 19:25:15.547 [http-nio-9090-exec-9] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}, User{id=935, firstName='null', lastName='null', email='micahjdarling@gmail.com'}]
+[INFO ] 2025-04-23 19:28:52.140 [http-nio-9090-exec-7] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:28:52.142 [http-nio-9090-exec-7] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:28:52.155 [http-nio-9090-exec-7] ViewCommutingLogsServlet - Fetched 2 commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:30:33.889 [http-nio-9090-exec-10] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:30:33.893 [http-nio-9090-exec-10] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[ERROR] 2025-04-23 19:30:33.971 [http-nio-9090-exec-10] ViewCommutingLogsServlet - Error occurred while fetching commuting logs for user ID: 1
+org.hibernate.PropertyAccessException: Null value was assigned to a property [class entity.CommutingLog.timeSpent] of primitive type: 'entity.CommutingLog.timeSpent' (setter)
+	at org.hibernate.property.access.spi.SetterFieldImpl.set(SetterFieldImpl.java:63) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.setPropertyValues(AbstractEntityPersister.java:4476) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.initializeEntityInstance(AbstractEntityInitializer.java:853) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.initializeEntity(AbstractEntityInitializer.java:813) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.initializeInstance(AbstractEntityInitializer.java:799) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.internal.InitializersList.initializeInstance(InitializersList.java:70) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.internal.StandardRowReader.coordinateInitializers(StandardRowReader.java:109) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.internal.StandardRowReader.readRow(StandardRowReader.java:86) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:203) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:33) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:209) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:83) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:76) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:65) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.lambda$new$2(ConcreteSqmSelectQueryPlan.java:137) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.withCacheableSqmInterpretation(ConcreteSqmSelectQueryPlan.java:362) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.performList(ConcreteSqmSelectQueryPlan.java:303) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.QuerySqmImpl.doList(QuerySqmImpl.java:509) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:427) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.Query.getResultList(Query.java:120) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at persistence.GenericDao.getByCustomQuery(GenericDao.java:149) ~[classes/:?]
+	at controller.ViewCommutingLogsServlet.doGet(ViewCommutingLogsServlet.java:44) [classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622) [servlet-api.jar:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729) [servlet-api.jar:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:230) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) [catalina.jar:8.5.5]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) [tomcat-websocket.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:108) [catalina.jar:8.5.5]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [catalina.jar:8.5.5]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79) [catalina.jar:8.5.5]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:620) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [catalina.jar:8.5.5]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:349) [catalina.jar:8.5.5]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:784) [tomcat-coyote.jar:8.5.5]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-coyote.jar:8.5.5]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:802) [tomcat-coyote.jar:8.5.5]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1410) [tomcat-coyote.jar:8.5.5]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-coyote.jar:8.5.5]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-util.jar:8.5.5]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+Caused by: java.lang.IllegalArgumentException: Can not set double field entity.CommutingLog.timeSpent to null value
+	at jdk.internal.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:167) ~[?:?]
+	at jdk.internal.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:171) ~[?:?]
+	at jdk.internal.reflect.UnsafeDoubleFieldAccessorImpl.set(UnsafeDoubleFieldAccessorImpl.java:80) ~[?:?]
+	at java.lang.reflect.Field.set(Field.java:780) ~[?:?]
+	at org.hibernate.property.access.spi.SetterFieldImpl.set(SetterFieldImpl.java:57) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	... 45 more
+[INFO ] 2025-04-23 19:30:34.662 [http-nio-9090-exec-1] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:30:34.662 [http-nio-9090-exec-1] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[ERROR] 2025-04-23 19:30:34.669 [http-nio-9090-exec-1] ViewCommutingLogsServlet - Error occurred while fetching commuting logs for user ID: 1
+org.hibernate.PropertyAccessException: Null value was assigned to a property [class entity.CommutingLog.timeSpent] of primitive type: 'entity.CommutingLog.timeSpent' (setter)
+	at org.hibernate.property.access.spi.SetterFieldImpl.set(SetterFieldImpl.java:63) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.setPropertyValues(AbstractEntityPersister.java:4476) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.initializeEntityInstance(AbstractEntityInitializer.java:853) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.initializeEntity(AbstractEntityInitializer.java:813) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.initializeInstance(AbstractEntityInitializer.java:799) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.internal.InitializersList.initializeInstance(InitializersList.java:70) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.internal.StandardRowReader.coordinateInitializers(StandardRowReader.java:109) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.internal.StandardRowReader.readRow(StandardRowReader.java:86) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:203) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:33) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:209) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:83) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:76) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:65) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.lambda$new$2(ConcreteSqmSelectQueryPlan.java:137) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.withCacheableSqmInterpretation(ConcreteSqmSelectQueryPlan.java:362) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.performList(ConcreteSqmSelectQueryPlan.java:303) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.QuerySqmImpl.doList(QuerySqmImpl.java:509) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:427) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.Query.getResultList(Query.java:120) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at persistence.GenericDao.getByCustomQuery(GenericDao.java:149) ~[classes/:?]
+	at controller.ViewCommutingLogsServlet.doGet(ViewCommutingLogsServlet.java:44) [classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622) [servlet-api.jar:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729) [servlet-api.jar:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:230) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) [catalina.jar:8.5.5]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) [tomcat-websocket.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:108) [catalina.jar:8.5.5]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [catalina.jar:8.5.5]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79) [catalina.jar:8.5.5]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:620) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [catalina.jar:8.5.5]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:349) [catalina.jar:8.5.5]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:784) [tomcat-coyote.jar:8.5.5]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-coyote.jar:8.5.5]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:802) [tomcat-coyote.jar:8.5.5]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1410) [tomcat-coyote.jar:8.5.5]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-coyote.jar:8.5.5]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-util.jar:8.5.5]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+Caused by: java.lang.IllegalArgumentException: Can not set double field entity.CommutingLog.timeSpent to null value
+	at jdk.internal.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:167) ~[?:?]
+	at jdk.internal.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:171) ~[?:?]
+	at jdk.internal.reflect.UnsafeDoubleFieldAccessorImpl.set(UnsafeDoubleFieldAccessorImpl.java:80) ~[?:?]
+	at java.lang.reflect.Field.set(Field.java:780) ~[?:?]
+	at org.hibernate.property.access.spi.SetterFieldImpl.set(SetterFieldImpl.java:57) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	... 45 more
+[INFO ] 2025-04-23 19:30:35.750 [http-nio-9090-exec-2] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:30:35.751 [http-nio-9090-exec-2] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[ERROR] 2025-04-23 19:30:35.759 [http-nio-9090-exec-2] ViewCommutingLogsServlet - Error occurred while fetching commuting logs for user ID: 1
+org.hibernate.PropertyAccessException: Null value was assigned to a property [class entity.CommutingLog.timeSpent] of primitive type: 'entity.CommutingLog.timeSpent' (setter)
+	at org.hibernate.property.access.spi.SetterFieldImpl.set(SetterFieldImpl.java:63) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.setPropertyValues(AbstractEntityPersister.java:4476) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.initializeEntityInstance(AbstractEntityInitializer.java:853) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.initializeEntity(AbstractEntityInitializer.java:813) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.initializeInstance(AbstractEntityInitializer.java:799) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.internal.InitializersList.initializeInstance(InitializersList.java:70) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.internal.StandardRowReader.coordinateInitializers(StandardRowReader.java:109) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.internal.StandardRowReader.readRow(StandardRowReader.java:86) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:203) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:33) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:209) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:83) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:76) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:65) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.lambda$new$2(ConcreteSqmSelectQueryPlan.java:137) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.withCacheableSqmInterpretation(ConcreteSqmSelectQueryPlan.java:362) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.performList(ConcreteSqmSelectQueryPlan.java:303) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.QuerySqmImpl.doList(QuerySqmImpl.java:509) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:427) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.Query.getResultList(Query.java:120) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at persistence.GenericDao.getByCustomQuery(GenericDao.java:149) ~[classes/:?]
+	at controller.ViewCommutingLogsServlet.doGet(ViewCommutingLogsServlet.java:44) [classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622) [servlet-api.jar:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729) [servlet-api.jar:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:230) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) [catalina.jar:8.5.5]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) [tomcat-websocket.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:108) [catalina.jar:8.5.5]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [catalina.jar:8.5.5]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79) [catalina.jar:8.5.5]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:620) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [catalina.jar:8.5.5]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:349) [catalina.jar:8.5.5]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:784) [tomcat-coyote.jar:8.5.5]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-coyote.jar:8.5.5]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:802) [tomcat-coyote.jar:8.5.5]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1410) [tomcat-coyote.jar:8.5.5]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-coyote.jar:8.5.5]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-util.jar:8.5.5]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+Caused by: java.lang.IllegalArgumentException: Can not set double field entity.CommutingLog.timeSpent to null value
+	at jdk.internal.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:167) ~[?:?]
+	at jdk.internal.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:171) ~[?:?]
+	at jdk.internal.reflect.UnsafeDoubleFieldAccessorImpl.set(UnsafeDoubleFieldAccessorImpl.java:80) ~[?:?]
+	at java.lang.reflect.Field.set(Field.java:780) ~[?:?]
+	at org.hibernate.property.access.spi.SetterFieldImpl.set(SetterFieldImpl.java:57) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	... 45 more
+[INFO ] 2025-04-23 19:30:38.983 [http-nio-9090-exec-3] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:30:38.983 [http-nio-9090-exec-3] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[ERROR] 2025-04-23 19:30:38.998 [http-nio-9090-exec-3] ViewCommutingLogsServlet - Error occurred while fetching commuting logs for user ID: 1
+org.hibernate.PropertyAccessException: Null value was assigned to a property [class entity.CommutingLog.timeSpent] of primitive type: 'entity.CommutingLog.timeSpent' (setter)
+	at org.hibernate.property.access.spi.SetterFieldImpl.set(SetterFieldImpl.java:63) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.setPropertyValues(AbstractEntityPersister.java:4476) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.initializeEntityInstance(AbstractEntityInitializer.java:853) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.initializeEntity(AbstractEntityInitializer.java:813) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.initializeInstance(AbstractEntityInitializer.java:799) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.internal.InitializersList.initializeInstance(InitializersList.java:70) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.internal.StandardRowReader.coordinateInitializers(StandardRowReader.java:109) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.internal.StandardRowReader.readRow(StandardRowReader.java:86) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:203) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:33) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:209) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:83) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:76) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:65) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.lambda$new$2(ConcreteSqmSelectQueryPlan.java:137) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.withCacheableSqmInterpretation(ConcreteSqmSelectQueryPlan.java:362) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.performList(ConcreteSqmSelectQueryPlan.java:303) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.QuerySqmImpl.doList(QuerySqmImpl.java:509) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:427) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.Query.getResultList(Query.java:120) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at persistence.GenericDao.getByCustomQuery(GenericDao.java:149) ~[classes/:?]
+	at controller.ViewCommutingLogsServlet.doGet(ViewCommutingLogsServlet.java:44) [classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622) [servlet-api.jar:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729) [servlet-api.jar:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:230) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) [catalina.jar:8.5.5]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) [tomcat-websocket.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:108) [catalina.jar:8.5.5]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [catalina.jar:8.5.5]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79) [catalina.jar:8.5.5]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:620) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [catalina.jar:8.5.5]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:349) [catalina.jar:8.5.5]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:784) [tomcat-coyote.jar:8.5.5]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-coyote.jar:8.5.5]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:802) [tomcat-coyote.jar:8.5.5]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1410) [tomcat-coyote.jar:8.5.5]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-coyote.jar:8.5.5]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-util.jar:8.5.5]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+Caused by: java.lang.IllegalArgumentException: Can not set double field entity.CommutingLog.timeSpent to null value
+	at jdk.internal.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:167) ~[?:?]
+	at jdk.internal.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:171) ~[?:?]
+	at jdk.internal.reflect.UnsafeDoubleFieldAccessorImpl.set(UnsafeDoubleFieldAccessorImpl.java:80) ~[?:?]
+	at java.lang.reflect.Field.set(Field.java:780) ~[?:?]
+	at org.hibernate.property.access.spi.SetterFieldImpl.set(SetterFieldImpl.java:57) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	... 45 more
+[INFO ] 2025-04-23 19:31:16.209 [http-nio-9090-exec-5] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:31:16.211 [http-nio-9090-exec-5] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[ERROR] 2025-04-23 19:31:16.225 [http-nio-9090-exec-5] ViewCommutingLogsServlet - Error occurred while fetching commuting logs for user ID: 1
+org.hibernate.PropertyAccessException: Null value was assigned to a property [class entity.CommutingLog.timeSpent] of primitive type: 'entity.CommutingLog.timeSpent' (setter)
+	at org.hibernate.property.access.spi.SetterFieldImpl.set(SetterFieldImpl.java:63) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.setPropertyValues(AbstractEntityPersister.java:4476) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.initializeEntityInstance(AbstractEntityInitializer.java:853) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.initializeEntity(AbstractEntityInitializer.java:813) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.initializeInstance(AbstractEntityInitializer.java:799) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.internal.InitializersList.initializeInstance(InitializersList.java:70) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.internal.StandardRowReader.coordinateInitializers(StandardRowReader.java:109) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.internal.StandardRowReader.readRow(StandardRowReader.java:86) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:203) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:33) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:209) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:83) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:76) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:65) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.lambda$new$2(ConcreteSqmSelectQueryPlan.java:137) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.withCacheableSqmInterpretation(ConcreteSqmSelectQueryPlan.java:362) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.performList(ConcreteSqmSelectQueryPlan.java:303) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.QuerySqmImpl.doList(QuerySqmImpl.java:509) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:427) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.Query.getResultList(Query.java:120) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at persistence.GenericDao.getByCustomQuery(GenericDao.java:149) ~[classes/:?]
+	at controller.ViewCommutingLogsServlet.doGet(ViewCommutingLogsServlet.java:44) [classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622) [servlet-api.jar:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729) [servlet-api.jar:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:230) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) [catalina.jar:8.5.5]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) [tomcat-websocket.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:108) [catalina.jar:8.5.5]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [catalina.jar:8.5.5]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79) [catalina.jar:8.5.5]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:620) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [catalina.jar:8.5.5]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:349) [catalina.jar:8.5.5]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:784) [tomcat-coyote.jar:8.5.5]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-coyote.jar:8.5.5]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:802) [tomcat-coyote.jar:8.5.5]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1410) [tomcat-coyote.jar:8.5.5]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-coyote.jar:8.5.5]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-util.jar:8.5.5]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+Caused by: java.lang.IllegalArgumentException: Can not set double field entity.CommutingLog.timeSpent to null value
+	at jdk.internal.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:167) ~[?:?]
+	at jdk.internal.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:171) ~[?:?]
+	at jdk.internal.reflect.UnsafeDoubleFieldAccessorImpl.set(UnsafeDoubleFieldAccessorImpl.java:80) ~[?:?]
+	at java.lang.reflect.Field.set(Field.java:780) ~[?:?]
+	at org.hibernate.property.access.spi.SetterFieldImpl.set(SetterFieldImpl.java:57) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	... 45 more
+[INFO ] 2025-04-23 19:31:16.734 [http-nio-9090-exec-6] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:31:16.734 [http-nio-9090-exec-6] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[ERROR] 2025-04-23 19:31:16.740 [http-nio-9090-exec-6] ViewCommutingLogsServlet - Error occurred while fetching commuting logs for user ID: 1
+org.hibernate.PropertyAccessException: Null value was assigned to a property [class entity.CommutingLog.timeSpent] of primitive type: 'entity.CommutingLog.timeSpent' (setter)
+	at org.hibernate.property.access.spi.SetterFieldImpl.set(SetterFieldImpl.java:63) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.setPropertyValues(AbstractEntityPersister.java:4476) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.initializeEntityInstance(AbstractEntityInitializer.java:853) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.initializeEntity(AbstractEntityInitializer.java:813) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.initializeInstance(AbstractEntityInitializer.java:799) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.internal.InitializersList.initializeInstance(InitializersList.java:70) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.internal.StandardRowReader.coordinateInitializers(StandardRowReader.java:109) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.internal.StandardRowReader.readRow(StandardRowReader.java:86) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:203) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:33) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:209) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:83) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:76) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:65) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.lambda$new$2(ConcreteSqmSelectQueryPlan.java:137) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.withCacheableSqmInterpretation(ConcreteSqmSelectQueryPlan.java:362) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.performList(ConcreteSqmSelectQueryPlan.java:303) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.QuerySqmImpl.doList(QuerySqmImpl.java:509) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:427) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.Query.getResultList(Query.java:120) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at persistence.GenericDao.getByCustomQuery(GenericDao.java:149) ~[classes/:?]
+	at controller.ViewCommutingLogsServlet.doGet(ViewCommutingLogsServlet.java:44) [classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622) [servlet-api.jar:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729) [servlet-api.jar:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:230) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) [catalina.jar:8.5.5]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) [tomcat-websocket.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:108) [catalina.jar:8.5.5]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [catalina.jar:8.5.5]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79) [catalina.jar:8.5.5]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:620) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [catalina.jar:8.5.5]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:349) [catalina.jar:8.5.5]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:784) [tomcat-coyote.jar:8.5.5]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-coyote.jar:8.5.5]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:802) [tomcat-coyote.jar:8.5.5]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1410) [tomcat-coyote.jar:8.5.5]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-coyote.jar:8.5.5]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-util.jar:8.5.5]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+Caused by: java.lang.IllegalArgumentException: Can not set double field entity.CommutingLog.timeSpent to null value
+	at jdk.internal.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:167) ~[?:?]
+	at jdk.internal.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:171) ~[?:?]
+	at jdk.internal.reflect.UnsafeDoubleFieldAccessorImpl.set(UnsafeDoubleFieldAccessorImpl.java:80) ~[?:?]
+	at java.lang.reflect.Field.set(Field.java:780) ~[?:?]
+	at org.hibernate.property.access.spi.SetterFieldImpl.set(SetterFieldImpl.java:57) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	... 45 more
+[INFO ] 2025-04-23 19:31:27.345 [http-nio-9090-exec-7] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:31:27.348 [http-nio-9090-exec-7] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[ERROR] 2025-04-23 19:31:27.360 [http-nio-9090-exec-7] ViewCommutingLogsServlet - Error occurred while fetching commuting logs for user ID: 1
+org.hibernate.PropertyAccessException: Null value was assigned to a property [class entity.CommutingLog.timeSpent] of primitive type: 'entity.CommutingLog.timeSpent' (setter)
+	at org.hibernate.property.access.spi.SetterFieldImpl.set(SetterFieldImpl.java:63) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.setPropertyValues(AbstractEntityPersister.java:4476) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.initializeEntityInstance(AbstractEntityInitializer.java:853) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.initializeEntity(AbstractEntityInitializer.java:813) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.initializeInstance(AbstractEntityInitializer.java:799) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.internal.InitializersList.initializeInstance(InitializersList.java:70) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.internal.StandardRowReader.coordinateInitializers(StandardRowReader.java:109) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.internal.StandardRowReader.readRow(StandardRowReader.java:86) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:203) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:33) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:209) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:83) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:76) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:65) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.lambda$new$2(ConcreteSqmSelectQueryPlan.java:137) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.withCacheableSqmInterpretation(ConcreteSqmSelectQueryPlan.java:362) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.performList(ConcreteSqmSelectQueryPlan.java:303) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.QuerySqmImpl.doList(QuerySqmImpl.java:509) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:427) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.Query.getResultList(Query.java:120) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at persistence.GenericDao.getByCustomQuery(GenericDao.java:149) ~[classes/:?]
+	at controller.ViewCommutingLogsServlet.doGet(ViewCommutingLogsServlet.java:44) [classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622) [servlet-api.jar:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729) [servlet-api.jar:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:230) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) [catalina.jar:8.5.5]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) [tomcat-websocket.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:108) [catalina.jar:8.5.5]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [catalina.jar:8.5.5]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79) [catalina.jar:8.5.5]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:620) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [catalina.jar:8.5.5]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:349) [catalina.jar:8.5.5]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:784) [tomcat-coyote.jar:8.5.5]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-coyote.jar:8.5.5]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:802) [tomcat-coyote.jar:8.5.5]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1410) [tomcat-coyote.jar:8.5.5]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-coyote.jar:8.5.5]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-util.jar:8.5.5]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+Caused by: java.lang.IllegalArgumentException: Can not set double field entity.CommutingLog.timeSpent to null value
+	at jdk.internal.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:167) ~[?:?]
+	at jdk.internal.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:171) ~[?:?]
+	at jdk.internal.reflect.UnsafeDoubleFieldAccessorImpl.set(UnsafeDoubleFieldAccessorImpl.java:80) ~[?:?]
+	at java.lang.reflect.Field.set(Field.java:780) ~[?:?]
+	at org.hibernate.property.access.spi.SetterFieldImpl.set(SetterFieldImpl.java:57) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	... 45 more
+[INFO ] 2025-04-23 19:31:31.624 [http-nio-9090-exec-9] ViewUsersServlet - connected
+[INFO ] 2025-04-23 19:31:31.629 [http-nio-9090-exec-9] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}, User{id=935, firstName='null', lastName='null', email='micahjdarling@gmail.com'}, User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}]
+[INFO ] 2025-04-23 19:31:34.467 [http-nio-9090-exec-10] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:31:34.468 [http-nio-9090-exec-10] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[ERROR] 2025-04-23 19:31:34.477 [http-nio-9090-exec-10] ViewCommutingLogsServlet - Error occurred while fetching commuting logs for user ID: 1
+org.hibernate.PropertyAccessException: Null value was assigned to a property [class entity.CommutingLog.timeSpent] of primitive type: 'entity.CommutingLog.timeSpent' (setter)
+	at org.hibernate.property.access.spi.SetterFieldImpl.set(SetterFieldImpl.java:63) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.setPropertyValues(AbstractEntityPersister.java:4476) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.initializeEntityInstance(AbstractEntityInitializer.java:853) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.initializeEntity(AbstractEntityInitializer.java:813) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.initializeInstance(AbstractEntityInitializer.java:799) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.internal.InitializersList.initializeInstance(InitializersList.java:70) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.internal.StandardRowReader.coordinateInitializers(StandardRowReader.java:109) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.internal.StandardRowReader.readRow(StandardRowReader.java:86) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:203) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:33) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:209) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:83) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:76) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:65) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.lambda$new$2(ConcreteSqmSelectQueryPlan.java:137) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.withCacheableSqmInterpretation(ConcreteSqmSelectQueryPlan.java:362) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.performList(ConcreteSqmSelectQueryPlan.java:303) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.sqm.internal.QuerySqmImpl.doList(QuerySqmImpl.java:509) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:427) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at org.hibernate.query.Query.getResultList(Query.java:120) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	at persistence.GenericDao.getByCustomQuery(GenericDao.java:149) ~[classes/:?]
+	at controller.ViewCommutingLogsServlet.doGet(ViewCommutingLogsServlet.java:44) [classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622) [servlet-api.jar:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729) [servlet-api.jar:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:230) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) [catalina.jar:8.5.5]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) [tomcat-websocket.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:108) [catalina.jar:8.5.5]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [catalina.jar:8.5.5]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79) [catalina.jar:8.5.5]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:620) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [catalina.jar:8.5.5]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:349) [catalina.jar:8.5.5]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:784) [tomcat-coyote.jar:8.5.5]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-coyote.jar:8.5.5]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:802) [tomcat-coyote.jar:8.5.5]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1410) [tomcat-coyote.jar:8.5.5]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-coyote.jar:8.5.5]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-util.jar:8.5.5]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+Caused by: java.lang.IllegalArgumentException: Can not set double field entity.CommutingLog.timeSpent to null value
+	at jdk.internal.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:167) ~[?:?]
+	at jdk.internal.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:171) ~[?:?]
+	at jdk.internal.reflect.UnsafeDoubleFieldAccessorImpl.set(UnsafeDoubleFieldAccessorImpl.java:80) ~[?:?]
+	at java.lang.reflect.Field.set(Field.java:780) ~[?:?]
+	at org.hibernate.property.access.spi.SetterFieldImpl.set(SetterFieldImpl.java:57) ~[hibernate-core-6.4.3.Final.jar:6.4.3.Final]
+	... 45 more
+[INFO ] 2025-04-23 19:31:56.515 [http-nio-9090-exec-2] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:31:56.517 [http-nio-9090-exec-2] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:31:56.524 [http-nio-9090-exec-2] ViewCommutingLogsServlet - Fetched 3 commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:39:19.087 [http-nio-9090-exec-3] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:39:19.093 [http-nio-9090-exec-3] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:39:20.923 [http-nio-9090-exec-3] ViewCommutingLogsServlet - Fetched 3 commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:39:23.814 [http-nio-9090-exec-6] ViewUsersServlet - connected
+[INFO ] 2025-04-23 19:39:23.823 [http-nio-9090-exec-6] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}, User{id=935, firstName='null', lastName='null', email='micahjdarling@gmail.com'}, User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}]
+[INFO ] 2025-04-23 19:39:29.951 [http-nio-9090-exec-10] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:39:29.953 [http-nio-9090-exec-10] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:39:29.964 [http-nio-9090-exec-10] ViewCommutingLogsServlet - Fetched 3 commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:39:47.136 [http-nio-9090-exec-3] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:39:47.137 [http-nio-9090-exec-3] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:39:47.144 [http-nio-9090-exec-3] ViewCommutingLogsServlet - Fetched 3 commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:47:06.502 [http-nio-9090-exec-4] ViewUsersServlet - connected
+[INFO ] 2025-04-23 19:47:08.295 [http-nio-9090-exec-4] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}, User{id=935, firstName='null', lastName='null', email='micahjdarling@gmail.com'}, User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}]
+[INFO ] 2025-04-23 19:47:14.974 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:47:14.975 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:47:15.000 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Fetched 3 commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:53:11.152 [http-nio-9090-exec-4] ViewUsersServlet - connected
+[INFO ] 2025-04-23 19:53:12.894 [http-nio-9090-exec-4] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}, User{id=935, firstName='null', lastName='null', email='micahjdarling@gmail.com'}, User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}]
+[INFO ] 2025-04-23 19:53:21.609 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:53:21.611 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:53:21.632 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Fetched 3 commuting logs for user ID: 1
+[INFO ] 2025-04-23 19:54:18.977 [http-nio-9090-exec-2] ViewUsersServlet - connected
+[INFO ] 2025-04-23 19:54:19.002 [http-nio-9090-exec-2] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}, User{id=935, firstName='null', lastName='null', email='micahjdarling@gmail.com'}, User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}]
+[INFO ] 2025-04-23 20:02:42.342 [http-nio-9090-exec-4] ViewUsersServlet - connected
+[INFO ] 2025-04-23 20:02:42.358 [http-nio-9090-exec-4] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}, User{id=935, firstName='null', lastName='null', email='micahjdarling@gmail.com'}, User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}]
+[INFO ] 2025-04-23 20:04:05.531 [http-nio-9090-exec-8] ViewUsersServlet - connected
+[INFO ] 2025-04-23 20:04:05.547 [http-nio-9090-exec-8] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}, User{id=935, firstName='null', lastName='null', email='micahjdarling@gmail.com'}, User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}]
+[INFO ] 2025-04-23 20:09:46.246 [http-nio-9090-exec-2] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-23 20:09:46.248 [http-nio-9090-exec-2] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-04-23 20:09:46.260 [http-nio-9090-exec-2] ViewCommutingLogsServlet - Fetched 3 commuting logs for user ID: 1
+[INFO ] 2025-04-23 20:09:47.032 [http-nio-9090-exec-3] ViewUsersServlet - connected
+[INFO ] 2025-04-23 20:09:47.038 [http-nio-9090-exec-3] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}, User{id=935, firstName='null', lastName='null', email='micahjdarling@gmail.com'}, User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}]
+[INFO ] 2025-04-23 20:09:51.022 [http-nio-9090-exec-5] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-23 20:09:51.023 [http-nio-9090-exec-5] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-04-23 20:09:51.034 [http-nio-9090-exec-5] ViewCommutingLogsServlet - Fetched 3 commuting logs for user ID: 1
+[INFO ] 2025-04-23 20:09:53.035 [http-nio-9090-exec-4] ViewUsersServlet - connected
+[INFO ] 2025-04-23 20:09:53.041 [http-nio-9090-exec-4] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}, User{id=935, firstName='null', lastName='null', email='micahjdarling@gmail.com'}, User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}]
+[INFO ] 2025-04-23 20:20:45.822 [http-nio-9090-exec-1] ViewUsersServlet - connected
+[INFO ] 2025-04-23 20:20:45.835 [http-nio-9090-exec-1] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}, User{id=935, firstName='null', lastName='null', email='micahjdarling@gmail.com'}, User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}]
+[INFO ] 2025-04-23 20:20:50.242 [http-nio-9090-exec-2] ViewUsersServlet - connected
+[INFO ] 2025-04-23 20:20:50.249 [http-nio-9090-exec-2] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}, User{id=935, firstName='null', lastName='null', email='micahjdarling@gmail.com'}, User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}]
+[INFO ] 2025-04-23 20:21:16.140 [http-nio-9090-exec-4] ViewUsersServlet - connected
+[INFO ] 2025-04-23 20:21:17.884 [http-nio-9090-exec-4] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}, User{id=935, firstName='null', lastName='null', email='micahjdarling@gmail.com'}, User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}]
+[INFO ] 2025-04-23 20:32:47.582 [http-nio-9090-exec-4] ViewUsersServlet - connected
+[INFO ] 2025-04-23 20:32:49.333 [http-nio-9090-exec-4] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}, User{id=935, firstName='null', lastName='null', email='micahjdarling@gmail.com'}, User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}]
+[INFO ] 2025-04-23 20:32:58.989 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-23 20:32:58.990 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-04-23 20:32:59.013 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Fetched 3 commuting logs for user ID: 1
+[INFO ] 2025-04-23 20:33:40.088 [http-nio-9090-exec-4] ViewUsersServlet - connected
+[INFO ] 2025-04-23 20:33:41.934 [http-nio-9090-exec-4] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}, User{id=935, firstName='null', lastName='null', email='micahjdarling@gmail.com'}, User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}]
+[INFO ] 2025-04-23 20:33:47.966 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-23 20:33:47.966 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-04-23 20:33:47.990 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Fetched 3 commuting logs for user ID: 1
+[INFO ] 2025-04-23 20:33:54.995 [http-nio-9090-exec-10] ViewUsersServlet - connected
+[INFO ] 2025-04-23 20:33:55.008 [http-nio-9090-exec-10] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}, User{id=935, firstName='null', lastName='null', email='micahjdarling@gmail.com'}, User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}]
+[INFO ] 2025-04-23 20:33:59.989 [http-nio-9090-exec-1] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-23 20:33:59.990 [http-nio-9090-exec-1] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-04-23 20:33:59.998 [http-nio-9090-exec-1] ViewCommutingLogsServlet - Fetched 3 commuting logs for user ID: 1
+[INFO ] 2025-04-23 20:37:11.472 [http-nio-9090-exec-5] ViewUsersServlet - connected
+[INFO ] 2025-04-23 20:37:13.278 [http-nio-9090-exec-5] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}, User{id=935, firstName='null', lastName='null', email='micahjdarling@gmail.com'}, User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}]
+[INFO ] 2025-04-23 20:48:54.675 [http-nio-9090-exec-4] ViewUsersServlet - connected
+[INFO ] 2025-04-23 20:48:56.467 [http-nio-9090-exec-4] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}, User{id=935, firstName='null', lastName='null', email='micahjdarling@gmail.com'}, User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}, User{id=953, firstName='null', lastName='null', email='mdarling@madisoncollege.edu'}]
+[INFO ] 2025-04-23 20:49:02.758 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-23 20:49:02.759 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-04-23 20:49:02.781 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Fetched 3 commuting logs for user ID: 1
+[INFO ] 2025-04-23 20:50:02.814 [http-nio-9090-exec-4] ViewUsersServlet - connected
+[INFO ] 2025-04-23 20:50:04.603 [http-nio-9090-exec-4] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}, User{id=935, firstName='null', lastName='null', email='micahjdarling@gmail.com'}, User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}, User{id=953, firstName='null', lastName='null', email='mdarling@madisoncollege.edu'}]
+[INFO ] 2025-04-23 20:50:18.609 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-23 20:50:18.611 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-04-23 20:50:18.649 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Fetched 3 commuting logs for user ID: 1
+[INFO ] 2025-04-23 20:56:20.905 [http-nio-9090-exec-4] ViewUsersServlet - connected
+[INFO ] 2025-04-23 20:56:22.634 [http-nio-9090-exec-4] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}, User{id=935, firstName='null', lastName='null', email='micahjdarling@gmail.com'}, User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}, User{id=953, firstName='null', lastName='null', email='mdarling@madisoncollege.edu'}]
+[INFO ] 2025-04-23 20:56:29.091 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-23 20:56:29.092 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-04-23 20:56:29.124 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Fetched 3 commuting logs for user ID: 1
+[INFO ] 2025-04-23 21:11:32.713 [http-nio-9090-exec-4] ViewUsersServlet - connected
+[INFO ] 2025-04-23 21:11:34.477 [http-nio-9090-exec-4] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}, User{id=935, firstName='null', lastName='null', email='micahjdarling@gmail.com'}, User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}, User{id=953, firstName='null', lastName='null', email='mdarling@madisoncollege.edu'}]
+[INFO ] 2025-04-23 21:11:40.788 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-23 21:11:40.789 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-04-23 21:11:40.820 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Fetched 4 commuting logs for user ID: 1
+[INFO ] 2025-04-23 21:11:51.949 [http-nio-9090-exec-2] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-23 21:11:51.951 [http-nio-9090-exec-2] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-04-23 21:11:51.956 [http-nio-9090-exec-2] ViewCommutingLogsServlet - Fetched 5 commuting logs for user ID: 1
+[INFO ] 2025-04-23 21:21:05.140 [http-nio-9090-exec-4] ViewUsersServlet - connected
+[INFO ] 2025-04-23 21:21:06.859 [http-nio-9090-exec-4] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}, User{id=935, firstName='null', lastName='null', email='micahjdarling@gmail.com'}, User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}, User{id=953, firstName='null', lastName='null', email='mdarling@madisoncollege.edu'}]
+[INFO ] 2025-04-23 21:21:12.961 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-23 21:21:12.962 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-04-23 21:21:12.993 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Fetched 6 commuting logs for user ID: 1
+[INFO ] 2025-04-23 21:23:44.855 [http-nio-9090-exec-4] ViewUsersServlet - connected
+[INFO ] 2025-04-23 21:23:46.615 [http-nio-9090-exec-4] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}, User{id=935, firstName='null', lastName='null', email='micahjdarling@gmail.com'}, User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}, User{id=953, firstName='null', lastName='null', email='mdarling@madisoncollege.edu'}]
+[INFO ] 2025-04-23 21:23:52.685 [http-nio-9090-exec-10] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-23 21:23:52.686 [http-nio-9090-exec-10] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-04-23 21:23:52.712 [http-nio-9090-exec-10] ViewCommutingLogsServlet - Fetched 7 commuting logs for user ID: 1
+[INFO ] 2025-04-23 21:25:25.936 [http-nio-9090-exec-5] ViewUsersServlet - connected
+[INFO ] 2025-04-23 21:25:27.651 [http-nio-9090-exec-5] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}, User{id=935, firstName='null', lastName='null', email='micahjdarling@gmail.com'}, User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}, User{id=953, firstName='null', lastName='null', email='mdarling@madisoncollege.edu'}]
+[INFO ] 2025-04-23 21:25:37.009 [http-nio-9090-exec-9] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-23 21:25:37.010 [http-nio-9090-exec-9] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-04-23 21:25:37.037 [http-nio-9090-exec-9] ViewCommutingLogsServlet - Fetched 8 commuting logs for user ID: 1

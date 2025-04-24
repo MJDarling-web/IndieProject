@@ -16,6 +16,7 @@ import jakarta.persistence.*;
 public class UserDao {
     private static final Logger logger = LogManager.getLogger(UserDao.class);
     private final SessionFactory sessionFactory;
+    public Object getById;
 
     /**
      * Constructor - Uses the provided SessionFactory
@@ -91,6 +92,20 @@ public class UserDao {
                     .uniqueResult();
         } catch (Exception e) {
             logger.error("Error getting user by email", e);
+        }
+        return user;
+    }
+
+    /*
+     * get user by id
+     * @param id
+     */
+    public User getById(int id) {
+        User user = null;
+        try (Session session = sessionFactory.openSession()) {
+            user = session.get(User.class, id);
+        } catch (Exception e) {
+            logger.error("Error fetching user by ID", e);
         }
         return user;
     }

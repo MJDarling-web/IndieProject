@@ -39,26 +39,11 @@ import java.util.Base64;
 import java.util.HashMap;
 import java.util.Properties;
 import java.util.stream.Collectors;
-
-@WebServlet(
-        urlPatterns = {"/auth"}
-)
-// TODO if something goes wrong it this process, route to an error page. Currently, errors are only caught and logged.
-/**
- * Inspired by: https://stackoverflow.com/questions/52144721/how-to-get-access-token-using-client-credentials-using-java-code
- */
-
+@WebServlet(urlPatterns = {"/auth"})
 public class Auth extends HttpServlet implements PropertiesLoader {
     Properties properties;
-    String CLIENT_ID;
-    String CLIENT_SECRET;
-    String OAUTH_URL;
-    String LOGIN_URL;
-    String REDIRECT_URL;
-    String REGION;
-    String POOL_ID;
+    String CLIENT_ID, CLIENT_SECRET, OAUTH_URL, LOGIN_URL, REDIRECT_URL, REGION, POOL_ID;
     Keys jwks;
-
 
     private final Logger logger = LogManager.getLogger(this.getClass());
 
@@ -69,150 +54,64 @@ public class Auth extends HttpServlet implements PropertiesLoader {
         loadKey();
     }
 
-    /**
-     * Gets the auth code from the request and exchanges it for a token containing user info.
-     * @param req servlet request
-     * @param resp servlet response
-     * @throws ServletException
-     * @throws IOException
-     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String authCode = req.getParameter("code");
-        String userName = null;
 
         if (authCode == null) {
-            //TODO forward to an error page or back to the login
-        } else {
-            HttpRequest authRequest = buildAuthRequest(authCode);
-            try {
-                TokenResponse tokenResponse = getToken(authRequest);
-                userName = validate(tokenResponse);
-                req.setAttribute("userName", userName);
-                //storing in session
-                HttpSession session = req.getSession();
-                session.setAttribute("userName", userName);
-                UserDao userDao = new UserDao();
-                User exisitingUser = userDao.getByEmail(userName);
-
-                //check if user already exisists
-                if(exisitingUser == null) {
-                    // Decode the ID token again to pull extra user info
-                    DecodedJWT jwt = JWT.decode(tokenResponse.getIdToken());
-                    String email = jwt.getClaim("email").asString();
-                    String firstName = jwt.getClaim("username").asString();
-                    String password = jwt.getClaim("password").asString();
-
-                    User newUser = new User();
-                    newUser.setEmail(email);
-                    newUser.setFirstName(firstName);
-                    newUser.setPassword(password);
-
-                    userDao.insertUser(newUser);
-                    logger.debug("Inserted new user");
-                } else {
-                    logger.debug("User already registered");
-                }
-                User user = new User();
-                user.setEmail(userName);
-            } catch (IOException e) {
-                logger.error("Error getting or validating the token: " + e.getMessage(), e);
-                //TODO forward to an error page
-            } catch (InterruptedException e) {
-                logger.error("Error getting token from Cognito oauth url " + e.getMessage(), e);
-                //TODO forward to an error page
-            }
+            logger.error("No auth code received from Cognito.");
+            resp.sendRedirect("index.jsp"); // or error page
+            return;
         }
-        RequestDispatcher dispatcher = req.getRequestDispatcher("Profile.jsp");
-        dispatcher.forward(req, resp);
 
+        try {
+            HttpRequest authRequest = buildAuthRequest(authCode);
+            TokenResponse tokenResponse = getToken(authRequest);
+
+            DecodedJWT jwt = JWT.decode(tokenResponse.getIdToken());
+            String email = jwt.getClaim("email").asString(); // ✅ actual email from Cognito
+            String username = jwt.getClaim("cognito:username").asString(); // use as display name
+
+            logger.debug("Authenticated email: " + email);
+
+            // Save to session
+            HttpSession session = req.getSession();
+            session.setAttribute("userName", email); // 🔄 now always the email address
+
+            // Look for user by email
+            UserDao userDao = new UserDao();
+            User user = userDao.getByEmail(email);
+
+            if (user == null) {
+                user = new User();
+                user.setEmail(email);
+                user.setFirstName(username);  // Use username as a fallback first name
+                user.setLastName("n/a");      // Placeholder
+                user.setPassword("generated"); // Placeholder
+
+                userDao.insertUser(user);
+                logger.debug("Inserted new user into database.");
+            } else {
+                logger.debug("User already exists.");
+            }
+
+            RequestDispatcher dispatcher = req.getRequestDispatcher("Profile.jsp");
+            dispatcher.forward(req, resp);
+
+        } catch (Exception e) {
+            logger.error("Authentication failed: " + e.getMessage(), e);
+            resp.sendRedirect("index.jsp"); // forward to an error page if preferred
+        }
     }
 
-    /**
-     * Sends the request for a token to Cognito and maps the response
-     * @param authRequest the request to the oauth2/token url in cognito
-     * @return response from the oauth2/token endpoint which should include id token, access token and refresh token
-     * @throws IOException
-     * @throws InterruptedException
-     */
     private TokenResponse getToken(HttpRequest authRequest) throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
-        HttpResponse<?> response = null;
-
-        response = client.send(authRequest, HttpResponse.BodyHandlers.ofString());
-
-
-        logger.debug("Response headers: " + response.headers().toString());
-        logger.debug("Response body: " + response.body().toString());
+        HttpResponse<?> response = client.send(authRequest, HttpResponse.BodyHandlers.ofString());
 
         ObjectMapper mapper = new ObjectMapper();
-        TokenResponse tokenResponse = mapper.readValue(response.body().toString(), TokenResponse.class);
-        logger.debug("Id token: " + tokenResponse.getIdToken());
-
-        return tokenResponse;
-
+        return mapper.readValue(response.body().toString(), TokenResponse.class);
     }
 
-    /**
-     * Get values out of the header to verify the token is legit. If it is legit, get the claims from it, such
-     * as username.
-     * @param tokenResponse
-     * @return
-     * @throws IOException
-     */
-    private String validate(TokenResponse tokenResponse) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        CognitoTokenHeader tokenHeader = mapper.readValue(CognitoJWTParser.getHeader(tokenResponse.getIdToken()).toString(), CognitoTokenHeader.class);
-
-        // Header should have kid and alg- https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-the-id-token.html
-        String keyId = tokenHeader.getKid();
-        String alg = tokenHeader.getAlg();
-
-        // todo pick proper key from the two - it just so happens that the first one works for my case
-        // Use Key's N and E
-        BigInteger modulus = new BigInteger(1, org.apache.commons.codec.binary.Base64.decodeBase64(jwks.getKeys().get(0).getN()));
-        BigInteger exponent = new BigInteger(1, org.apache.commons.codec.binary.Base64.decodeBase64(jwks.getKeys().get(0).getE()));
-
-        // TODO the following is "happy path", what if the exceptions are caught?
-        // Create a public key
-        PublicKey publicKey = null;
-        try {
-            publicKey = KeyFactory.getInstance("RSA").generatePublic(new RSAPublicKeySpec(modulus, exponent));
-        } catch (InvalidKeySpecException e) {
-            logger.error("Invalid Key Error " + e.getMessage(), e);
-        } catch (NoSuchAlgorithmException e) {
-            logger.error("Algorithm Error " + e.getMessage(), e);
-        }
-
-        // get an algorithm instance
-        Algorithm algorithm = Algorithm.RSA256((RSAPublicKey) publicKey, null);
-
-        // Verify ISS field of the token to make sure it's from the Cognito source
-        String iss = String.format("https://cognito-idp.%s.amazonaws.com/%s", REGION, POOL_ID);
-
-        JWTVerifier verifier = JWT.require(algorithm)
-                .withIssuer(iss)
-                .withClaim("token_use", "id") // make sure you're verifying id token
-                .build();
-
-        // Verify the token
-        DecodedJWT jwt = verifier.verify(tokenResponse.getIdToken());
-        String userName = jwt.getClaim("cognito:username").asString();
-        logger.debug("here's the username: " + userName);
-
-        logger.debug("here are all the available claims: " + jwt.getClaims());
-
-        // TODO decide what you want to do with the info!
-        // for now, I'm just returning username for display back to the browser
-
-        return userName;
-    }
-
-    /** Create the auth url and use it to build the request.
-     *
-     * @param authCode auth code received from Cognito as part of the login process
-     * @return the constructed oauth request
-     */
     private HttpRequest buildAuthRequest(String authCode) {
         String keys = CLIENT_ID + ":" + CLIENT_SECRET;
 
@@ -229,43 +128,25 @@ public class Auth extends HttpServlet implements PropertiesLoader {
 
         String encoding = Base64.getEncoder().encodeToString(keys.getBytes());
 
-        HttpRequest request = HttpRequest.newBuilder().uri(URI.create(OAUTH_URL))
+        return HttpRequest.newBuilder()
+                .uri(URI.create(OAUTH_URL))
                 .headers("Content-Type", "application/x-www-form-urlencoded", "Authorization", "Basic " + encoding)
-                .POST(HttpRequest.BodyPublishers.ofString(form)).build();
-        return request;
+                .POST(HttpRequest.BodyPublishers.ofString(form))
+                .build();
     }
 
-    /**
-     * Gets the JSON Web Key Set (JWKS) for the user pool from cognito and loads it
-     * into objects for easier use.
-     *
-     * JSON Web Key Set (JWKS) location: https://cognito-idp.{region}.amazonaws.com/{userPoolId}/.well-known/jwks.json
-     * Demo url: https://cognito-idp.us-east-2.amazonaws.com/us-east-2_XaRYHsmKB/.well-known/jwks.json
-     *
-     * @see Keys
-     * @see KeysItem
-     */
     private void loadKey() {
         ObjectMapper mapper = new ObjectMapper();
-
         try {
             URL jwksURL = new URL(String.format("https://cognito-idp.%s.amazonaws.com/%s/.well-known/jwks.json", REGION, POOL_ID));
             File jwksFile = new File("jwks.json");
             FileUtils.copyURLToFile(jwksURL, jwksFile);
             jwks = mapper.readValue(jwksFile, Keys.class);
-            logger.debug("Keys are loaded. Here's e: " + jwks.getKeys().get(0).getE());
-        } catch (IOException ioException) {
-            logger.error("Cannot load json..." + ioException.getMessage(), ioException);
         } catch (Exception e) {
-            logger.error("Error loading json" + e.getMessage(), e);
+            logger.error("Failed to load JWKS: " + e.getMessage(), e);
         }
     }
 
-    /**
-     * Read in the cognito props file and get/set the client id, secret, and required urls
-     * for authenticating a user.
-     */
-    // TODO This code appears in a couple classes, consider using a startup servlet similar to adv java project
     private void loadProperties() {
         try {
             properties = loadProperties("/cognito.properties");
@@ -276,11 +157,10 @@ public class Auth extends HttpServlet implements PropertiesLoader {
             REDIRECT_URL = properties.getProperty("redirectURL");
             REGION = properties.getProperty("region");
             POOL_ID = properties.getProperty("poolId");
-        } catch (IOException ioException) {
-            logger.error("Cannot load properties..." + ioException.getMessage(), ioException);
         } catch (Exception e) {
-            logger.error("Error loading properties" + e.getMessage(), e);
+            logger.error("Failed to load Cognito properties: " + e.getMessage(), e);
         }
     }
 }
+
 

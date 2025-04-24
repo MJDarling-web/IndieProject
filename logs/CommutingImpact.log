@@ -8696,3 +8696,73 @@ Caused by: java.lang.IllegalArgumentException: Can not set double field entity.C
 [INFO ] 2025-04-23 21:25:37.009 [http-nio-9090-exec-9] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
 [INFO ] 2025-04-23 21:25:37.010 [http-nio-9090-exec-9] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
 [INFO ] 2025-04-23 21:25:37.037 [http-nio-9090-exec-9] ViewCommutingLogsServlet - Fetched 8 commuting logs for user ID: 1
+[INFO ] 2025-04-24 15:48:19.266 [http-nio-9090-exec-4] ViewUsersServlet - connected
+[INFO ] 2025-04-24 15:48:21.023 [http-nio-9090-exec-4] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}, User{id=935, firstName='null', lastName='null', email='micahjdarling@gmail.com'}, User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}, User{id=953, firstName='null', lastName='null', email='mdarling@madisoncollege.edu'}]
+[INFO ] 2025-04-24 15:49:05.120 [http-nio-9090-exec-1] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-24 15:49:05.121 [http-nio-9090-exec-1] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-04-24 15:49:05.155 [http-nio-9090-exec-1] ViewCommutingLogsServlet - Fetched 9 commuting logs for user ID: 1
+[ERROR] 2025-04-24 15:49:05.218 [http-nio-9090-exec-1] ViewCommutingLogsServlet - Error occurred while fetching commuting logs for user ID: 1
+org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: 65 in the jsp file: /CommutingCostLog.jsp
+List cannot be resolved to a type
+62:     String editLogId = request.getParameter("editLogId");
+63:     entity.CommutingLog editLog = null;
+64:     if (editLogId != null && request.getAttribute("commutingLogs") != null) {
+65:         for (entity.CommutingLog log : (List<entity.CommutingLog>) request.getAttribute("commutingLogs")) {
+66:             if (log.getId() == Integer.parseInt(editLogId)) {
+67:                 editLog = log;
+68:                 break;
+
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102) ~[jasper.jar:8.5.5]
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:212) ~[jasper.jar:8.5.5]
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:457) ~[jasper.jar:8.5.5]
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:377) ~[jasper.jar:8.5.5]
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:349) ~[jasper.jar:8.5.5]
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:333) ~[jasper.jar:8.5.5]
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:600) ~[jasper.jar:8.5.5]
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:368) ~[jasper.jar:8.5.5]
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:385) ~[jasper.jar:8.5.5]
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:329) ~[jasper.jar:8.5.5]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729) ~[servlet-api.jar:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:230) ~[catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) ~[catalina.jar:8.5.5]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-websocket.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) ~[catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) ~[catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:726) ~[catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:469) ~[catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:394) ~[catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:311) ~[catalina.jar:8.5.5]
+	at controller.ViewCommutingLogsServlet.doGet(ViewCommutingLogsServlet.java:61) [classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622) [servlet-api.jar:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729) [servlet-api.jar:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:230) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) [catalina.jar:8.5.5]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) [tomcat-websocket.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:108) [catalina.jar:8.5.5]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [catalina.jar:8.5.5]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79) [catalina.jar:8.5.5]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:620) [catalina.jar:8.5.5]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [catalina.jar:8.5.5]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:349) [catalina.jar:8.5.5]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:784) [tomcat-coyote.jar:8.5.5]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-coyote.jar:8.5.5]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:802) [tomcat-coyote.jar:8.5.5]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1410) [tomcat-coyote.jar:8.5.5]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-coyote.jar:8.5.5]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-util.jar:8.5.5]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+[INFO ] 2025-04-24 15:50:21.841 [http-nio-9090-exec-5] ViewUsersServlet - connected
+[INFO ] 2025-04-24 15:50:23.630 [http-nio-9090-exec-5] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}, User{id=935, firstName='null', lastName='null', email='micahjdarling@gmail.com'}, User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}, User{id=953, firstName='null', lastName='null', email='mdarling@madisoncollege.edu'}]
+[INFO ] 2025-04-24 15:50:28.914 [http-nio-9090-exec-9] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-04-24 15:50:28.915 [http-nio-9090-exec-9] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-04-24 15:50:28.938 [http-nio-9090-exec-9] ViewCommutingLogsServlet - Fetched 9 commuting logs for user ID: 1

@@ -54,6 +54,11 @@ public class AddCommutingLogServlet extends HttpServlet {
         dispatcher.forward(req, resp);
     }
 
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("CommutingCostLog.jsp").forward(req, resp);
+    }
+
     private int getLoggedInUserId(HttpServletRequest req) {
         String userEmail = (String) req.getSession().getAttribute("userName");
 

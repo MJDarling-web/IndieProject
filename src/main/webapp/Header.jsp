@@ -19,10 +19,14 @@
             <li style="display: inline; margin-right: 20px;">
                 <a href="CommutingCostLog">Commute Cost Log</a>
             </li>
+
             <!-- shows up if user is logged in -->
             <c:if test="${not empty sessionScope.userName}">
                 <li style="display: inline; margin-right: 20px">
                     <a href="signout">Sign Out</a>
+                </li>
+                <li style="display: inline; margin-right: 20px;">
+                    <a href="TransportationCostForm">My Vehicles</a>
                 </li>
             </c:if>
         </ul>

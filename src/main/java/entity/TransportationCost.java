@@ -34,18 +34,22 @@ public class TransportationCost {
     @Temporal(TemporalType.TIMESTAMP)
     private Date CreatedDate;
 
+    @Column(name="miles_per_gallon")
+    private double milesPerGallon;
+
     // No-argument constructor
     public TransportationCost() {
     }
 
     // Constructor with all fields
-    public TransportationCost(Double insuranceCost, String vehicleType, Double fuelCost, Double maintenanceCost, Double publicTransportCost, Date CreatedDate) {
+    public TransportationCost(Double insuranceCost, String vehicleType, Double fuelCost, Double maintenanceCost, Double publicTransportCost, Date CreatedDate, double milesPerGallon) {
         this.insuranceCost = insuranceCost;
         this.vehicleType = vehicleType;
         this.fuelCost = fuelCost;
         this.maintenanceCost = maintenanceCost;
         this.publicTransportCost = publicTransportCost;
         this.CreatedDate = CreatedDate;
+        this.milesPerGallon = milesPerGallon;
     }
 
     //getters and setters
@@ -112,5 +116,9 @@ public class TransportationCost {
     public void setCreatedDate(Date createdDate) {
         CreatedDate = createdDate;
     }
+
+    public void setMilesPerGallon(double milesPerGallon) { this.milesPerGallon = milesPerGallon;}
+
+    public double getMilesPerGallon() { return milesPerGallon;}
 }
 

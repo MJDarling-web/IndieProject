@@ -51,10 +51,9 @@ started plan! Started to put it in Github as issues but wanted a more central sp
 - _Thursday_ 
 
 - Week 12
-  - [ ] Complete group project recording and meetings
+  - [x] Complete group project recording and meetings
   - [ ] Complete JSP pages indie project
-  - [ ] Complete 
-  - [ ] Start Week 9 Restful API material
+  - [x] Start Week 9 Restful API material
   - [ ] Indie project - see suggestions below do 2 of them
 - 
 - 
@@ -66,7 +65,7 @@ started plan! Started to put it in Github as issues but wanted a more central sp
 - [ ] Display your entities on your jsps - essentially, have the data view pages complete, i.e. you should be able to view data (from the database) on your jsps 
 - [ ] Begin implementing add/edit functionality 
 - [ ] The site is professional-looking (CSS, Bootstrap or some other framework is implemented) 
-- [ ] If you are using a public api/web service, call the service from your application to retrieve the data you need (you may not have the response mapped to objects yet, but you can at least see the data is correctly returned)
+- [x] If you are using a public api/web service, call the service from your application to retrieve the data you need (you may not have the response mapped to objects yet, but you can at least see the data is correctly returned)
 - [ ] Implement all changes based on peer and instructor feedback 
 - [ ] Write unit tests for all non-entity/non-servlet classes. If your servlets perform significant bits of logic, put that code into testable classes or methods.
 
@@ -161,3 +160,10 @@ Alternative Transportation Costs
 - [ ] Task 4: Implement an interactive chart that updates based on user inputs (e.g., changing the cost of gas, car payment, etc.).
 - [ ] Task 5: Write tests to ensure proper functionality of the projections, including edge cases (e.g., no data entered, incorrect data).
 
+## Week 13
+- [x] update commuting log and functioning
+- [x] delete commuting log 
+- [ ] implement functionality of storing user's data for car cost, mpg, insurance cost, bike cost, maintaince,
+- [ ] profile page to add and edit vehicle types 
+- [ ] total commute costs for each commute type
+- 

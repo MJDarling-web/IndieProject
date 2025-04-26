@@ -164,6 +164,8 @@ Alternative Transportation Costs
 - [x] update commuting log and functioning
 - [x] delete commuting log 
 - [ ] implement functionality of storing user's data for car cost, mpg, insurance cost, bike cost, maintaince,
-- [ ] profile page to add and edit vehicle types 
+- [x] profile page to add 
+- [ ] and edit vehicle types 
 - [ ] total commute costs for each commute type
+- [ ] connect selection of vehicle from my vehicles of user of what type of vehicles they have.  
 - 

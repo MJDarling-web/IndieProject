@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.*;
 
+//TODO fix this bad boy up to be better looking at login instead of the "> login"
 @WebServlet("/viewUsers")
 public class ViewUsersServlet extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
@@ -22,7 +23,7 @@ public class ViewUsersServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-
+    //TODO double check this logic necessary for login
         // Create an instance of GenericDao for User entity
         GenericDao<User> userDao = new GenericDao<>(User.class);
         System.out.println("Logger working 77: " + logger.isDebugEnabled());

@@ -6,7 +6,7 @@ package controller;
 import entity.ComparisonCost;
 import entity.User;
 import persistence.GenericDao;
-import persistence.UserDao;t s
+import persistence.UserDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

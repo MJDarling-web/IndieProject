@@ -14,6 +14,9 @@
 
 </head>
 <body>
+<!--TODO comparison page should pull user data, compile, calculate, and display data in an easy to view format -->
+<!--TODO make the jsp page pretty -->
+
 <%@include file="Header.jsp" %>
 //A page to display and compare total transport costs the user has logged over time
 </body>

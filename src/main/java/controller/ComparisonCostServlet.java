@@ -1,7 +1,7 @@
 package controller;
 
-//TODO create the servlet to forward to the jsp for comparisonCost to view the cost of using a car
-//TODO create the logic of total cost of transportation with a car
+//TODO double check for user login and redirect if user is not logged in
+//TODO create the logic of total cost of transportation with users car
 
 import entity.ComparisonCost;
 import entity.User;

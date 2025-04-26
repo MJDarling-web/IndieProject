@@ -14,9 +14,6 @@
                 <a href="viewUsers">Profile</a>
             </li>
             <li style="display: inline; margin-right: 20px;">
-                <a href="comparisonCost">Comparison Results</a>
-            </li>
-            <li style="display: inline; margin-right: 20px;">
                 <a href="CommutingCostLog">Commute Cost Log</a>
             </li>
 
@@ -27,6 +24,9 @@
                 </li>
                 <li style="display: inline; margin-right: 20px;">
                     <a href="TransportationCostForm">My Vehicles</a>
+                </li>
+                <li style="display: inline; margin-right: 20px;">
+                    <a href="comparisonCost">Comparison Results</a>
                 </li>
             </c:if>
         </ul>

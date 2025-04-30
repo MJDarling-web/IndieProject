@@ -80,6 +80,7 @@ public class AddCommutingLogServlet extends HttpServlet {
                 .findFirst()
                 .orElse(null);
 
+        // TODO update calculations so they actually calculate based on the users vehicle, cost of insurance, and total monthly commuting costs of gas for all vehicle types"
         double insurance = matchedVehicle != null ? matchedVehicle.getInsuranceCost() : 0;
         double maintenance = matchedVehicle != null ? matchedVehicle.getMaintenanceCost() : 0;
         double mpg = matchedVehicle != null && matchedVehicle.getMilesPerGallon() > 0 ? matchedVehicle.getMilesPerGallon() : 25;

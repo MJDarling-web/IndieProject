@@ -82,14 +82,34 @@
 </form>
 
 <c:if test="${not empty costSummary}">
-    <h3>Cost Summary for ${costSummary.commuteType}</h3>
-    <ul>
-        <li>1-Year Cost: $${costSummary.oneYearCost}</li>
-        <li>2-Year Cost: $${costSummary.twoYearCost}</li>
-        <li>5-Year Cost: $${costSummary.fiveYearCost}</li>
-        <li>Total Cost: $${costSummary.totalCost}</li>
-    </ul>
+    <h3>Most Recent Cost Summary</h3>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Commute Type</th>
+            <th>1-Year Cost</th>
+            <th>2-Year Cost</th>
+            <th>5-Year Cost</th>
+            <th>Total Cost</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>${costSummary.commuteType}</td>
+            <td>$${costSummary.oneYearCost}</td>
+            <td>$${costSummary.twoYearCost}</td>
+            <td>$${costSummary.fiveYearCost}</td>
+            <td><strong>$${costSummary.totalCost}</strong></td>
+        </tr>
+        </tbody>
+    </table>
 </c:if>
+<c:if test="${empty costSummary}">
+    <p>No cost summary available yet. Add a commuting log to generate one.</p>
+</c:if>
+
+
+<p>Debug: ${costSummary}</p>
 
 </body>
 </html>

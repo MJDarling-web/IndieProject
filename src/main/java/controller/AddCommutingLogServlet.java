@@ -101,6 +101,13 @@ public class AddCommutingLogServlet extends HttpServlet {
         GenericDao<CostAnalysis> costDao = new GenericDao<>(CostAnalysis.class);
         costDao.insert(analysis);
 
+        // Set latest cost analysis summary for display
+        String costHql = "from CostAnalysis where user.id = " + user.getId() + " order by analysisId desc";
+        List<CostAnalysis> costSummaries = costDao.getByCustomQuery(costHql);
+        if (!costSummaries.isEmpty()) {
+            req.setAttribute("costSummary", costSummaries.get(0));
+        }
+
         RequestDispatcher dispatcher = req.getRequestDispatcher("CommutingCostLog.jsp");
         dispatcher.forward(req, resp);
     }
@@ -134,8 +141,9 @@ public class AddCommutingLogServlet extends HttpServlet {
                 commuteTypes.add(vehicle.getVehicleType());
             }
         }
+        req.setAttribute("commuteTypes", commuteTypes);
 
-        // Load most recent cost summary (if available)
+        // 🔶 Load most recent cost summary for user
         GenericDao<CostAnalysis> costDao = new GenericDao<>(CostAnalysis.class);
         String costHql = "from CostAnalysis where user.id = " + user.getId() + " order by analysisId desc";
         List<CostAnalysis> costSummaries = costDao.getByCustomQuery(costHql);
@@ -143,8 +151,6 @@ public class AddCommutingLogServlet extends HttpServlet {
         if (!costSummaries.isEmpty()) {
             req.setAttribute("costSummary", costSummaries.get(0));
         }
-
-        req.setAttribute("commuteTypes", commuteTypes);
 
         req.getRequestDispatcher("CommutingCostLog.jsp").forward(req, resp);
     }

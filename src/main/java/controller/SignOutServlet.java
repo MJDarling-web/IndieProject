@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.*;
 import jakarta.persistence.*;
 
-//TODO update signout page so it actually works
+//TODO update signout page so it works
 
 @WebServlet("/signOut")
 public class SignOutServlet extends HttpServlet {

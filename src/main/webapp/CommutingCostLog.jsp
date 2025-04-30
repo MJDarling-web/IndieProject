@@ -49,62 +49,47 @@
     <p>No commuting logs found.</p>
 </c:if>
 
-<h3><c:choose>
-    <c:when test="${not empty param.editLogId}">
-        Edit Commute Log
-    </c:when>
-    <c:otherwise>
-        Add a New Commute Log
-    </c:otherwise>
-</c:choose></h3>
+<h3>
+    <c:choose>
+        <c:when test="${not empty param.editLogId}">Edit Commute Log</c:when>
+        <c:otherwise>Add a New Commute Log</c:otherwise>
+    </c:choose>
+</h3>
 
-<%
-    String editLogId = request.getParameter("editLogId");
-    entity.CommutingLog editLog = null;
-
-    try {
-        if (editLogId != null) {
-            java.util.List<entity.CommutingLog> logs = (java.util.List<entity.CommutingLog>) request.getAttribute("commutingLogs");
-
-            if (logs != null) {
-                for (entity.CommutingLog log : logs) {
-                    if (log.getId() == Integer.parseInt(editLogId)) {
-                        editLog = log;
-                        break;
-                    }
-                }
-            }
-        }
-    } catch (Exception e) {
-        // Optional: log the error or silently fail
-        System.out.println("Error finding edit log: " + e.getMessage());
-    }
-%>
-
-
-<form action='<%= (editLog != null) ? "updateCommutingLog" : "addCommutingLog" %>' method="post">
+<form action="${not empty param.editLogId ? 'updateCommutingLog' : 'addCommutingLog'}" method="post">
     <c:if test="${not empty param.editLogId}">
         <input type="hidden" name="logId" value="${param.editLogId}" />
     </c:if>
 
     <label for="commuteType">Commute Type:</label>
-    <input type="text" id="commuteType" name="commuteType"
-           value="<%= (editLog != null) ? editLog.getCommuteType() : "" %>" required><br><br>
+    <input type="text" id="commuteType" name="commuteType" value="${editLog.commuteType}" required><br><br>
 
     <label for="timeSpent">Time Spent (minutes):</label>
-    <input type="number" id="timeSpent" name="timeSpent"
-           value="<%= (editLog != null) ? editLog.getTimeSpent() : "" %>" required><br><br>
+    <input type="number" id="timeSpent" name="timeSpent" value="${editLog.timeSpent}" required><br><br>
 
     <label for="distanceInMiles">Distance (miles):</label>
-    <input type="number" id="distanceInMiles" name="distanceInMiles"
-           value="<%= (editLog != null) ? editLog.getDistanceInMiles() : ""%>" required><br><br>
+    <input type="number" id="distanceInMiles" name="distanceInMiles" value="${editLog.distanceInMiles}" required><br><br>
 
     <label for="cost">Cost:</label>
-    <input type="number" id="cost" name="cost"
-           value="<%= (editLog != null) ? editLog.getCost() : ""%>" required><br><br>
+    <input type="number" id="cost" name="cost" value="${editLog.cost}" required><br><br>
 
-    <button type="submit"><%= (editLog != null) ? "Update Log" : "Add Log" %></button>
+    <button type="submit">
+        <c:choose>
+            <c:when test="${not empty param.editLogId}">Update Log</c:when>
+            <c:otherwise>Add Log</c:otherwise>
+        </c:choose>
+    </button>
 </form>
+
+<c:if test="${not empty costSummary}">
+    <h3>Cost Summary for ${costSummary.commuteType}</h3>
+    <ul>
+        <li>1-Year Cost: $${costSummary.oneYearCost}</li>
+        <li>2-Year Cost: $${costSummary.twoYearCost}</li>
+        <li>5-Year Cost: $${costSummary.fiveYearCost}</li>
+        <li>Total Cost: $${costSummary.totalCost}</li>
+    </ul>
+</c:if>
 
 </body>
 </html>

@@ -9,6 +9,7 @@ public class TransportationCost {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name= "cost_id")
     private int costId;
 
     @ManyToOne(fetch = FetchType.LAZY)

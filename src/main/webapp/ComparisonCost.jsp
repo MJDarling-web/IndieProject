@@ -6,14 +6,14 @@
 <head>
     <title>Comparison Results</title>
     <link rel="stylesheet" href="style/main.css" type="text/css" />
-
 </head>
 <body>
-<!--TODO comparison page should pull user data, compile, calculate, and display data in an easy to view format -->
+<p>DEBUG: Cost Summary Map = ${costSummaryMap}</p>
+
 <h2>Your Commute Cost Comparison</h2>
 
-<c:if test="{not empty costSummaryMap}">
-    <table border="1" style = "width:80%; text-align: center;">
+<c:if test="${not empty costSummaryMap}">
+    <table border="1" style="width:80%; text-align: center;">
         <thead>
         <tr>
             <th>Commute Type</th>
@@ -26,18 +26,20 @@
         <tbody>
         <c:forEach var="entry" items="${costSummaryMap}">
             <tr>
-            <td>${entity.value.oneYearCost}</td>
-            <td>${entity.value.twoYearCost}</td>
-            <td>${entity.value.fiveYearCost}</td>
-            <td>${entity.value.totalCost}</td>
+                <td>${entry.key}</td>
+                <td>$${entry.value.oneYearCost}</td>
+                <td>$${entry.value.twoYearCost}</td>
+                <td>$${entry.value.fiveYearCost}</td>
+                <td>$${entry.value.totalCost}</td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
 </c:if>
 
-<c: if test="{not empty costSummaryMap}">
-    <p>No cost analysis data available yet, please add some commute logs </p>
-</c:>
+<c:if test="${empty costSummaryMap}">
+    <p>No cost analysis data available yet, please add some commute logs.</p>
+</c:if>
+
 </body>
 </html>

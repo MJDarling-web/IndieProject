@@ -123,3 +123,6 @@ Does have @Entity, is mapped correctly in hibernate.cfg.xml, is in pom file, and
 4/23 - 2.5 hours getting your commuting logs to generate by correct user who is logged in, by query hql request, also fixed congnito request, add commuting log servlet request, auth, profile fixes and userDao fixes.
 4/24 - 1 hour on delete/edit users commuter logs
 4/24 - 2 hours on... "added SaveVehicleProfileServlet and TransportationCostFormServlet to add a new vehicle to a user, added doGet to AddCommutingLogServlet to redirect My Vehicles jsp to add a new log, might want to change that in the future to just display the users vehicles, updated header to include new My Vehicles page, still need to consolidate use of API and create logic to calculate true cost of car ownership but can now get started with added method to add a vehicle to a users account"
+
+## Week 13? 
+5/1 2 hours on Comparison Results JSP, cost_analysis data is now being displayed on the page and added but not properly calculated yet, could look much nicer. 

@@ -14,7 +14,7 @@
                 <a href="viewUsers">Profile</a>
             </li>
             <li style="display: inline; margin-right: 20px;">
-                <a href="CommutingCostLog">Commute Cost Log</a>
+                <a href="addCommutingLog">Commute Cost Log</a>
             </li>
 
             <!-- shows up if user is logged in -->

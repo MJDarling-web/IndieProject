@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="taglib.jsp" %>
 <%@include file="Header.jsp" %>
 <html>
@@ -62,7 +62,15 @@
     </c:if>
 
     <label for="commuteType">Commute Type:</label>
-    <input type="text" id="commuteType" name="commuteType" value="${editLog.commuteType}" required><br><br>
+    <select id="commuteType" name="commuteType" required>
+        <c:forEach var="type" items="${commuteTypes}">
+            <option value="${type}"
+                    <c:if test="${not empty editLog and editLog.commuteType eq type}">selected</c:if>>
+                    ${type}
+            </option>
+        </c:forEach>
+    </select>
+    <br><br>
 
     <label for="timeSpent">Time Spent (minutes):</label>
     <input type="number" id="timeSpent" name="timeSpent" value="${editLog.timeSpent}" required><br><br>
@@ -107,7 +115,6 @@
 <c:if test="${empty costSummary}">
     <p>No cost summary available yet. Add a commuting log to generate one.</p>
 </c:if>
-
 
 <p>Debug: ${costSummary}</p>
 

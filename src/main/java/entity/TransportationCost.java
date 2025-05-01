@@ -39,13 +39,13 @@ public class TransportationCost {
     private double milesPerGallon;
 
     @Column(name="monthly_payment")
-    private double monthlyPayment;
+    private Double monthlyPayment;
     // No-argument constructor
     public TransportationCost() {
     }
 
     // Constructor with all fields
-    public TransportationCost(Double insuranceCost, String vehicleType, Double fuelCost, Double maintenanceCost, Double publicTransportCost, Date CreatedDate, double milesPerGallon) {
+    public TransportationCost(Double insuranceCost, String vehicleType, Double fuelCost, Double maintenanceCost, Double publicTransportCost, Date CreatedDate, Double milesPerGallon, Double monthlyPayment) {
         this.insuranceCost = insuranceCost;
         this.vehicleType = vehicleType;
         this.fuelCost = fuelCost;
@@ -53,7 +53,7 @@ public class TransportationCost {
         this.publicTransportCost = publicTransportCost;
         this.CreatedDate = CreatedDate;
         this.milesPerGallon = milesPerGallon;
-        this.monthlyPayment = milesPerGallon;
+        this.monthlyPayment = monthlyPayment;
     }
 
     //getters and setters

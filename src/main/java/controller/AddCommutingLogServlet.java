@@ -68,6 +68,12 @@ public class AddCommutingLogServlet extends HttpServlet {
                 commuteTypes.add(vehicle.getVehicleType());
             }
         }
+
+        if (vehicleProfiles.isEmpty() && !commuteTypes.contains("car")) {
+            commuteTypes.add("car");
+            req.setAttribute("vehicleWarning", "You haven't added any vehicles yet. Default 'car' option added. Please add a vehicle profile for more accurate costs.");
+        }
+
         req.setAttribute("commuteTypes", commuteTypes);
 
         // TODO update calculations so they actually calculate based on the users vehicle, cost of insurance, and total monthly commuting costs of gas for all vehicle types"

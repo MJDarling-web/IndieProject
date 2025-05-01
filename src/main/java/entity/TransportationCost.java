@@ -38,6 +38,8 @@ public class TransportationCost {
     @Column(name="miles_per_gallon")
     private double milesPerGallon;
 
+    @Column(name="monthly_payment")
+    private double monthlyPayment;
     // No-argument constructor
     public TransportationCost() {
     }
@@ -51,6 +53,7 @@ public class TransportationCost {
         this.publicTransportCost = publicTransportCost;
         this.CreatedDate = CreatedDate;
         this.milesPerGallon = milesPerGallon;
+        this.monthlyPayment = milesPerGallon;
     }
 
     //getters and setters
@@ -121,5 +124,9 @@ public class TransportationCost {
     public void setMilesPerGallon(double milesPerGallon) { this.milesPerGallon = milesPerGallon;}
 
     public double getMilesPerGallon() { return milesPerGallon;}
+
+    public Double getMonthlyPayment() { return monthlyPayment;}
+
+    public void setMonthlyPayment(Double monthlyPayment) {this.monthlyPayment = monthlyPayment;}
 }
 

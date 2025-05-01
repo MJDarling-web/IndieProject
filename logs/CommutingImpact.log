@@ -9025,3 +9025,23 @@ Stacktrace:
 [INFO ] 2025-05-01 10:39:05.752 [http-nio-9090-exec-7] ViewCommutingLogsServlet - Fetched 24 commuting logs for user ID: 1
 [INFO ] 2025-05-01 10:39:06.616 [http-nio-9090-exec-6] ViewUsersServlet - connected
 [INFO ] 2025-05-01 10:39:06.621 [http-nio-9090-exec-6] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}, User{id=935, firstName='null', lastName='null', email='micahjdarling@gmail.com'}, User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}, User{id=953, firstName='null', lastName='null', email='mdarling@madisoncollege.edu'}]
+[INFO ] 2025-05-01 15:25:16.061 [http-nio-9090-exec-7] ViewUsersServlet - connected
+[INFO ] 2025-05-01 15:25:17.915 [http-nio-9090-exec-7] ViewUsersServlet - [User{id=1, firstName='Jane', lastName='Doe', email='jane.doe@example.com'}, User{id=2, firstName='John', lastName='Doe', email='john.doe@example.com'}, User{id=4, firstName='Alice', lastName='Wonderland', email='alice@example.com'}, User{id=5, firstName='Bob', lastName='Builder', email='bob@example.com'}, User{id=6, firstName='John Updated', lastName='Smith', email='john.smith@example.com'}, User{id=935, firstName='null', lastName='null', email='micahjdarling@gmail.com'}, User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}, User{id=953, firstName='null', lastName='null', email='mdarling@madisoncollege.edu'}]
+[INFO ] 2025-05-01 15:25:46.219 [http-nio-9090-exec-7] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-05-01 15:25:46.219 [http-nio-9090-exec-7] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-05-01 15:25:46.231 [http-nio-9090-exec-7] ViewCommutingLogsServlet - Fetched 24 commuting logs for user ID: 1
+[INFO ] 2025-05-01 15:27:31.002 [http-nio-9090-exec-10] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-05-01 15:27:31.004 [http-nio-9090-exec-10] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-05-01 15:27:31.056 [http-nio-9090-exec-10] ViewCommutingLogsServlet - No commuting logs found for user ID: 1
+[INFO ] 2025-05-01 15:27:31.315 [http-nio-9090-exec-1] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-05-01 15:27:31.315 [http-nio-9090-exec-1] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-05-01 15:27:31.317 [http-nio-9090-exec-1] ViewCommutingLogsServlet - No commuting logs found for user ID: 1
+[INFO ] 2025-05-01 15:28:14.521 [http-nio-9090-exec-3] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-05-01 15:28:14.521 [http-nio-9090-exec-3] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-05-01 15:28:14.528 [http-nio-9090-exec-3] ViewCommutingLogsServlet - Fetched 1 commuting logs for user ID: 1
+[INFO ] 2025-05-01 15:28:19.617 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-05-01 15:28:19.617 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-05-01 15:28:19.618 [http-nio-9090-exec-8] ViewCommutingLogsServlet - No commuting logs found for user ID: 1
+[INFO ] 2025-05-01 15:28:54.328 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-05-01 15:28:54.329 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-05-01 15:28:54.331 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Fetched 1 commuting logs for user ID: 1

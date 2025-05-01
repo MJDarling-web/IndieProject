@@ -169,4 +169,7 @@ Alternative Transportation Costs
 - [ ] total commute costs for each commute type
 - [ ] connect selection of vehicle from my vehicles of user of what type of vehicles they have.  
 
-git commit -m "updated jsp errors missing ${} for display, updated ComparisonCostServlet and AddCommutngLogServlet to be forwarding and reqeusting data through cost_analyses table, data is generating in the table on jsp page but now needs to be updated to correctly calculate costs." CommuteCostLog needs to be updated to acurately reflect necessary datafields a user would include, need to update dropdown for vehicle type, and update MyVehicle to handle a users vehicles with mpg, need to consume mpg api. ""
+- [ ] Data is generating in the table on jsp page but now needs to be updated to correctly calculate costs.
+- [ ] CommuteCostLog needs to be updated to accurately reflect necessary data fields a user would include, 
+need to update dropdown for vehicle type, and update 
+-[ ] MyVehicle to handle a users vehicles with mpg, need to consume mpg api.

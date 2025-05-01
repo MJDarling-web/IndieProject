@@ -1,9 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@include file="taglib.jsp" %>
+<%@include file="Header.jsp" %>
 
 <!DOCTYPE html>
 <html lang="en">
-head>
+<head>
 <title>Login</title>
 <link rel="stylesheet" href="style/main.css" type="text/css" />
 

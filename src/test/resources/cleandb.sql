@@ -106,7 +106,7 @@ UNLOCK TABLES;
 -- Table structure for table `transportation_costs`
 --
 
-DROP TABLE IF EXISTS `transportation_costs`;
+DROP TABLE IF EXISTS transportation_profiles;
 /*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `transportation_costs` (
@@ -128,9 +128,9 @@ CREATE TABLE `transportation_costs` (
 -- Dumping data for table `transportation_costs`
 --
 
-LOCK TABLES `transportation_costs` WRITE;
-/*!40000 ALTER TABLE `transportation_costs` DISABLE KEYS */;
-/*!40000 ALTER TABLE `transportation_costs` ENABLE KEYS */;
+LOCK TABLES transportation_profiles WRITE;
+/*!40000 ALTER TABLE transportation_profiles DISABLE KEYS */;
+/*!40000 ALTER TABLE transportation_profiles ENABLE KEYS */;
 UNLOCK TABLES;
 
 --

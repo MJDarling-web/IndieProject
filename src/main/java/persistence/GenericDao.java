@@ -1,5 +1,6 @@
 package persistence;
 
+import entity.TransportationProfile;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Expression;
@@ -149,4 +150,22 @@ public class GenericDao<T> {
             return session.createQuery(hql, type).getResultList();
         }
     }
+
+    /**
+     * Gets entities by property equal.
+     *
+     * @param propertyName the property name
+     * @param value        the value
+     * @return the list of entities matching the property
+     */
+    public List<T> getByPropertyEqual(String propertyName, Object value) {
+        try (Session session = getSession()) {
+            CriteriaBuilder builder = session.getCriteriaBuilder();
+            CriteriaQuery<T> query = builder.createQuery(type);
+            Root<T> root = query.from(type);
+            query.where(builder.equal(root.get(propertyName), value));
+            return session.createQuery(query).getResultList();
+        }
+    }
+
 }

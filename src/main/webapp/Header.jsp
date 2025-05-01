@@ -23,7 +23,7 @@
                     <a href="signout">Sign Out</a>
                 </li>
                 <li style="display: inline; margin-right: 20px;">
-                    <a href="TransportationCostForm">My Vehicles</a>
+                    <a href="saveVehicleProfile">My Vehicles</a>
                 </li>
                 <li style="display: inline; margin-right: 20px;">
                     <a href="comparisonCost">Comparison Results</a>

@@ -2,7 +2,7 @@ package controller;
 
 import entity.CommutingLog;
 import entity.CostAnalysis;
-import entity.TransportationCost;
+import entity.TransportationProfile;
 import entity.User;
 import persistence.GenericDao;
 import persistence.UserDao;
@@ -55,15 +55,15 @@ public class AddCommutingLogServlet extends HttpServlet {
         req.setAttribute("commutingLogs", userLogs);
 
         // Load commute type options
-        GenericDao<TransportationCost> transportationCostDao = new GenericDao<>(TransportationCost.class);
-        String vehicleHql = "from TransportationCost where user.id = " + user.getId();
-        List<TransportationCost> vehicleProfiles = transportationCostDao.getByCustomQuery(vehicleHql);
+        GenericDao<TransportationProfile> transportationCostDao = new GenericDao<>(TransportationProfile.class);
+        String vehicleHql = "from TransportationProfile where user.id = " + user.getId();
+        List<TransportationProfile> vehicleProfiles = transportationCostDao.getByCustomQuery(vehicleHql);
 
         List<String> commuteTypes = new ArrayList<>();
         commuteTypes.add("walk");
         commuteTypes.add("bike");
         commuteTypes.add("bus");
-        for (TransportationCost vehicle : vehicleProfiles) {
+        for (TransportationProfile vehicle : vehicleProfiles) {
             if (!commuteTypes.contains(vehicle.getVehicleType())) {
                 commuteTypes.add(vehicle.getVehicleType());
             }
@@ -88,8 +88,8 @@ public class AddCommutingLogServlet extends HttpServlet {
                 }
             }
 
-            TransportationCost matchedVehicle = null;
-            for (TransportationCost v : vehicleProfiles) {
+            TransportationProfile matchedVehicle = null;
+            for (TransportationProfile v : vehicleProfiles) {
                 if (v.getVehicleType().equalsIgnoreCase(type)) {
                     matchedVehicle = v;
                     break;
@@ -99,7 +99,7 @@ public class AddCommutingLogServlet extends HttpServlet {
             double insurance = matchedVehicle != null ? matchedVehicle.getInsuranceCost() : 0;
             double maintenance = matchedVehicle != null ? matchedVehicle.getMaintenanceCost() : 0;
             double mpg = matchedVehicle != null && matchedVehicle.getMilesPerGallon() > 0 ? matchedVehicle.getMilesPerGallon() : 25;
-            double fuelCostPerGallon = matchedVehicle != null ? matchedVehicle.getFuelCost() : 3.5;
+            double fuelCostPerGallon = matchedVehicle != null ? matchedVehicle.getFuelCostPerGallon() : 3.5;
 
             double gasCost = (totalMiles / mpg) * fuelCostPerGallon;
             double oneYear = insurance + maintenance + gasCost;
@@ -152,15 +152,15 @@ public class AddCommutingLogServlet extends HttpServlet {
         List<CommutingLog> userLogs = commutingLogDao.getByCustomQuery(hql);
         req.setAttribute("commutingLogs", userLogs);
 
-        GenericDao<TransportationCost> transportationCostDao = new GenericDao<>(TransportationCost.class);
-        String vehicleHql = "from TransportationCost where user.id = " + user.getId();
-        List<TransportationCost> vehicleProfiles = transportationCostDao.getByCustomQuery(vehicleHql);
+        GenericDao<TransportationProfile> transportationCostDao = new GenericDao<>(TransportationProfile.class);
+        String vehicleHql = "from TransportationProfile where user.id = " + user.getId();
+        List<TransportationProfile> vehicleProfiles = transportationCostDao.getByCustomQuery(vehicleHql);
 
         List<String> commuteTypes = new ArrayList<>();
         commuteTypes.add("walk");
         commuteTypes.add("bike");
         commuteTypes.add("bus");
-        for (TransportationCost vehicle : vehicleProfiles) {
+        for (TransportationProfile vehicle : vehicleProfiles) {
             if (!commuteTypes.contains(vehicle.getVehicleType())) {
                 commuteTypes.add(vehicle.getVehicleType());
             }

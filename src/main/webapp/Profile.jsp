@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="style/main.css" type="text/css"/>
 </head>
 <body>
-<h1>Hello, ${sessionScope.user.userName}!</h1>
+<h1>Hello, ${sessionScope.user.email}!</h1>
 <p>Welcome to your profile page.</p>
 </body>
 </html>

@@ -11,7 +11,7 @@
     <nav>
         <ul style="list-style-type: none; padding: 0;">
             <li style="display: inline; margin-right: 20px;">
-                <a href="viewUsers">Profile</a>
+                <a href="logIn">Login</a>
             </li>
             <li style="display: inline; margin-right: 20px;">
                 <a href="addCommutingLog">Commute Cost Log</a>

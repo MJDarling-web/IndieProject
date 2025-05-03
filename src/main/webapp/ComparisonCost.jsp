@@ -17,6 +17,11 @@
         <thead>
         <tr>
             <th>Commute Type</th>
+            <th>Total Time (min)</th>
+            <th>Gas Cost</th>
+            <th>Maintenance Cost</th>
+            <th>Insurance</th>
+            <th>Total payments</th>
             <th>1 year of ownership</th>
             <th>2 years of ownership</th>
             <th>5 years of ownership</th>
@@ -27,6 +32,11 @@
         <c:forEach var="entry" items="${costSummaryMap}">
             <tr>
                 <td>${entry.key}</td>
+                <td>${timeSpentMap[entry.key]}</td>
+                <td>$${gasCostMap[entry.key]}</td>
+                <td>$${maintenanceCostMap[entry.key]}</td>
+                <td>$${insuranceCostMap[entry.key]}</td>
+                <td>$${paymentCostMap[entry.key]}</td>
                 <td>$${entry.value.oneYearCost}</td>
                 <td>$${entry.value.twoYearCost}</td>
                 <td>$${entry.value.fiveYearCost}</td>

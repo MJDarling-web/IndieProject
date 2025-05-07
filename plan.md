@@ -75,11 +75,11 @@ week 10
 - [ ] week 6 database display on awd and aws connection
 - Week 7 & 8 material...
 - Other...
-- [ ] Finish JSP pages for Commuting Impact
-- [ ] Finish service files for processing input data
-- [ ] DAO test files
-- [ ] check database to ensure proper configuration for displaying data
-- [ ] check/update session for getting data from DAO for jsp/servlet pages to display correctly
+- [x] Finish JSP pages for Commuting Impact
+- [x] Finish service files for processing input data
+- [x] DAO test files
+- [x]check database to ensure proper configuration for displaying data
+- [x] check/update session for getting data from DAO for jsp/servlet pages to display correctly
 - [x] Brainstorm and psuedocode database tables needed for project
 - [x] Create database for user, transportation type, others?
 - [x] Create Properties files
@@ -89,12 +89,12 @@ week 10
 - [ ] Create JSP pages for Commuting Impact
 
 ## entity files
-- [ ] Outline entity classes need
+- [x] Outline entity classes need
 - [x] write out and brainstorm psuedocode/javadocs of necessary entity classes
-- [ ] finish persistence files
-- [ ] build out controller/logic files
-- [ ] create tests for project Daos
-- [ ] Submit project for review
+- [x] finish persistence files
+- [x] build out controller/logic files
+- x ] create tests for project Daos
+- [x] Submit project for peer review
 - [ ] Unit tests for entity files... create dump SQL file for Main and cleanDB.sql for testing.
 - [ ] create entity classes
 
@@ -163,13 +163,79 @@ Alternative Transportation Costs
 ## Week 13
 - [x] update commuting log and functioning
 - [x] delete commuting log 
-- [ ] implement functionality of storing user's data for car cost, mpg, insurance cost, bike cost, maintaince,
+- [x] implement functionality of storing user's data for car cost, mpg, insurance cost, bike cost, maintaince,
 - [x] profile page to add 
-- [ ] and edit vehicle types 
-- [ ] total commute costs for each commute type
-- [ ] connect selection of vehicle from my vehicles of user of what type of vehicles they have.  
+- [x] and edit vehicle types 
+- [x] total commute costs for each commute type
+- [x] connect selection of vehicle from my vehicles of user of what type of vehicles they have.  
 
 - [ ] Data is generating in the table on jsp page but now needs to be updated to correctly calculate costs.
 - [ ] CommuteCostLog needs to be updated to accurately reflect necessary data fields a user would include, 
 need to update dropdown for vehicle type, and update 
--[ ] MyVehicle to handle a users vehicles with mpg, need to consume mpg api.
+- [x] MyVehicle to handle a users vehicles with mpg, 
+
+<details>
+  <summary>Remaining To Dos</summary>
+
+- [x] Data is generating in the table on jsp page but now needs to be updated to correctly calculate costs
+- [ ] CommuteCostLog needs to be updated to accurately reflect necessary data fields a user would include,
+- [ ] need to calculate consumed mpg api.
+</details>
+
+## Week 15
+### from peer review feedback
+- [ ] User log-out
+- [x] fuelAPITest is lowercase should be upper case
+- [ ] review and incorporate previous feedbacks and close cases...
+- [ ] close feedback in github
+- [ ] make sure logging is throughout project
+- [ ] review TODOs to remove
+
+- [ ] add consumption of mpg API to usersCommuteLog calculation for accurate fuel mileage calculation. 
+- [x] error on jsp misspelled calculator"
+- [ ] check for JavaDocs, 
+- [ ] design docs, 
+- [x] published on github
+- [ ] review use a that one funky table and determine if its still needed
+- [ ] Complete testDaos necessary to meet project expectations
+- [ ] Again, incorporate feedback from peers
+
+### Tuesday; 
+- [x] review feedback from peer review, 
+- [x] plan what you'd like to complete this week
+- [x] misspelled calculator on jsp page
+
+### Wednesday: 
+- [x] review test sql dump file and update to clear database with each run.
+- [ ] review use a that one funky table and determine if it's still needed
+- [ ] review and incorporate previous feedbacks and close cases...
+- [ ] change hard-coded consumption of API to be included in calculation
+
+### Thursday: Review TODO
+- [ ] javadocs
+- [ ] Complete testDaos necessary to meet project expectations
+- [ ] User log-out
+- [ ] clean up gas-cost for other forms of transport on the comparison results jsp page
+- [ ] review and incorporate previous feedbacks and close cases...
+- [ ] close feedback in github
+
+### Friday:
+- [ ] Review completed project, each page and adjust as necessary or make notes for completion. 
+- [ ] review TODOs to remove
+- [ ] Jazz up site if time allows
+- [ ] double check we have test cases for each DAO
+- [ ] Double check JavaDocs
+- [ ] double check logging is implemented
+- [ ] clean up extra debugging, system.out.prints, etc...
+
+## Saturday: 
+- [ ] Record video presentation. 
+
+### Monday: 
+- [ ] review design docs
+- [ ] Modify initial plan and update with a V2 for moving forward
+- [ ] Write out wins and fails of project and how you'll move forward with next projects for portfolio pieces. 
+- [ ] spellcheck project. 
+- [ ] review all material one more time and submit project for grading
+
+

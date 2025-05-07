@@ -18,10 +18,14 @@ public class UserDaoTest {
 
     @BeforeEach
     void setUp() {
-        Database database = new Database();
-        SessionFactoryProvider.createSessionFactory();
+        Database database = Database.getInstance();
         database.runSQL("cleandb.sql");
+
+        SessionFactoryProvider.createSessionFactory();
+
         userDao = new GenericDao<>(User.class);
+        userDao.getAll().forEach(userDao::deleteEntity);
+
 
     }
 
@@ -82,5 +86,10 @@ public class UserDaoTest {
 
         List<User> users = userDao.getAll();
         assertTrue(users.size() >= 2, "There should be at least 2 users in the database");
+    }
+
+    @Test
+    void restoreDatebase() {
+        setUp();
     }
 }

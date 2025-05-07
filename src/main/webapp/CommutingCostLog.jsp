@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="style/main.css" type="text/css" />
 </head>
 <body>
+<!--TODO css styling of page center all items -->
+<!--TODO delete cost section of form-->
 
 <h2>Your Commuting Logs</h2>
-
 <c:if test="${not empty commutingLogs}">
     <table border="1">
         <thead>

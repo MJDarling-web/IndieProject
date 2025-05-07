@@ -126,3 +126,8 @@ Does have @Entity, is mapped correctly in hibernate.cfg.xml, is in pom file, and
 
 ## Week 13? 
 5/1 2 hours on Comparison Results JSP, cost_analysis data is now being displayed on the page and added but not properly calculated yet, could look much nicer. 
+
+## Week 14
+
+## Week 15 
+1 hour planning and solving multiple logs without deleting test db. 

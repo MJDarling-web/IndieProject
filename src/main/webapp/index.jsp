@@ -11,7 +11,7 @@
 <%@include file="Header.jsp" %>
 <%@include file="taglib.jsp" %>
 <h2>Welcome to Commuter</h2>
-<h3>A commuting cost calcultor and comparison tracker for your true cost of transportation needs</h3>
+<h3>A commuting cost calculator and comparison tracker for your true cost of transportation needs</h3>
 
 <form id="commuteForm">
     <label for="miles">Enter your commute distance (miles):</label>

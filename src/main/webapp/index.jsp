@@ -9,7 +9,7 @@
 </head>
 <body>
 <!--TODO css styling of page center all items -->
-<%@include file="Header.jsp" %>
+<%@include file="Header.jsp" %>cost
 <%@include file="taglib.jsp" %>
 <h2>Welcome to Commuter</h2>
 <h3>A commuting cost calculator and comparison tracker for your true cost of transportation needs</h3>

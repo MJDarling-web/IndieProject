@@ -207,6 +207,8 @@ need to update dropdown for vehicle type, and update
 
 ### Wednesday: 
 - [x] review test sql dump file and update to clear database with each run.
+- [x] update jsp bus costs to reflect accurate bus cost.
+- [ ] clean up TODOs
 - [ ] review use a that one funky table and determine if it's still needed
 - [ ] review and incorporate previous feedbacks and close cases...
 - [ ] change hard-coded consumption of API to be included in calculation

@@ -8,6 +8,7 @@
 
 </head>
 <body>
+<!--TODO css styling of page center all items -->
 <%@include file="Header.jsp" %>
 <%@include file="taglib.jsp" %>
 <h2>Welcome to Commuter</h2>
@@ -58,8 +59,8 @@
                     break;
                 case "bus":
                     // Assume a bus ticket costs $2.50 per ride, and a person commutes for the specified days per week.
-                    cost = 2.50 * 2 * daysPerWeek;  // Round trip each day
-                    resultText = 'Your estimated weekly cost for taking the bus is: $' + cost.toFixed(2);
+                    cost = 2.00 * 1 * daysPerWeek;  // Round trip each day
+                    resultText = 'The Madison bus cost about $2.00 a trip, your estimated weekly cost for taking the bus is: $' + cost.toFixed(2);
                     break;
                 case "bike":
                     // Biking is free, but might need a one-time cost for equipment like a bike.

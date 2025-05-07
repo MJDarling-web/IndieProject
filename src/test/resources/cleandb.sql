@@ -14,6 +14,31 @@
 --
 -- Table structure for table `commuting_logs`
 --
+-- 0) make sure we’re in the right database
+USE `commuter_test`;
+
+-- 1) disable FOREIGN KEY checks so we can truncate in any order
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- 2) build & run a concatenated TRUNCATE statement for all tables
+SET SESSION group_concat_max_len = 1000000;
+SELECT GROUP_CONCAT(
+               CONCAT('TRUNCATE TABLE `', table_name, '`;')
+               SEPARATOR ' '
+       )
+INTO @all_truncates
+FROM information_schema.tables
+WHERE table_schema = DATABASE()
+  AND table_type   = 'BASE TABLE';
+
+PREPARE stmt FROM @all_truncates;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
+
+-- 3) re‑enable FK checks
+SET FOREIGN_KEY_CHECKS = 1;
+
+-- — your existing DDL/INSERTs follow below —
 
 DROP TABLE IF EXISTS `commuting_logs`;
 /*!40101 SET @saved_cs_client = @@character_set_client */;

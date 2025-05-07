@@ -204,22 +204,25 @@ need to update dropdown for vehicle type, and update
 - [x] review feedback from peer review, 
 - [x] plan what you'd like to complete this week
 - [x] misspelled calculator on jsp page
-- [ ] review test sql dump file and update to clear database with each run. 
+
 ### Wednesday: 
+- [ ] review test sql dump file and update to clear database with each run.
+- [ ] clean up extra debugging, system.out.prints, etc... 
 - [ ] review use a that one funky table and determine if it's still needed
 - [ ] review and incorporate previous feedbacks and close cases...
 - [ ] change hard-coded consumption of API to be included in calculation
-- [ ] review TODOs to remove
 
 ### Thursday: Review TODO
 - [ ] javadocs
 - [ ] Complete testDaos necessary to meet project expectations
 - [ ] User log-out
+- [ ] clean up gas-cost for other forms of transport on the comparison results jsp page
 - [ ] review and incorporate previous feedbacks and close cases...
 - [ ] close feedback in github
 
 ### Friday:
 - [ ] Review completed project, each page and adjust as necesary or make notes for completion. 
+- [ ] review TODOs to remove
 - [ ] Jazz up site if time allows
 - [ ] double check we have test cases for each DAO
 - [ ] Double check JavaDocs

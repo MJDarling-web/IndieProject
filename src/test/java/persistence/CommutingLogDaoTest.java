@@ -22,6 +22,7 @@ public class CommutingLogDaoTest {
         database.runSQL("cleandb.sql");
         commutingLogDao = new GenericDao<>(CommutingLog.class);
         userDao = new GenericDao<>(User.class);
+        commutingLogDao.getAll().forEach(commutingLogDao::deleteEntity);
     }
 
     @Test

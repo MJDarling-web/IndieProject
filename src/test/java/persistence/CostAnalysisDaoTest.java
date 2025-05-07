@@ -18,6 +18,8 @@ public class CostAnalysisDaoTest {
         SessionFactoryProvider.createSessionFactory();
         database.runSQL("cleandb.sql");
         costAnalysisDao = new GenericDao<>(CostAnalysis.class);
+        costAnalysisDao.getAll().forEach(costAnalysisDao::deleteEntity);
+
     }
 
     @Test

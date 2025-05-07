@@ -131,3 +131,4 @@ Does have @Entity, is mapped correctly in hibernate.cfg.xml, is in pom file, and
 
 ## Week 15 
 1 hour planning and solving multiple logs without deleting test db. 
+1 hour updating servlet pages, logout, and merge/pull requests.  

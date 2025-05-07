@@ -216,7 +216,7 @@ need to update dropdown for vehicle type, and update
 ### Thursday: Review TODO
 - [ ] javadocs
 - [ ] Complete testDaos necessary to meet project expectations
-- [ ] User log-out
+- [x] User log-out
 - [ ] clean up gas-cost for other forms of transport on the comparison results jsp page
 - [ ] review and incorporate previous feedbacks and close cases...
 - [ ] close feedback in github

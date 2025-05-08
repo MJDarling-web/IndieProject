@@ -9,6 +9,7 @@
 </head>
 <body>
 <!--TODO css styling of page center all items -->
+<!-- TODO adjust cost analysis calculator ot factor in additional cost of users vehicle -->
 <%@include file="Header.jsp" %>cost
 <%@include file="taglib.jsp" %>
 <h2>Welcome to Commuter</h2>

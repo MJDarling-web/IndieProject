@@ -25,7 +25,6 @@
 
         <mapping class="entity.CommutingLog" />
         <mapping class="entity.CostAnalysis" />
-        <mapping class="entity.CostProjection" />
         <mapping class="entity.TransportationProfile" />
         <mapping class="entity.User" />
 

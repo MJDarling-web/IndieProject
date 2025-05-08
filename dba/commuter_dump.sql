@@ -79,36 +79,6 @@ INSERT INTO `cost_analyses` VALUES (451,947,'walk',0.42,0.84,2.1,3.36),(452,947,
 UNLOCK TABLES;
 
 --
--- Table structure for table `cost_projections`
---
-
-DROP TABLE IF EXISTS `cost_projections`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `cost_projections` (
-                                    `log_id` int NOT NULL AUTO_INCREMENT,
-                                    `user_id` int NOT NULL,
-                                    `transportation_mode` varchar(50) DEFAULT NULL,
-                                    `date_added` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-                                    `duration_in_minutes` int DEFAULT NULL,
-                                    `distance_in_miles` float DEFAULT NULL,
-                                    PRIMARY KEY (`log_id`,`user_id`),
-                                    KEY `user_id` (`user_id`),
-                                    CONSTRAINT `cost_projections_ibfk_1` FOREIGN KEY (`log_id`) REFERENCES `commuting_logs` (`log_id`) ON DELETE CASCADE,
-                                    CONSTRAINT `cost_projections_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `cost_projections`
---
-
-LOCK TABLES `cost_projections` WRITE;
-/*!40000 ALTER TABLE `cost_projections` DISABLE KEYS */;
-/*!40000 ALTER TABLE `cost_projections` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `transportation_costs`
 --
 

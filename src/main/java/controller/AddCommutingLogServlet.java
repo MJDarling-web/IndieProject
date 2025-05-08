@@ -1,11 +1,10 @@
 package controller;
 
-import entity.CommutingLog;
-import entity.CostAnalysis;
-import entity.TransportationProfile;
-import entity.User;
+import entity.*;
+import persistence.FuelApiDao;
 import persistence.GenericDao;
 import persistence.UserDao;
+import util.CommutingCostCalculator;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,188 +13,189 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @WebServlet("/addCommutingLog")
 public class AddCommutingLogServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+
         int userId = getLoggedInUserId(req);
 
-        // Grab form inputs
-        String commuteType = req.getParameter("commuteType");
-        double timeSpent = Double.parseDouble(req.getParameter("timeSpent"));
-        double distanceInMiles = Double.parseDouble(req.getParameter("distanceInMiles"));
-        double cost = Double.parseDouble(req.getParameter("cost"));
+        // Load the user
+        User user = new UserDao().getById(userId);
 
-        // Create and populate log
+        // Grab form inputs (no more "cost" field)
+        String commuteType      = req.getParameter("commuteType");
+        double timeSpent        = Double.parseDouble(req.getParameter("timeSpent"));
+        double distanceInMiles  = Double.parseDouble(req.getParameter("distanceInMiles"));
+
+        // Fetch the user's vehicle MPG
+        GenericDao<TransportationProfile> profDao =
+                new GenericDao<>(TransportationProfile.class);
+        List<TransportationProfile> profiles = profDao.getByCustomQuery(
+                "from TransportationProfile where user.id = " + userId
+        );
+        double mpg = profiles.stream()
+                .filter(p -> p.getVehicleType().equalsIgnoreCase(commuteType))
+                .map(TransportationProfile::getMilesPerGallon)
+                .findFirst()
+                .orElse(25.0);
+
+        //Compute gas cost via our small service
+        double cost;
+        String typeLower = commuteType.toLowerCase();
+        if (typeLower.equals("walk") || typeLower.equals("bike")) {
+            cost = 0.0;
+        } else if (typeLower.equals("bus")) {
+            cost = 2.00;
+        } else {
+            CommutingCostCalculator calculator =
+                    new CommutingCostCalculator(new FuelApiDao());
+            try {
+                cost = calculator.computeGasCost(distanceInMiles, mpg);
+            } catch (Exception e) {
+                throw new ServletException("Failed to fetch fuel price", e);
+            }
+        }
+
+        // Build and persist the CommutingLog
         CommutingLog log = new CommutingLog();
+        log.setUser(user);
         log.setCommuteType(commuteType);
         log.setTimeSpent(timeSpent);
         log.setDistanceInMiles(distanceInMiles);
         log.setCost(cost);
-        log.setDate(new java.util.Date());
+        log.setDate(new Date());
+        new GenericDao<>(CommutingLog.class).insert(log);
 
-        // Assign user by ID
-        UserDao userDao = new UserDao();
-        User user = userDao.getById(userId);
-        log.setUser(user);
-
-        // Save log
-        GenericDao<CommutingLog> commutingLogDao = new GenericDao<>(CommutingLog.class);
-        commutingLogDao.insert(log);
-
-        // Load all logs
-        String hql = "from CommutingLog where user.id=" + user.getId();
-        List<CommutingLog> userLogs = commutingLogDao.getByCustomQuery(hql);
+        // 6) Reload all logs for display
+        List<CommutingLog> userLogs = new GenericDao<>(CommutingLog.class)
+                .getByCustomQuery("from CommutingLog where user.id=" + userId);
         req.setAttribute("commutingLogs", userLogs);
 
-        // Load commute type options
-        GenericDao<TransportationProfile> transportationCostDao = new GenericDao<>(TransportationProfile.class);
-        String vehicleHql = "from TransportationProfile where user.id = " + user.getId();
-        List<TransportationProfile> vehicleProfiles = transportationCostDao.getByCustomQuery(vehicleHql);
-
-        List<String> commuteTypes = new ArrayList<>();
-        commuteTypes.add("walk");
-        commuteTypes.add("bike");
-        commuteTypes.add("bus");
-        for (TransportationProfile vehicle : vehicleProfiles) {
-            if (!commuteTypes.contains(vehicle.getVehicleType())) {
-                commuteTypes.add(vehicle.getVehicleType());
+        // Build commute‑type dropdown
+        List<String> commuteTypes = new ArrayList<>(Arrays.asList("walk","bike","bus"));
+        for (TransportationProfile p : profiles) {
+            if (!commuteTypes.contains(p.getVehicleType())) {
+                commuteTypes.add(p.getVehicleType());
             }
         }
-
-        if (vehicleProfiles.isEmpty() && !commuteTypes.contains("car")) {
+        if (profiles.isEmpty() && !commuteTypes.contains("car")) {
             commuteTypes.add("car");
-            req.setAttribute("vehicleWarning", "You haven't added any vehicles yet. Default 'car' option added. Please add a vehicle profile for more accurate costs.");
+            req.setAttribute("vehicleWarning",
+                    "No vehicles found—default 'car' added. Please add a vehicle profile.");
         }
-
         req.setAttribute("commuteTypes", commuteTypes);
 
-        // TODO update calculations so they actually calculate based on the users vehicle, cost of insurance, and total monthly commuting costs of gas for all vehicle types"
+        // Recompute and persist CostAnalysis for each type
         GenericDao<CostAnalysis> costDao = new GenericDao<>(CostAnalysis.class);
-        Map<String, CostAnalysis> costSummaryMap = new HashMap<>();
-
+        Map<String, CostAnalysis> costSummary = new HashMap<>();
         for (String type : commuteTypes) {
-            double totalMiles = 0;
-            for (CommutingLog cl : userLogs) {
-                if (cl.getCommuteType().equalsIgnoreCase(type)) {
-                    totalMiles += cl.getDistanceInMiles();
-                }
-            }
+            double totalMiles = userLogs.stream()
+                    .filter(c -> c.getCommuteType()
+                            .equalsIgnoreCase(type))
+                    .mapToDouble(CommutingLog::getDistanceInMiles)
+                    .sum();
 
-            TransportationProfile matchedVehicle = null;
-            for (TransportationProfile v : vehicleProfiles) {
-                if (v.getVehicleType().equalsIgnoreCase(type)) {
-                    matchedVehicle = v;
-                    break;
-                }
-            }
+            // find matching vehicle for insurance/maintenance/fuel
+            TransportationProfile vehicle = profiles.stream()
+                    .filter(p -> p.getVehicleType()
+                            .equalsIgnoreCase(type))
+                    .findFirst().orElse(null);
 
-            double insurance = matchedVehicle != null ? matchedVehicle.getInsuranceCost() : 0;
-            double maintenance = matchedVehicle != null ? matchedVehicle.getMaintenanceCost() : 0;
-            double mpg = matchedVehicle != null && matchedVehicle.getMilesPerGallon() > 0 ? matchedVehicle.getMilesPerGallon() : 25;
-            double fuelCostPerGallon = matchedVehicle != null ? matchedVehicle.getFuelCostPerGallon() : 3.5;
+            double insurance = vehicle != null ? vehicle.getInsuranceCost() : 0;
+            double maintenance = vehicle != null ? vehicle.getMaintenanceCost() : 0;
+            double perGallon = vehicle != null ? vehicle.getFuelCostPerGallon() : 3.5;
+            double mpgForType = vehicle != null && vehicle.getMilesPerGallon()>0
+                    ? vehicle.getMilesPerGallon() : 25;
 
-            double gasCost = (totalMiles / mpg) * fuelCostPerGallon;
-            double oneYear = insurance + maintenance + gasCost;
+            double typeGasCost = (totalMiles / mpgForType) * perGallon;
+            double oneYear = insurance + maintenance + typeGasCost;
             double twoYear = oneYear * 2;
             double fiveYear = oneYear * 5;
 
-            // Check if existing analysis already exists for user+type
-            String costHql = "from CostAnalysis where user.id = " + user.getId() +
-                    " and commuteType = '" + type + "' order by analysisId desc";
-            List<CostAnalysis> existing = costDao.getByCustomQuery(costHql);
+            // load or new
+            String hql = "from CostAnalysis where user.id=" + userId +
+                    " and commuteType='" + type +
+                    "' order by analysisId desc";
+            List<CostAnalysis> existing = costDao.getByCustomQuery(hql);
 
-            CostAnalysis analysis;
-            if (!existing.isEmpty()) {
-                analysis = existing.get(0);
-            } else {
-                analysis = new CostAnalysis();
-                analysis.setUser(user);
-                analysis.setCommuteType(type);
+            CostAnalysis ca = existing.isEmpty()
+                    ? new CostAnalysis()
+                    : existing.get(0);
+
+            if (existing.isEmpty()) {
+                ca.setUser(user);
+                ca.setCommuteType(type);
             }
+            ca.setOneYearCost(oneYear);
+            ca.setTwoYearCost(twoYear);
+            ca.setFiveYearCost(fiveYear);
+            ca.setTotalCost(oneYear + twoYear + fiveYear);
 
-            analysis.setOneYearCost(oneYear);
-            analysis.setTwoYearCost(twoYear);
-            analysis.setFiveYearCost(fiveYear);
-            analysis.setTotalCost(oneYear + twoYear + fiveYear);
-
-            // Save or update existing
-            if (analysis.getAnalysisId() > 0) {
-                costDao.update(analysis);
+            if (ca.getAnalysisId() > 0) {
+                costDao.update(ca);
             } else {
-                costDao.insert(analysis);
+                costDao.insert(ca);
             }
-
-            costSummaryMap.put(type, analysis);
+            costSummary.put(type, ca);
         }
+        req.setAttribute("costSummaryMap", costSummary);
 
-        req.setAttribute("costSummaryMap", costSummaryMap);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("CommutingCostLog.jsp");
-        dispatcher.forward(req, resp);
+        // 9) Forward to JSP
+        RequestDispatcher rd = req.getRequestDispatcher("CommutingCostLog.jsp");
+        rd.forward(req, resp);
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        // simply load logs, commute types, and cost summary for display
         int userId = getLoggedInUserId(req);
+        User user = new UserDao().getById(userId);
 
-        UserDao userDao = new UserDao();
-        User user = userDao.getById(userId);
-
-        GenericDao<CommutingLog> commutingLogDao = new GenericDao<>(CommutingLog.class);
-        String hql = "from CommutingLog where user.id=" + user.getId();
-        List<CommutingLog> userLogs = commutingLogDao.getByCustomQuery(hql);
+        List<CommutingLog> userLogs = new GenericDao<>(CommutingLog.class)
+                .getByCustomQuery("from CommutingLog where user.id=" + userId);
         req.setAttribute("commutingLogs", userLogs);
 
-        GenericDao<TransportationProfile> transportationCostDao = new GenericDao<>(TransportationProfile.class);
-        String vehicleHql = "from TransportationProfile where user.id = " + user.getId();
-        List<TransportationProfile> vehicleProfiles = transportationCostDao.getByCustomQuery(vehicleHql);
-
-        List<String> commuteTypes = new ArrayList<>();
-        commuteTypes.add("walk");
-        commuteTypes.add("bike");
-        commuteTypes.add("bus");
-        for (TransportationProfile vehicle : vehicleProfiles) {
-            if (!commuteTypes.contains(vehicle.getVehicleType())) {
-                commuteTypes.add(vehicle.getVehicleType());
+        List<TransportationProfile> profiles = new GenericDao<>(TransportationProfile.class)
+                .getByCustomQuery("from TransportationProfile where user.id=" + userId);
+        List<String> commuteTypes = new ArrayList<>(Arrays.asList("walk","bike","bus"));
+        for (TransportationProfile p : profiles) {
+            if (!commuteTypes.contains(p.getVehicleType())) {
+                commuteTypes.add(p.getVehicleType());
             }
         }
         req.setAttribute("commuteTypes", commuteTypes);
 
+        Map<String, CostAnalysis> costSummary = new HashMap<>();
         GenericDao<CostAnalysis> costDao = new GenericDao<>(CostAnalysis.class);
-        Map<String, CostAnalysis> costSummaryMap = new HashMap<>();
         for (String type : commuteTypes) {
-            String costHql = "from CostAnalysis where user.id = " + user.getId() +
-                    " and commuteType = '" + type + "' order by analysisId desc";
-            List<CostAnalysis> costSummaries = costDao.getByCustomQuery(costHql);
-            if (!costSummaries.isEmpty()) {
-                costSummaryMap.put(type, costSummaries.get(0));
+            List<CostAnalysis> list = costDao.getByCustomQuery(
+                    "from CostAnalysis where user.id=" + userId +
+                            " and commuteType='" + type + "' order by analysisId desc"
+            );
+            if (!list.isEmpty()) {
+                costSummary.put(type, list.get(0));
             }
         }
-        req.setAttribute("costSummaryMap", costSummaryMap);
+        req.setAttribute("costSummaryMap", costSummary);
 
         req.getRequestDispatcher("CommutingCostLog.jsp").forward(req, resp);
     }
 
     private int getLoggedInUserId(HttpServletRequest req) {
-        String userEmail = (String) req.getSession().getAttribute("userName");
-
-        if (userEmail == null) {
-            throw new IllegalStateException("No user is logged in.");
+        String email = (String) req.getSession().getAttribute("userName");
+        if (email == null) {
+            throw new IllegalStateException("No user logged in");
         }
-
-        UserDao userDao = new UserDao();
-        User user = userDao.getByEmail(userEmail);
-
+        User user = new UserDao().getByEmail(email);
         if (user == null) {
-            throw new IllegalStateException("User not found in the database.");
+            throw new IllegalStateException("User not found");
         }
-
         return user.getId();
     }
 }

@@ -11,6 +11,7 @@
 <!--TODO delete cost section of form-->
 
 <h2>Your Commuting Logs</h2>
+
 <c:if test="${not empty commutingLogs}">
     <table border="1">
         <thead>
@@ -20,18 +21,18 @@
             <th>Commute Type</th>
             <th>Time Spent (minutes)</th>
             <th>Distance (miles)</th>
-            <th>Cost</th>
+            <th>Cost in gas</th>
         </tr>
         </thead>
         <tbody>
         <c:forEach var="log" items="${commutingLogs}">
             <tr>
                 <td>
-                    <form action="deleteCommutingLog" method="post" style="display:inline;">
+                    <form action="deleteCommutingLog" method="post" style="display:inline">
                         <input type="hidden" name="logId" value="${log.id}" />
                         <button type="submit">Delete</button>
                     </form>
-                    <form action="CommutingCostLog.jsp" method="get" style="display:inline;">
+                    <form action="CommutingCostLog" method="get" style="display:inline">
                         <input type="hidden" name="editLogId" value="${log.id}" />
                         <button type="submit">Edit</button>
                     </form>
@@ -50,6 +51,8 @@
     <p>No commuting logs found.</p>
 </c:if>
 
+<hr/>
+
 <h3>
     <c:choose>
         <c:when test="${not empty param.editLogId}">Edit Commute Log</c:when>
@@ -57,7 +60,8 @@
     </c:choose>
 </h3>
 
-<form action="${not empty param.editLogId ? 'updateCommutingLog' : 'addCommutingLog'}" method="post">
+<form action="${not empty param.editLogId ? 'updateCommutingLog' : 'addCommutingLog'}"
+      method="post">
     <c:if test="${not empty param.editLogId}">
         <input type="hidden" name="logId" value="${param.editLogId}" />
     </c:if>
@@ -71,16 +75,19 @@
             </option>
         </c:forEach>
     </select>
-    <br><br>
+    <br/><br/>
 
     <label for="timeSpent">Time Spent (minutes):</label>
-    <input type="number" id="timeSpent" name="timeSpent" value="${editLog.timeSpent}" required><br><br>
+    <input type="number" id="timeSpent" name="timeSpent"
+           value="${editLog.timeSpent}" step="0.1" required />
+    <br/><br/>
 
     <label for="distanceInMiles">Distance (miles):</label>
-    <input type="number" id="distanceInMiles" name="distanceInMiles" value="${editLog.distanceInMiles}" required><br><br>
+    <input type="number" id="distanceInMiles" name="distanceInMiles"
+           value="${editLog.distanceInMiles}" step="0.1" required />
+    <br/><br/>
 
-    <label for="cost">Cost:</label>
-    <input type="number" id="cost" name="cost" value="${editLog.cost}" required><br><br>
+    <!-- cost is auto-calculated in the servlet, so no input here -->
 
     <button type="submit">
         <c:choose>
@@ -89,35 +96,6 @@
         </c:choose>
     </button>
 </form>
-
-<c:if test="${not empty costSummary}">
-    <h3>Most Recent Cost Summary</h3>
-    <table border="1">
-        <thead>
-        <tr>
-            <th>Commute Type</th>
-            <th>1-Year Cost</th>
-            <th>2-Year Cost</th>
-            <th>5-Year Cost</th>
-            <th>Total Cost</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>${costSummary.commuteType}</td>
-            <td>$${costSummary.oneYearCost}</td>
-            <td>$${costSummary.twoYearCost}</td>
-            <td>$${costSummary.fiveYearCost}</td>
-            <td><strong>$${costSummary.totalCost}</strong></td>
-        </tr>
-        </tbody>
-    </table>
-</c:if>
-<c:if test="${empty costSummary}">
-    <p>No cost summary available yet. Add a commuting log to generate one.</p>
-</c:if>
-
-<p>Debug: ${costSummary}</p>
 
 </body>
 </html>

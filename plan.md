@@ -208,12 +208,12 @@ need to update dropdown for vehicle type, and update
 ### Wednesday: 
 - [x] review test sql dump file and update to clear database with each run.
 - [x] update jsp bus costs to reflect accurate bus cost.
-- [ ] clean up TODOs
 - [x] review use of that one funky table and determine if it's still needed
+- [x] change hard-coded consumption of API to be included in calculation
 - [ ] review and incorporate previous feedbacks and close cases...
-- [ ] change hard-coded consumption of API to be included in calculation
 
 ### Thursday: Review TODO
+- [ ] clean up TODOs
 - [ ] javadocs
 - [ ] Complete testDaos necessary to meet project expectations
 - [x] User log-out

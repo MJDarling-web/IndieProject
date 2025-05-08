@@ -36,7 +36,7 @@ CREATE TABLE `commuting_logs` (
 
 -- 4) Recreate COST_ANALYSES with log_id PK
 CREATE TABLE `cost_analyses` (
-                                 `log_id`         INT AUTO_INCREMENT PRIMARY KEY,
+                                 `analysis_id`         INT AUTO_INCREMENT PRIMARY KEY,
                                  `user_id`        INT DEFAULT NULL,
                                  `commute_type`   VARCHAR(50) DEFAULT NULL,
                                  `one_year_cost`  FLOAT DEFAULT NULL,

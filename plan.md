@@ -184,19 +184,19 @@ need to update dropdown for vehicle type, and update
 
 ## Week 15
 ### from peer review feedback
-- [ ] User log-out
+- [x] User log-out
 - [x] fuelAPITest is lowercase should be upper case
 - [ ] review and incorporate previous feedbacks and close cases...
 - [ ] close feedback in github
 - [ ] make sure logging is throughout project
 - [ ] review TODOs to remove
 
-- [ ] add consumption of mpg API to usersCommuteLog calculation for accurate fuel mileage calculation. 
+- [x] add consumption of mpg API to usersCommuteLog calculation for accurate fuel mileage calculation. 
 - [x] error on jsp misspelled calculator"
 - [ ] check for JavaDocs, 
 - [ ] design docs, 
 - [x] published on github
-- [ ] review use a that one funky table and determine if its still needed
+- [x] review use a that one funky table and determine if its still needed
 - [ ] Complete testDaos necessary to meet project expectations
 - [ ] Again, incorporate feedback from peers
 

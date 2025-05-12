@@ -1,7 +1,7 @@
 # Title: "My Commuting Impact: A Web App for Analyzing the True Financial Costs of Commuting"
 
 ## **Problem Statement:**
-In the United States, car ownership is often seen as a necessity, with many individuals purchasing or leasing cars based on their perceived need to drive, rather than fully understanding the financial implications. People generally focus on the upfront costs or loan payments, but overlook long-term expenses such as maintenance, insurance, fuel, and depreciation. Additionally, environmental and alternative commuting options are seldom considered in the financial equation. This leads to people making decisions that are not financially optimal or sustainable.
+In the United States, car ownership is often seen as a necessity, with many individuals purchasing or leasing cars based on their perceived need to drive, rather than fully understanding the financial implications. People generally focus on the upfront costs or loan payments, but overlook long-term expenses such as maintenance, insurance, and fuel. Additionally, environmental and alternative commuting options are seldom considered in the financial equation. This leads to people making decisions that are not financially optimal or sustainable.
 
 ## **Proposed Solution:**
 "My Commuting Impact" is a web application designed to help individuals make informed decisions about their transportation choices by providing a comprehensive breakdown of the true financial costs of car ownership compared to alternative methods, including biking, public transportation, and walking. By offering clear and accessible insights into the real costs—both financially and in terms of time. Users can better assess whether owning or maintaining a car is the best option for them.
@@ -43,3 +43,8 @@ Integration with a google maps API to get the users commute data for each type o
 * JUnit for testing application
 
 These technologies are well-suited for developing "My Commuting Impact" web app, covering everything from front-end user interface development to back-end server-side logic, data management, and deployment. Each technology is chosen based on its strengths in achieving key features: commuters analysis, data visualization, and user tracking._
+
+Video presentaiton:
+part 1 https://youtu.be/c0n8E98s-FA 
+part 2 https://youtu.be/rnaN0um19VE 
+part 3 https://youtu.be/uuWMcFHz2tQ

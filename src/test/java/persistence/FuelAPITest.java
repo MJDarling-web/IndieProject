@@ -20,8 +20,6 @@ public class FuelAPITest {
             assertNotNull(prices.getRegular(), "Regular price should not be null");
             assertFalse(prices.getRegular().isEmpty(), "Regular price should not be empty");
 
-            System.out.println("Regular price exists: $" + prices.getRegular());
-
         } catch (Exception e) {
             fail("Test failed with exception: " + e.getMessage());
         }

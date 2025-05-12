@@ -93,54 +93,71 @@ public class ComparisonCostServlet extends HttpServlet {
                 + profile.getInsuranceCost()
                 + profile.getMonthlyPayment();
 
-        CostAnalysis overall = new CostAnalysis();
-        overall.setCommuteType("Overall");
-        overall.setTotalCost(totalSoFar);
-        overall.setOneYearCost(monthlyTotal * 12);
-        overall.setTwoYearCost(monthlyTotal * 24);
-        overall.setFiveYearCost(monthlyTotal * 60);
-        costSummaryMap.put("Overall", overall);
+        // CostAnalysis for Car commute type
+        Map<String, List<CommutingLog>> logsByType = logs.stream().collect(Collectors.groupingBy(CommutingLog::getCommuteType));
+
+        List<CommutingLog> carLogs = logsByType.getOrDefault("Car", new ArrayList<>());
+
+        if (!carLogs.isEmpty()) {
+            double carGasCost = carLogs.stream().mapToDouble(CommutingLog::getCost).sum();
+
+            LocalDate firstCarLogDate = carLogs.stream()
+                    .map(CommutingLog::getDate)
+                    .map(d -> d.toInstant().atZone(ZoneId.systemDefault()).toLocalDate())
+                    .min(Comparator.naturalOrder())
+                    .orElse(LocalDate.now());
+            long carMonths = ChronoUnit.MONTHS.between(firstCarLogDate, LocalDate.now());
+            carMonths = Math.max(carMonths, 1);
+
+            double carAvgGasPerMonth = carGasCost / carMonths;
+            double carMonthlyTotal = carAvgGasPerMonth
+                    + profile.getMaintenanceCost()
+                    + profile.getInsuranceCost()
+                    + profile.getMonthlyPayment();
+
+            CostAnalysis carAnalysis = new CostAnalysis();
+            carAnalysis.setCommuteType("Car");
+            carAnalysis.setTotalCost(carGasCost + profile.getMaintenanceCost()
+                    + profile.getInsuranceCost()
+                    + profile.getMonthlyPayment());
+            carAnalysis.setOneYearCost(carMonthlyTotal * 12);
+            carAnalysis.setTwoYearCost(carMonthlyTotal * 24);
+            carAnalysis.setFiveYearCost(carMonthlyTotal * 60);
+            costSummaryMap.put("Car", carAnalysis);
+        }
+
 
         // 6) Build breakdown maps (time, gas, maintenance, insurance, payment)
-        Map<String, List<CommutingLog>> logsByType = logs.stream()
+        logsByType = logs.stream()
                 .collect(Collectors.groupingBy(CommutingLog::getCommuteType));
 
-        Map<String, Double> timeSpentMap       = new HashMap<>();
-        Map<String, Double> gasCostMap         = new HashMap<>();
-        Map<String, Double> maintenanceMap     = new HashMap<>();
-        Map<String, Double> insuranceMap       = new HashMap<>();
-        Map<String, Double> paymentMap         = new HashMap<>();
+        Map<String, Double> timeSpentMap = new HashMap<>();
+        Map<String, Double> gasCostMap = new HashMap<>();
+        Map<String, Double> maintenanceMap = new HashMap<>();
+        Map<String, Double> insuranceMap = new HashMap<>();
+        Map<String, Double> paymentMap = new HashMap<>();
 
         for (Map.Entry<String, List<CommutingLog>> e : logsByType.entrySet()) {
             String type = e.getKey();
             List<CommutingLog> list = e.getValue();
 
             double time = list.stream().mapToDouble(CommutingLog::getTimeSpent).sum();
-            double gas  = list.stream().mapToDouble(CommutingLog::getCost).sum();
+            double gas = list.stream().mapToDouble(CommutingLog::getCost).sum();
             boolean isCar = "Car".equalsIgnoreCase(type);
             timeSpentMap.put(type, time);
             gasCostMap.put(type, gas);
             maintenanceMap.put(type, isCar ? profile.getMaintenanceCost() : 0.0);
-            insuranceMap.put(type,  isCar ? profile.getInsuranceCost()  : 0.0);
-            paymentMap.put(type,    isCar ? profile.getMonthlyPayment()  : 0.0);
+            insuranceMap.put(type, isCar ? profile.getInsuranceCost() : 0.0);
+            paymentMap.put(type, isCar ? profile.getMonthlyPayment() : 0.0);
         }
 
-        // Add Overall breakdown
-        timeSpentMap.put("Overall",    timeSpentMap.values().stream().mapToDouble(Double::doubleValue).sum());
-        gasCostMap.put("Overall",      totalCommuteCost);
-        maintenanceMap.put("Overall",  profile.getMaintenanceCost());
-        insuranceMap.put("Overall",    profile.getInsuranceCost());
-        paymentMap.put("Overall",      profile.getMonthlyPayment());
-
         // 7) Set everything on the request
-        req.setAttribute("costSummaryMap",    costSummaryMap);
-        req.setAttribute("timeSpentMap",      timeSpentMap);
-        req.setAttribute("gasCostMap",        gasCostMap);
-        req.setAttribute("maintenanceCostMap",maintenanceMap);
-        req.setAttribute("insuranceCostMap",  insuranceMap);
-        req.setAttribute("paymentCostMap",    paymentMap);
-
-        System.out.println("DEBUG: Final costSummaryMap size = " + costSummaryMap.size());
+        req.setAttribute("costSummaryMap", costSummaryMap);
+        req.setAttribute("timeSpentMap", timeSpentMap);
+        req.setAttribute("gasCostMap", gasCostMap);
+        req.setAttribute("maintenanceCostMap", maintenanceMap);
+        req.setAttribute("insuranceCostMap", insuranceMap);
+        req.setAttribute("paymentCostMap", paymentMap);
 
         // 8) Forward once to the JSP
         RequestDispatcher dispatcher = req.getRequestDispatcher("ComparisonCost.jsp");

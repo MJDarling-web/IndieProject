@@ -213,26 +213,23 @@ need to update dropdown for vehicle type, and update
 - [ ] review and incorporate previous feedbacks and close cases...
 
 ### Thursday: Review TODO
-- [ ] clean up TODOs
-- [ ] javadocs
-- [ ] Complete testDaos necessary to meet project expectations
+- [x] Complete testDaos necessary to meet project expectations
 - [x] User log-out
-- [ ] clean up gas-cost for other forms of transport on the comparison results jsp page
-- [ ] review and incorporate previous feedbacks and close cases...
-- [ ] close feedback in github
-- [ ] make cost of bus actually a user input field?
-- [ ] make cost of shoes actually a user input field?
+- [x] clean up gas-cost for other forms of transport on the comparison results jsp page
 
-### Friday:
-- [ ] Review completed project, each page and adjust as necessary or make notes for completion. 
+### Friday/Satuday:
+- [x] clean up POM hard coding :)
+- [x] double check we have test cases for each DAO
+- [ ] double check logging is implemented / commuterImpact.log update
+- [x] clean up extra debugging, system.out.prints, etc...
+
+## Sunday: 
+- [ ] determine if you need "overall" in the breakdown or should it be total??
 - [ ] review TODOs to remove
+- [ ] review and incorporate previous feedbacks and close them...
 - [ ] Jazz up site if time allows
-- [ ] double check we have test cases for each DAO
+- [ ] Review completed project, each page and adjust as necessary or make notes for completion.
 - [ ] Double check JavaDocs
-- [ ] double check logging is implemented
-- [ ] clean up extra debugging, system.out.prints, etc...
-
-## Saturday: 
 - [ ] Record video presentation. 
 
 ### Monday: 

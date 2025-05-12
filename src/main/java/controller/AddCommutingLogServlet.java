@@ -6,6 +6,9 @@ import persistence.GenericDao;
 import persistence.UserDao;
 import util.CommutingCostCalculator;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,22 +20,27 @@ import java.util.*;
 
 @WebServlet("/addCommutingLog")
 public class AddCommutingLogServlet extends HttpServlet {
+    private static final Logger logger = LogManager.getLogger(AddCommutingLogServlet.class);
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
         int userId = getLoggedInUserId(req);
+        logger.info("Received POST /addCommutingLog for userId={}", userId);
 
-        // Load the user
+        // 1) Load the user
         User user = new UserDao().getById(userId);
+        logger.debug("Loaded user: {}", user);
 
-        // Grab form inputs (no more "cost" field)
+        // 2) Grab form inputs
         String commuteType      = req.getParameter("commuteType");
         double timeSpent        = Double.parseDouble(req.getParameter("timeSpent"));
         double distanceInMiles  = Double.parseDouble(req.getParameter("distanceInMiles"));
+        logger.debug("Form inputs — commuteType={}, timeSpent={}, distanceInMiles={}",
+                commuteType, timeSpent, distanceInMiles);
 
-        // Fetch the user's vehicle MPG
+        // 3) Fetch the user's vehicle MPG
         GenericDao<TransportationProfile> profDao =
                 new GenericDao<>(TransportationProfile.class);
         List<TransportationProfile> profiles = profDao.getByCustomQuery(
@@ -43,8 +51,9 @@ public class AddCommutingLogServlet extends HttpServlet {
                 .map(TransportationProfile::getMilesPerGallon)
                 .findFirst()
                 .orElse(25.0);
+        logger.debug("Determined MPG for '{}': {}", commuteType, mpg);
 
-        //Compute gas cost via our small service
+        // 4) Compute gas cost
         double cost;
         String typeLower = commuteType.toLowerCase();
         if (typeLower.equals("walk") || typeLower.equals("bike")) {
@@ -56,12 +65,14 @@ public class AddCommutingLogServlet extends HttpServlet {
                     new CommutingCostCalculator(new FuelApiDao());
             try {
                 cost = calculator.computeGasCost(distanceInMiles, mpg);
+                logger.debug("Computed gas cost: {}", cost);
             } catch (Exception e) {
+                logger.error("Failed to fetch fuel price for userId={}", userId, e);
                 throw new ServletException("Failed to fetch fuel price", e);
             }
         }
 
-        // Build and persist the CommutingLog
+        // 5) Build and persist the CommutingLog
         CommutingLog log = new CommutingLog();
         log.setUser(user);
         log.setCommuteType(commuteType);
@@ -70,13 +81,14 @@ public class AddCommutingLogServlet extends HttpServlet {
         log.setCost(cost);
         log.setDate(new Date());
         new GenericDao<>(CommutingLog.class).insert(log);
+        logger.info("Persisted CommutingLog for userId={} with cost={}", userId, cost);
 
         // 6) Reload all logs for display
         List<CommutingLog> userLogs = new GenericDao<>(CommutingLog.class)
                 .getByCustomQuery("from CommutingLog where user.id=" + userId);
         req.setAttribute("commutingLogs", userLogs);
 
-        // Build commute‑type dropdown
+        // 7) Build commute‑type dropdown
         List<String> commuteTypes = new ArrayList<>(Arrays.asList("walk","bike","bus"));
         for (TransportationProfile p : profiles) {
             if (!commuteTypes.contains(p.getVehicleType())) {
@@ -90,7 +102,7 @@ public class AddCommutingLogServlet extends HttpServlet {
         }
         req.setAttribute("commuteTypes", commuteTypes);
 
-        // Recompute and persist CostAnalysis for each type
+        // 8) Recompute and persist CostAnalysis for each type
         GenericDao<CostAnalysis> costDao = new GenericDao<>(CostAnalysis.class);
         Map<String, CostAnalysis> costSummary = new HashMap<>();
         for (String type : commuteTypes) {
@@ -100,7 +112,6 @@ public class AddCommutingLogServlet extends HttpServlet {
                     .mapToDouble(CommutingLog::getDistanceInMiles)
                     .sum();
 
-            // find matching vehicle for insurance/maintenance/fuel
             TransportationProfile vehicle = profiles.stream()
                     .filter(p -> p.getVehicleType()
                             .equalsIgnoreCase(type))
@@ -117,7 +128,6 @@ public class AddCommutingLogServlet extends HttpServlet {
             double twoYear = oneYear * 2;
             double fiveYear = oneYear * 5;
 
-            // load or new
             String hql = "from CostAnalysis where user.id=" + userId +
                     " and commuteType='" + type +
                     "' order by analysisId desc";
@@ -138,8 +148,10 @@ public class AddCommutingLogServlet extends HttpServlet {
 
             if (ca.getAnalysisId() > 0) {
                 costDao.update(ca);
+                logger.info("Updated CostAnalysis for type='{}' userId={}", type, userId);
             } else {
                 costDao.insert(ca);
+                logger.info("Inserted CostAnalysis for type='{}' userId={}", type, userId);
             }
             costSummary.put(type, ca);
         }
@@ -153,9 +165,11 @@ public class AddCommutingLogServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        // simply load logs, commute types, and cost summary for display
         int userId = getLoggedInUserId(req);
+        logger.info("Received GET /addCommutingLog for userId={}", userId);
+
         User user = new UserDao().getById(userId);
+        logger.debug("Loaded user for GET: {}", user);
 
         List<CommutingLog> userLogs = new GenericDao<>(CommutingLog.class)
                 .getByCustomQuery("from CommutingLog where user.id=" + userId);
@@ -190,10 +204,12 @@ public class AddCommutingLogServlet extends HttpServlet {
     private int getLoggedInUserId(HttpServletRequest req) {
         String email = (String) req.getSession().getAttribute("userName");
         if (email == null) {
+            logger.error("No userName in session, cannot determine userId");
             throw new IllegalStateException("No user logged in");
         }
         User user = new UserDao().getByEmail(email);
         if (user == null) {
+            logger.error("No User found for email={}", email);
             throw new IllegalStateException("User not found");
         }
         return user.getId();

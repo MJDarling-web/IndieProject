@@ -48,10 +48,6 @@
   <input type="number" step="0.01" id="maintenanceCost" name="maintenanceCost"
          value="${vehicleProfile.maintenanceCost}" required><br><br>
 
-  <label for="fuelCostPerGallon">Fuel Cost Per Gallon ($):</label>
-  <input type="number" step="0.01" id="fuelCostPerGallon" name="fuelCostPerGallon"
-         value="${vehicleProfile.fuelCostPerGallon}" required><br><br>
-
   <button type="submit">Save Vehicle Profile</button>
 </form>
 

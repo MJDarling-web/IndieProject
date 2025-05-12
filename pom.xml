@@ -21,7 +21,13 @@
     <maven-surefire-plugin-version>2.19</maven-surefire-plugin-version>
     <jersey-version>2.29.1</jersey-version>
     <jackson-version>2.15.0</jackson-version>
-
+    <!-- -->
+    <javax-servlet>1.2.1</javax-servlet>
+    <jakarta-version>4.0.0</jakarta-version>
+    <javab-runtime-version>4.0.2</javab-runtime-version>
+    <commons-io>2.11.0</commons-io>
+    <json-version>20170516</json-version>
+    <java-jwt-version>3.4.1</java-jwt-version>
   </properties>
   <dependencies>
 
@@ -127,36 +133,36 @@
     <dependency>
       <groupId>javax.servlet.jsp.jstl</groupId>
       <artifactId>javax.servlet.jsp.jstl-api</artifactId>
-      <version>1.2.1</version>
+      <version>${javax-servlet}</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>jstl</artifactId>
-      <version>1.2</version>
+      <version>${jstl-version}</version>
     </dependency>
     <!--jaxb depedencies -->
     <dependency>
       <groupId>jakarta.xml.bind</groupId>
       <artifactId>jakarta.xml.bind-api</artifactId>
-      <version>4.0.0</version>
+      <version>${jakarta-version}</version>
     </dependency>
     <dependency>
       <groupId>org.glassfish.jaxb</groupId>
       <artifactId>jaxb-runtime</artifactId>
-      <version>4.0.2</version>
+      <version>${javab-runtime-version}</version>
     </dependency>
 
     <!--  next 2 dependencies are for log4j  -->
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-core</artifactId>
-      <version>2.20.0</version>
+      <version>${log4j-version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-api</artifactId>
-      <version>2.20.0</version>
+      <version>${log4j-version}</version>
     </dependency>
 
     <!-- for parsing access token -->
@@ -164,18 +170,18 @@
     <dependency>
       <groupId>com.auth0</groupId>
       <artifactId>java-jwt</artifactId>
-      <version>3.4.1</version>
+      <version>${java-jwt-version}</version>
     </dependency>
     <dependency>
       <groupId>org.json</groupId>
       <artifactId>json</artifactId>
-      <version>20170516</version>
+      <version>${json-version}</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
     <dependency>
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
-      <version>2.11.0</version>
+      <version>${commons-io}</version>
     </dependency>
 
 

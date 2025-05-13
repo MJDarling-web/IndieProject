@@ -1,8 +1,14 @@
 body {
-    ext-align: center;
+    text-align: center;
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
     margin: 30px;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    margin-top: 1rem;
+    color: #2c3e50;
 }
 
 label {
@@ -20,9 +26,13 @@ input, select {
 }
 
 nav ul {
-    background-color: #333;
     padding: 10px;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
 }
+
 
 nav ul li {
     display: inline;
@@ -30,14 +40,63 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: #333;
     text-decoration: none;
+    font-size: 150%;
 }
 
 nav ul li a:hover {
+    color: #e67e22;
     text-decoration: underline;
 }
 
 #commuteForm {
     text-align: center;
 }
+
+button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.transport-btn {
+    color: #333;
+}
+.index-button {
+    margin-top: 1em;
+}
+button:hover {
+    background-color: #d35400;
+}
+.transport-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.transport-btn {
+    font-size: 1.1rem;
+    padding: 0.6rem 1rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.transport-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.transport-btn.active {
+    border-color: #e67e22;
+    background-color: #fdebd0;
+    font-weight: bold;
+}
+

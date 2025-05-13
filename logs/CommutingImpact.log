@@ -431,3 +431,31 @@
 [INFO ] 2025-05-13 12:49:50.526 [http-nio-9090-exec-3] ViewCommutingLogsServlet - Fetched 4 commuting logs.
 [INFO ] 2025-05-13 12:49:50.868 [http-nio-9090-exec-4] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 935
 [INFO ] 2025-05-13 12:49:50.872 [http-nio-9090-exec-4] ViewCommutingLogsServlet - Fetched 3 commuting logs.
+[INFO ] 2025-05-13 16:04:03.404 [http-nio-9090-exec-4] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 947
+[INFO ] 2025-05-13 16:04:03.417 [http-nio-9090-exec-4] ViewCommutingLogsServlet - Fetched 14 commuting logs.
+[INFO ] 2025-05-13 16:04:07.379 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 947
+[INFO ] 2025-05-13 16:04:07.384 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Fetched 13 commuting logs.
+[INFO ] 2025-05-13 16:41:38.717 [http-nio-9090-exec-9] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 947
+[INFO ] 2025-05-13 16:41:38.734 [http-nio-9090-exec-9] ViewCommutingLogsServlet - Fetched 12 commuting logs.
+[INFO ] 2025-05-13 17:39:14.188 [http-nio-9090-exec-3] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 947
+[INFO ] 2025-05-13 17:39:14.198 [http-nio-9090-exec-3] ViewCommutingLogsServlet - Fetched 13 commuting logs.
+[INFO ] 2025-05-13 17:47:18.534 [http-nio-9090-exec-3] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 947
+[INFO ] 2025-05-13 17:47:18.558 [http-nio-9090-exec-3] ViewCommutingLogsServlet - Fetched 13 commuting logs.
+[INFO ] 2025-05-13 17:47:32.021 [http-nio-9090-exec-7] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 947
+[INFO ] 2025-05-13 17:47:32.029 [http-nio-9090-exec-7] ViewCommutingLogsServlet - Fetched 12 commuting logs.
+[INFO ] 2025-05-13 17:47:34.244 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 947
+[INFO ] 2025-05-13 17:47:34.253 [http-nio-9090-exec-8] ViewCommutingLogsServlet - Fetched 12 commuting logs.
+[INFO ] 2025-05-13 17:47:55.161 [http-nio-9090-exec-10] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 947
+[INFO ] 2025-05-13 17:47:55.176 [http-nio-9090-exec-10] ViewCommutingLogsServlet - Fetched 12 commuting logs.
+[INFO ] 2025-05-13 17:50:40.436 [http-nio-9090-exec-3] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 947
+[INFO ] 2025-05-13 17:50:40.453 [http-nio-9090-exec-3] ViewCommutingLogsServlet - Fetched 11 commuting logs.
+[INFO ] 2025-05-13 17:50:42.978 [http-nio-9090-exec-6] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 947
+[INFO ] 2025-05-13 17:50:42.986 [http-nio-9090-exec-6] ViewCommutingLogsServlet - Fetched 11 commuting logs.
+[INFO ] 2025-05-13 17:59:10.140 [http-nio-9090-exec-6] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 947
+[INFO ] 2025-05-13 17:59:10.158 [http-nio-9090-exec-6] ViewCommutingLogsServlet - Fetched 11 commuting logs.
+[INFO ] 2025-05-13 17:59:13.807 [http-nio-9090-exec-9] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 947
+[INFO ] 2025-05-13 17:59:13.813 [http-nio-9090-exec-9] ViewCommutingLogsServlet - Fetched 10 commuting logs.
+[INFO ] 2025-05-13 18:00:07.046 [http-nio-9090-exec-3] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 947
+[INFO ] 2025-05-13 18:00:07.052 [http-nio-9090-exec-3] ViewCommutingLogsServlet - Fetched 9 commuting logs.
+[INFO ] 2025-05-13 18:00:08.818 [http-nio-9090-exec-7] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 947
+[INFO ] 2025-05-13 18:00:08.825 [http-nio-9090-exec-7] ViewCommutingLogsServlet - Fetched 8 commuting logs.

@@ -6,6 +6,7 @@
   Time: 8:21 PM
   To change this template use File | Settings | File Templates.
 --%>
+<!-- TODO a page for later when adding options to modify user profile -->
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="taglib.jsp" %>
 

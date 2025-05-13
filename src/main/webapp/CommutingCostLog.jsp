@@ -32,7 +32,7 @@
                         <input type="hidden" name="logId" value="${log.id}" />
                         <button type="submit">Delete</button>
                     </form>
-                    <form action="CommutingCostLog" method="get" style="display:inline">
+                    <form action="addCommutingLog" method="get" style="display:inline">
                         <input type="hidden" name="editLogId" value="${log.id}" />
                         <button type="submit">Edit</button>
                     </form>

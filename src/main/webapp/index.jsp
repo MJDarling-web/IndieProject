@@ -12,8 +12,10 @@
 <!-- TODO adjust cost analysis calculator ot factor in additional cost of users vehicle -->
 <%@include file="Header.jsp" %>
 <%@include file="taglib.jsp" %>
-<h2>Welcome to Commuter</h2>
-<h3>A commuting cost calculator and comparison tracker for your true cost of transportation needs</h3>
+<br><br>
+<h1>Welcome to Commuter</h1>
+<br>
+<p>A commuting cost calculator and tracker to help you understand your transportation needs</p>
 
 <form id="commuteForm">
     <label for="miles">Enter your commute distance (miles):</label>
@@ -21,16 +23,19 @@
 
     <label for="daysPerWeek">How many days per week do you commute to work?</label>
     <input type="number" id="daysPerWeek" name="daysPerWeek" required>
+<!-- TODO use font awesome or another icon library to swap words for icons of transport options -->
+    <label>Choose your mode of transportation:</label>
+    <div class="transport-buttons">
+        <button type="button" onclick="selectTransport('car')" class="transport-btn">Car</button>
+        <button type="button" onclick="selectTransport('bus')" class="transport-btn">Bus</button>
+        <button type="button" onclick="selectTransport('bike')" class="transport-btn">Bike</button>
+        <button type="button" onclick="selectTransport('walk')" class="transport-btn">Walk</button>
+    </div>
+    <!-- Hidden input to store selected value -->
+    <input type="hidden" id="transportation" name="transportation" />
 
-    <label for="transportation">Choose your mode of transportation:</label>
-    <select id="transportation" name="transportation">
-        <option value="car">Car</option>
-        <option value="bus">Bus</option>
-        <option value="bike">Bike</option>
-        <option value="walk">Walk</option>
-    </select>
-
-    <button type="button" onclick="calculateCommuteCost()">Calculate</button>
+    <br><br>
+    <button type="button" class="index-button" onclick="calculateCommuteCost()">Calculate</button>
 </form>
 
 <div id="result"></div>
@@ -80,6 +85,16 @@
 
         document.getElementById("result").innerText = resultText;
     }
+    function selectTransport(value) {
+        document.getElementById("transportation").value = value;
+
+        // Highlight the selected button
+        const buttons = document.querySelectorAll(".transport-btn");
+        buttons.forEach(btn => btn.classList.remove("active"));
+        const selected = [...buttons].find(btn => btn.textContent.toLowerCase().includes(value));
+        if (selected) selected.classList.add("active");
+    }
+
 </script>
 </body>
 </html>

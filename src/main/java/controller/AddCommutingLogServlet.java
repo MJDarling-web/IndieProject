@@ -189,6 +189,20 @@ public class AddCommutingLogServlet extends HttpServlet {
         int userId = getLoggedInUserId(req);
         User user = new UserDao().getById(userId);
 
+        // edit an existing log
+        String editLogId = req.getParameter("editLogId");
+        if (editLogId != null && !editLogId.isEmpty()) {
+            try {
+                int logId = Integer.parseInt(editLogId);
+                CommutingLog editLog = new GenericDao<>(CommutingLog.class).getById(logId);
+                if (editLog != null && editLog.getUser().getId() == userId) {
+                    req.setAttribute("editLog", editLog);
+                }
+            } catch (NumberFormatException e) {
+            }
+        }
+
+
         List<CommutingLog> userLogs = new GenericDao<>(CommutingLog.class)
                 .getByCustomQuery("from CommutingLog where user.id=" + userId);
         req.setAttribute("commutingLogs", userLogs);

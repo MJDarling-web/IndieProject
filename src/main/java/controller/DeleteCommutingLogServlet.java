@@ -31,7 +31,7 @@ public class DeleteCommutingLogServlet extends HttpServlet {
             commutingLogDao.deleteEntity(log);
         }
 
-        resp.sendRedirect("CommutingCostLog");
+        resp.sendRedirect("addCommutingLog");
     }
 
 

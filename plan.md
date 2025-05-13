@@ -188,16 +188,12 @@ need to update dropdown for vehicle type, and update
 - [x] fuelAPITest is lowercase should be upper case
 - [x] review and incorporate previous feedbacks...
 - [x] close feedback in github
-- [ ] make sure logging is throughout project
-- [ ] review TODOs to remove
+
 
 - [x] add consumption of mpg API to usersCommuteLog calculation for accurate fuel mileage calculation. 
 - [x] error on jsp misspelled calculator"
-- [ ] check for JavaDocs, 
-- [ ] check design docs, 
 - [x] published on github
 - [x] review use a that one funky table and determine if its still needed
-- [ ] Complete testDaos necessary to meet project expectations
 - [x] Again, incorporate feedback from peers
 
 ### Tuesday; 
@@ -210,7 +206,7 @@ need to update dropdown for vehicle type, and update
 - [x] update jsp bus costs to reflect accurate bus cost.
 - [x] review use of that one funky table and determine if it's still needed
 - [x] change hard-coded consumption of API to be included in calculation
-- [ ] review and incorporate previous feedbacks and close cases...
+- [x] review and incorporate previous feedbacks and close cases...
 
 ### Thursday: Review TODO
 - [x] Complete testDaos necessary to meet project expectations
@@ -220,20 +216,26 @@ need to update dropdown for vehicle type, and update
 ### Friday/Satuday:
 - [x] clean up POM hard coding :)
 - [x] double check we have test cases for each DAO
-- [ ] double check logging is implemented / commuterImpact.log update
 - [x] clean up extra debugging, system.out.prints, etc...
 - [x] change fuelApiTest to uppercase
 - [x] "no need to subclass anything" :) 
 
 ## Sunday: 
 - [x] determine if you need "overall" in the breakdown or should it be total??
-- [ ] review TODOs to remove
 - [x] review and incorporate previous feedbacks and close them...
-- [ ] Jazz up site if time allows
 - [x] Review completed project, each page and adjust as necessary or make notes for completion.
 - [x] Record video presentation. 
 
 ### Monday - Wednesday: 
+- [ ] Jazz up site if time allows
+- [ ] review TODOs to remove
+- [ ] double check logging is implemented / commuterImpact.log update
+- [ ] make sure logging is throughout project
+- [ ] review TODOs to remove
+- [ ] check for JavaDocs,
+- [ ] check design docs,
+- [ ] Complete testDaos necessary to meet project expectations
+
 ### page fixes
 - [ ] fix edit commuteLog
 - [ ] add column for current cost of fuel per gallon

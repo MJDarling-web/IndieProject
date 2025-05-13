@@ -1,3 +1,4 @@
+//TODO javadocs
 package entity;
 
 import jakarta.persistence.*;

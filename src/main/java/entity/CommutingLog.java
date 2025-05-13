@@ -3,7 +3,7 @@ import jakarta.persistence.*;
 import java.util.Date;
 import org.apache.logging.log4j.*;
 
-
+//TODO do javadocs
 @Entity
 @Table(name = "commuting_logs")
 public class CommutingLog {

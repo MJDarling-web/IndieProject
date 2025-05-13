@@ -3,6 +3,7 @@ package entity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+//TODO javadocs
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FuelPrice {
     @JsonProperty("regular")
@@ -28,4 +29,13 @@ public class FuelPrice {
         return String.format("Regular: $%s, Premium: $%s, Diesel: $%s",
                 regular, premium, diesel);
     }
+    /**
+    // TODO update FuelPrice entity to be able to host all of these fuel types from the api was Response entity but not being used
+    private String lpg;
+    private String e85;
+    private String electric;
+    private String midgrade;
+    private String cng;
+ **/
+
 }

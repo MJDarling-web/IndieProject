@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.Date;
 
+//TODO javadocs
 @Entity
 @Table(name = "users")
 public class User {

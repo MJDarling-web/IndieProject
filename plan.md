@@ -169,8 +169,8 @@ Alternative Transportation Costs
 - [x] total commute costs for each commute type
 - [x] connect selection of vehicle from my vehicles of user of what type of vehicles they have.  
 
-- [ ] Data is generating in the table on jsp page but now needs to be updated to correctly calculate costs.
-- [ ] CommuteCostLog needs to be updated to accurately reflect necessary data fields a user would include, 
+- [x] Data is generating in the table on jsp page but now needs to be updated to correctly calculate costs.
+- [x] CommuteCostLog needs to be updated to accurately reflect necessary data fields a user would include, 
 need to update dropdown for vehicle type, and update 
 - [x] MyVehicle to handle a users vehicles with mpg, 
 
@@ -178,27 +178,27 @@ need to update dropdown for vehicle type, and update
   <summary>Remaining To Dos</summary>
 
 - [x] Data is generating in the table on jsp page but now needs to be updated to correctly calculate costs
-- [ ] CommuteCostLog needs to be updated to accurately reflect necessary data fields a user would include,
-- [ ] need to calculate consumed mpg api.
+- [x] CommuteCostLog needs to be updated to accurately reflect necessary data fields a user would include,
+- [x] need to calculate consumed mpg api.
 </details>
 
 ## Week 15
 ### from peer review feedback
 - [x] User log-out
 - [x] fuelAPITest is lowercase should be upper case
-- [ ] review and incorporate previous feedbacks and close cases...
-- [ ] close feedback in github
+- [x] review and incorporate previous feedbacks...
+- [x] close feedback in github
 - [ ] make sure logging is throughout project
 - [ ] review TODOs to remove
 
 - [x] add consumption of mpg API to usersCommuteLog calculation for accurate fuel mileage calculation. 
 - [x] error on jsp misspelled calculator"
 - [ ] check for JavaDocs, 
-- [ ] design docs, 
+- [ ] check design docs, 
 - [x] published on github
 - [x] review use a that one funky table and determine if its still needed
 - [ ] Complete testDaos necessary to meet project expectations
-- [ ] Again, incorporate feedback from peers
+- [x] Again, incorporate feedback from peers
 
 ### Tuesday; 
 - [x] review feedback from peer review, 
@@ -222,21 +222,50 @@ need to update dropdown for vehicle type, and update
 - [x] double check we have test cases for each DAO
 - [ ] double check logging is implemented / commuterImpact.log update
 - [x] clean up extra debugging, system.out.prints, etc...
+- [x] change fuelApiTest to uppercase
+- [x] "no need to subclass anything" :) 
 
 ## Sunday: 
-- [ ] determine if you need "overall" in the breakdown or should it be total??
+- [x] determine if you need "overall" in the breakdown or should it be total??
 - [ ] review TODOs to remove
-- [ ] review and incorporate previous feedbacks and close them...
+- [x] review and incorporate previous feedbacks and close them...
 - [ ] Jazz up site if time allows
-- [ ] Review completed project, each page and adjust as necessary or make notes for completion.
-- [ ] Double check JavaDocs
-- [ ] Record video presentation. 
+- [x] Review completed project, each page and adjust as necessary or make notes for completion.
+- [x] Record video presentation. 
 
-### Monday: 
+### Monday - Wednesday: 
+### page fixes
+- [ ] fix edit commuteLog
+- [ ] add column for current cost of fuel per gallon
+
+### logging 
+- [ ] logging for other classes
+
+### unit tests updates:
+- [ ] CommutingLogTest is empty, but may not be in use. Can remove if that's the case.
+- [ ] In CostAnalysisDaoTest, the testCreate() inserts a record and checks the returned id to be non-zero. This is technically correct, but it would be better if it inserted some unique data into the db, and then retrieved it to verify. The testGetAll() tests for >=2, and will succeed for any value greater than 2. Again, this is technically correct but it would be good if it tested for the exact number expected, and nothing else.
+- [ ] In UserDaoTest, the testCreate() only checks for non-zero id after inserting a user. Again, inserting some data, then retrieving the data by ID (or other unique value) and checking the other fields is the way to go. Use the testGetById() method as a template.
+- [ ] Otherwise, all the implemented unit tests do a good job of verifying functionality.
+- [ ] While the FuelApiDao currently throws an exceptions for being unable to read or write to the HttpRequest session, there is not yet any handling for if the web service is down or unavailable. I hadn't thought of this for my project, either.
+- [ ] add to AWS if time allows? Unsure, don't want to leave it up too long.
+### Version 2 TODOs
+- [ ] review completed TODOs and update project for v2
+- [ ] google maps locations for V2
+- [ ] update timelog 
 - [ ] review design docs
+- [ ] recheck for system.out.printlns and consolelogs
+- [ ] Write out wins and fails of project and how you'll move forward with next projects for portfolio pieces.
+- [ ] spellcheck project.
+- [ ] review all material one more time and submit project for grading
 - [ ] Modify initial plan and update with a V2 for moving forward
-- [ ] Write out wins and fails of project and how you'll move forward with next projects for portfolio pieces. 
-- [ ] spellcheck project. 
 - [ ] review all material one more time and submit project for grading
 
+
+
+
+
+
+TODO adding more pleasing centering to site
+TODO add directions to home page
+TODO review objects for version 2 
 

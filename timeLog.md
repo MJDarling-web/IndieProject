@@ -134,3 +134,7 @@ Does have @Entity, is mapped correctly in hibernate.cfg.xml, is in pom file, and
 1 hour updating servlet pages, logout, and merge/pull requests.  
 2.5 hours on api consumption, database fixes, and checking for calculation errors
 30 minutes on daoTest adjusting, broke earlier and fixed it now. 
+
+## Week 16 
+1 hour on recording and prep for project presentation
+1 hour on reviewing feedback and adjusting plan for the next 2 days before submitting final project. 

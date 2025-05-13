@@ -224,24 +224,25 @@ need to update dropdown for vehicle type, and update
 - [x] determine if you need "overall" in the breakdown or should it be total??
 - [x] review and incorporate previous feedbacks and close them...
 - [x] Review completed project, each page and adjust as necessary or make notes for completion.
-- [x] Record video presentation. 
+- [x] Record video presentation.
 
 ### Monday - Wednesday: 
 - [ ] Jazz up site if time allows
 - [ ] review TODOs to remove
 - [ ] double check logging is implemented / commuterImpact.log update
-- [ ] make sure logging is throughout project
 - [ ] review TODOs to remove
-- [ ] check for JavaDocs,
 - [ ] check design docs,
 - [ ] Complete testDaos necessary to meet project expectations
 
 ### page fixes
-- [ ] fix edit commuteLog
+- [ ] fix "edit" commuteLog page
 - [ ] add column for current cost of fuel per gallon
 
 ### logging 
-- [ ] logging for other classes
+- [ ] logging for other classes throughout project
+### javadocs
+- [ ] update for JavaDocs,
+
 
 ### unit tests updates:
 - [ ] CommutingLogTest is empty, but may not be in use. Can remove if that's the case.

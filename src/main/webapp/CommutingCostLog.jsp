@@ -87,7 +87,7 @@
            value="${editLog.distanceInMiles}" step="0.1" required />
     <br/><br/>
 
-    <!-- cost is auto-calculated in the servlet, so no input here -->
+    <!-- cost is auto-calculated in the servlet -->
 
     <button type="submit">
         <c:choose>

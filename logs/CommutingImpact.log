@@ -383,3 +383,29 @@
 [INFO ] 2025-05-12 21:28:28.655 [http-nio-9090-exec-7] ViewCommutingLogsServlet - Fetched 15 commuting logs for user ID: 1
 [INFO ] 2025-05-12 21:29:51.693 [http-nio-9090-exec-10] AddCommutingLogServlet - Received GET /addCommutingLog for userId=947
 [DEBUG] 2025-05-12 21:29:51.705 [http-nio-9090-exec-10] AddCommutingLogServlet - Loaded user for GET: User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}
+[INFO ] 2025-05-12 21:31:43.815 [http-nio-9090-exec-4] AddCommutingLogServlet - Received GET /addCommutingLog for userId=947
+[DEBUG] 2025-05-12 21:31:43.820 [http-nio-9090-exec-4] AddCommutingLogServlet - Loaded user for GET: User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}
+[INFO ] 2025-05-12 21:31:50.127 [http-nio-9090-exec-7] AddCommutingLogServlet - Received POST /addCommutingLog for userId=947
+[DEBUG] 2025-05-12 21:31:50.129 [http-nio-9090-exec-7] AddCommutingLogServlet - Loaded user: User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}
+[DEBUG] 2025-05-12 21:31:50.129 [http-nio-9090-exec-7] AddCommutingLogServlet - Form inputs — commuteType=Car, timeSpent=1.0, distanceInMiles=1.0
+[DEBUG] 2025-05-12 21:31:50.132 [http-nio-9090-exec-7] AddCommutingLogServlet - Determined MPG for 'Car': 301.0
+[DEBUG] 2025-05-12 21:31:50.937 [http-nio-9090-exec-7] AddCommutingLogServlet - Computed gas cost: 0.010465116279069767
+[INFO ] 2025-05-12 21:31:50.971 [http-nio-9090-exec-7] AddCommutingLogServlet - Persisted CommutingLog for userId=947 with cost=0.010465116279069767
+[INFO ] 2025-05-12 21:31:50.983 [http-nio-9090-exec-7] AddCommutingLogServlet - Updated CostAnalysis for type='walk' userId=947
+[INFO ] 2025-05-12 21:31:50.988 [http-nio-9090-exec-7] AddCommutingLogServlet - Updated CostAnalysis for type='bike' userId=947
+[INFO ] 2025-05-12 21:31:50.996 [http-nio-9090-exec-7] AddCommutingLogServlet - Updated CostAnalysis for type='bus' userId=947
+[INFO ] 2025-05-12 21:31:51.001 [http-nio-9090-exec-7] AddCommutingLogServlet - Updated CostAnalysis for type='Car' userId=947
+[INFO ] 2025-05-12 21:36:42.634 [http-nio-9090-exec-10] AddCommutingLogServlet - Received GET /addCommutingLog for userId=947
+[DEBUG] 2025-05-12 21:36:42.641 [http-nio-9090-exec-10] AddCommutingLogServlet - Loaded user for GET: User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}
+[INFO ] 2025-05-12 21:36:47.604 [http-nio-9090-exec-6] AddCommutingLogServlet - Received GET /addCommutingLog for userId=947
+[DEBUG] 2025-05-12 21:36:47.612 [http-nio-9090-exec-6] AddCommutingLogServlet - Loaded user for GET: User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}
+[INFO ] 2025-05-12 21:36:48.862 [http-nio-9090-exec-7] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-05-12 21:36:48.862 [http-nio-9090-exec-7] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-05-12 21:36:48.875 [http-nio-9090-exec-7] ViewCommutingLogsServlet - Fetched 15 commuting logs for user ID: 1
+[INFO ] 2025-05-13 11:55:57.711 [http-nio-9090-exec-1] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-05-13 11:55:57.712 [http-nio-9090-exec-1] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-05-13 11:55:57.729 [http-nio-9090-exec-1] ViewCommutingLogsServlet - Fetched 16 commuting logs for user ID: 1
+[INFO ] 2025-05-13 11:59:35.792 [http-nio-9090-exec-3] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 935
+[INFO ] 2025-05-13 11:59:35.809 [http-nio-9090-exec-3] ViewCommutingLogsServlet - Fetched 2 commuting logs.
+[INFO ] 2025-05-13 11:59:39.436 [http-nio-9090-exec-4] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 935
+[INFO ] 2025-05-13 11:59:39.448 [http-nio-9090-exec-4] ViewCommutingLogsServlet - Fetched 1 commuting logs.

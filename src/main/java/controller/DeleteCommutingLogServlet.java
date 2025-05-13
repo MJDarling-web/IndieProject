@@ -10,6 +10,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Servlet that handles deletion of a commuting log entry
+ *
+ * Has POST request to remove specific commutingLog entry
+ * from the database using its unique ID. After successful deletion
+ * it redirects the user back to the commuting log overview page.
+ *
+ * @author micahdarling
+ */
 @WebServlet("/deleteCommutingLog")
 public class DeleteCommutingLogServlet extends HttpServlet {
     @Override

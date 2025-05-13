@@ -1,6 +1,7 @@
 package controller;
 
 import entity.CommutingLog;
+import entity.User;
 import persistence.GenericDao;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,56 +15,74 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.*;
 import jakarta.persistence.*;
+import persistence.UserDao;
 
 
+/**
+ * Servlet that retrieves and displays all commuting logs for a user.
+ *
+ * This servlet handles GET requests by querying the database for all
+ * entries for logged-in user. Fetched logs are then passed to a JSP page for display.
+ *
+ * @author micahdarling
+ */
 @WebServlet("/CommutingCostLog")
 public class ViewCommutingLogsServlet extends HttpServlet {
-    // Create a logger instance for this class
+    // Creates a logger instance for this class
     private final Logger logger = LogManager.getLogger(this.getClass());
 
+    /**
+     * Handles GET request to display user's commuting logs based on user's email address.
+     * Logs messages about operation and forwards data to JSP.
+     * If no logs found a message is displayed.
+     *
+     * @param request HttpServletRequest contains request the client has made of the servlet
+     * @param response HttpServletResponse contains the response the servlet sends to the client
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        // Create a list to hold log messages
         List<String> logMessages = new ArrayList<>();
+        Logger logger = LogManager.getLogger(this.getClass());
 
-        // Assuming we don't have a login system yet, so set userId to 1 for testing
-        int userId = 1;  // Change this to a valid user ID when you implement login
+        String userEmail = (String) request.getSession().getAttribute("userName");
 
-        logMessages.add("Starting to fetch commuting logs for user ID: " + userId);
-        logger.info("Starting to fetch commuting logs for user ID: " + userId);
+        if (userEmail == null) {
+            response.sendRedirect("logIn.jsp");
+            return;
+        }
 
-        // Fetch commuting logs for this user with generic Dao
-        GenericDao<CommutingLog> commutingLogDao = new GenericDao<>(CommutingLog.class);
-
-        // HQL query to fetch logs for the user
-        String hql = "FROM CommutingLog";  // Query to get all logs for now
-        logger.info("Fetching commuting logs for user ID: " + userId);
         try {
-            // Get logs from the database
-            List<CommutingLog> logs = commutingLogDao.getByCustomQuery(hql);
+            UserDao userDao = new UserDao();
+            User user = userDao.getByEmail(userEmail);
 
-            // Log the number of records fetched
-            if (logs.isEmpty()) {
-                logMessages.add("No commuting logs found for user ID: " + userId);
-                logger.info("No commuting logs found for user ID: " + userId);
-            } else {
-                logMessages.add("Fetched " + logs.size() + " commuting logs for user ID: " + userId);
-                logger.info("Fetched " + logs.size() + " commuting logs for user ID: " + userId);
+            if (user == null) {
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "User not found.");
+                return;
             }
 
-            // Set logs as a request attribute to pass them to the JSP
-            request.setAttribute("commutingLogs", logs);
-            request.setAttribute("logMessages", logMessages); // Pass log messages to JSP
+            logger.info("Fetching commuting logs for user ID: " + user.getId());
 
-            // Forward the request to the JSP page
+            GenericDao<CommutingLog> commutingLogDao = new GenericDao<>(CommutingLog.class);
+            List<CommutingLog> logs = commutingLogDao.getByPropertyEqual("user", user);
+
+            if (logs.isEmpty()) {
+                logger.info("No commuting logs found for user.");
+            } else {
+                logger.info("Fetched " + logs.size() + " commuting logs.");
+            }
+
+            request.setAttribute("commutingLogs", logs);
+            request.setAttribute("logMessages", logMessages);
+
             RequestDispatcher dispatcher = request.getRequestDispatcher("/CommutingCostLog.jsp");
             dispatcher.forward(request, response);
         } catch (Exception e) {
-            // Log an error if the database query fails
-            logMessages.add("Error occurred while fetching commuting logs for user ID: " + userId);
-            logger.error("Error occurred while fetching commuting logs for user ID: " + userId, e);
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Unable to fetch commuting logs");
+            logger.error("Error occurred while fetching commuting logs.", e);
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Unable to fetch commuting logs.");
         }
     }
+
 }

@@ -18,30 +18,52 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
+ * Servlet that processes commuting cost data for a user
  *
+ * retrieves a user's commuting logs and vehicle profile from db,
+ * calculates total and average monthly commuting cost per commute type,
+ * forwards details of costs for gas maintenance, insurance, and payments to
+ * ComparisonCost JSP for display.
+ *
+ * @author Micah Darling
  */
 @WebServlet("/comparisonCost")
 public class ComparisonCostServlet extends HttpServlet {
 
+    /**
+     * Handles POST requests by delegating to {@link #doGet(HttpServletRequest, HttpServletResponse)}.
+     *
+     * @param req HttpServletRequest contains the request the client has made of the servlet
+     * @param resp HttpServletResponse contains the response the servlet sends to the client
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        // Delegate POST to GET so that all logic lives in one place
         doGet(req, resp);
     }
 
+    /**
+     * Handles GET requests to generate a cost comparison analysis for the logged-in user.
+     *
+     * @param req HttpServletRequest that contains the request the client has made of the servlet
+     * @param resp HttpServletResponse that contains the response the servlet sends to the client
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-        // 1) Session & user lookup
+        // Session & user lookup
         HttpSession session = req.getSession();
         String userEmail = (String) session.getAttribute("userName");
         if (userEmail == null) {
             resp.sendRedirect("logIn.jsp");
             return;
         }
-
+        //
         GenericDao<User> userDao = new GenericDao<>(User.class);
         User user = userDao.getByPropertyLike("email", userEmail).stream().findFirst().orElse(null);
         if (user == null) {
@@ -49,7 +71,7 @@ public class ComparisonCostServlet extends HttpServlet {
             return;
         }
 
-        // 2) Load latest CostAnalysis per commuteType
+        // Load latest CostAnalysis per commuteType
         GenericDao<CostAnalysis> costDao = new GenericDao<>(CostAnalysis.class);
         String hql = "from CostAnalysis where user.id = " + user.getId() + " order by analysisId desc";
         List<CostAnalysis> analyses = costDao.getByCustomQuery(hql);
@@ -58,7 +80,7 @@ public class ComparisonCostServlet extends HttpServlet {
             costSummaryMap.putIfAbsent(ca.getCommuteType(), ca);
         }
 
-        // 3) Load the user's vehicle profile
+        // Load the user's vehicle profile
         GenericDao<TransportationProfile> profileDao = new GenericDao<>(TransportationProfile.class);
         List<TransportationProfile> profiles = profileDao.getByPropertyEqual("user", user);
         if (profiles.isEmpty()) {
@@ -66,11 +88,11 @@ public class ComparisonCostServlet extends HttpServlet {
         }
         TransportationProfile profile = profiles.get(0);
 
-        // 4) Load all commute logs
+        // Load all commute logs
         GenericDao<CommutingLog> logDao = new GenericDao<>(CommutingLog.class);
         List<CommutingLog> logs = logDao.getByPropertyEqual("user", user);
 
-        // 5) Compute “Overall” totals & projections
+        // Compute “Overall” totals & projections
         double totalCommuteCost = logs.stream()
                 .mapToDouble(CommutingLog::getCost)
                 .sum();
@@ -127,7 +149,7 @@ public class ComparisonCostServlet extends HttpServlet {
         }
 
 
-        // 6) Build breakdown maps (time, gas, maintenance, insurance, payment)
+        // Build breakdown maps (time, gas, maintenance, insurance, payment)
         logsByType = logs.stream()
                 .collect(Collectors.groupingBy(CommutingLog::getCommuteType));
 
@@ -151,7 +173,7 @@ public class ComparisonCostServlet extends HttpServlet {
             paymentMap.put(type, isCar ? profile.getMonthlyPayment() : 0.0);
         }
 
-        // 7) Set everything on the request
+        // Set everything on the request
         req.setAttribute("costSummaryMap", costSummaryMap);
         req.setAttribute("timeSpentMap", timeSpentMap);
         req.setAttribute("gasCostMap", gasCostMap);
@@ -159,7 +181,7 @@ public class ComparisonCostServlet extends HttpServlet {
         req.setAttribute("insuranceCostMap", insuranceMap);
         req.setAttribute("paymentCostMap", paymentMap);
 
-        // 8) Forward once to the JSP
+        // Forward once to the JSP
         RequestDispatcher dispatcher = req.getRequestDispatcher("ComparisonCost.jsp");
         dispatcher.forward(req, resp);
     }

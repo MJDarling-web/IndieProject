@@ -15,9 +15,25 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Servlet that handles displaying and saving user's vehicle profile
+ *
+ * GET request updates user's existing transportationProfile or initializes default one.
+ * POST request updates profile based on form input and persists the changes using generic DAO
+ *
+ * @author micahdarling
+ */
 @WebServlet("/saveVehicleProfile")
 public class SaveVehicleProfileServlet extends HttpServlet {
 
+    /**
+     * Handles GET requests to load user's current vehicle profile
+     *
+     * @param req HttpServletRequest request the client has made of the servlet
+     * @param resp HttpServletResponse contains the response the servlet sends to the client
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -58,6 +74,16 @@ public class SaveVehicleProfileServlet extends HttpServlet {
         req.getRequestDispatcher("MyVehicles.jsp").forward(req, resp);
     }
 
+    /**
+     * @param req  an {@link HttpServletRequest} object that
+     *             contains the request the client has made
+     *             of the servlet
+     * @param resp an {@link HttpServletResponse} object that
+     *             contains the response the servlet sends
+     *             to the client
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -104,10 +130,14 @@ public class SaveVehicleProfileServlet extends HttpServlet {
         // After saving, reload the form with updated data
         req.setAttribute("vehicleProfile", profile);
         req.setAttribute("successMessage", "Your vehicle profile was saved successfully!");
-
         req.getRequestDispatcher("MyVehicles.jsp").forward(req, resp);
     }
 
+    /**
+     * @param value
+     * @param defaultValue
+     * @return defaultValue
+     */
     private double parseDoubleOrDefault(String value, double defaultValue) {
         try {
             return Double.parseDouble(value);

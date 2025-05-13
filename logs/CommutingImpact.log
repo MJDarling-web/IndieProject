@@ -373,3 +373,13 @@
 [INFO ] 2025-05-11 20:16:51.027 [http-nio-9090-exec-1] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
 [INFO ] 2025-05-11 20:16:51.027 [http-nio-9090-exec-1] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
 [INFO ] 2025-05-11 20:16:51.031 [http-nio-9090-exec-1] ViewCommutingLogsServlet - Fetched 15 commuting logs for user ID: 1
+[INFO ] 2025-05-12 21:28:24.302 [http-nio-9090-exec-4] AddCommutingLogServlet - Received GET /addCommutingLog for userId=947
+[DEBUG] 2025-05-12 21:28:24.311 [http-nio-9090-exec-4] AddCommutingLogServlet - Loaded user for GET: User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}
+[INFO ] 2025-05-12 21:28:26.960 [http-nio-9090-exec-6] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-05-12 21:28:26.961 [http-nio-9090-exec-6] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-05-12 21:28:26.972 [http-nio-9090-exec-6] ViewCommutingLogsServlet - Fetched 15 commuting logs for user ID: 1
+[INFO ] 2025-05-12 21:28:28.642 [http-nio-9090-exec-7] ViewCommutingLogsServlet - Starting to fetch commuting logs for user ID: 1
+[INFO ] 2025-05-12 21:28:28.642 [http-nio-9090-exec-7] ViewCommutingLogsServlet - Fetching commuting logs for user ID: 1
+[INFO ] 2025-05-12 21:28:28.655 [http-nio-9090-exec-7] ViewCommutingLogsServlet - Fetched 15 commuting logs for user ID: 1
+[INFO ] 2025-05-12 21:29:51.693 [http-nio-9090-exec-10] AddCommutingLogServlet - Received GET /addCommutingLog for userId=947
+[DEBUG] 2025-05-12 21:29:51.705 [http-nio-9090-exec-10] AddCommutingLogServlet - Loaded user for GET: User{id=947, firstName='null', lastName='null', email='darlingmicah@gmail.com'}

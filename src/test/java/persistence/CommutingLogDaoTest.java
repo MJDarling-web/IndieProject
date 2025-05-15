@@ -5,122 +5,95 @@ import entity.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import java.util.Date;
 import java.util.List;
+import java.util.Date;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CommutingLogDaoTest {
 
     private GenericDao<CommutingLog> commutingLogDao;
-    private GenericDao<User> userDao;
+    private GenericDao<User>         userDao;
 
     @BeforeEach
     void setUp() {
+        // Rebuild schema & seed via cleandb.sql
         Database database = new Database();
         SessionFactoryProvider.createSessionFactory();
         database.runSQL("cleandb.sql");
+
         commutingLogDao = new GenericDao<>(CommutingLog.class);
-        userDao = new GenericDao<>(User.class);
-        commutingLogDao.getAll().forEach(commutingLogDao::deleteEntity);
+        userDao         = new GenericDao<>(User.class);
     }
 
-    @Test
-    public void testCreate() {
-        User user =  new User("Jake", "Smith", "Jake.smith" + System.currentTimeMillis() + "@example.com");
-        int userId = userDao.insert(user);
-        CommutingLog commutingLog = new CommutingLog();
-        commutingLog.setUser(user);
-        commutingLog.setDate(new Date());
-        commutingLog.setCommuteType("Car");
-        commutingLog.setTimeSpent(45.5);
-        commutingLog.setCost(20.0);
-
-        int logId = commutingLogDao.insert(commutingLog);
-        assertNotEquals(0, logId, "Log ID should not be zero after insertion");
-    }
+    // —— Retrieval tests against the seeded rows ——
 
     @Test
-    public void testGetById() {
-        User user = new User("Jane", "Doe", "jane.doe" + System.currentTimeMillis() + "@example.com");
-        int userId = userDao.insert(user);
-        CommutingLog commutingLog = new CommutingLog();
-        commutingLog.setUser(user);
-        commutingLog.setDate(new Date());
-        commutingLog.setCommuteType("Bus");
-        commutingLog.setTimeSpent(30.0);
-        commutingLog.setCost(15.0);
-
-        int logId = commutingLogDao.insert(commutingLog);
-        CommutingLog retrievedLog = commutingLogDao.getById(logId);
-
-        assertNotNull(retrievedLog, "Commuting log should be retrieved by ID");
-        assertEquals("Bus", retrievedLog.getCommuteType(), "Commute type should match");
-    }
-
-    @Test
-    public void testUpdate() {
-        User user = new User("James", "Snow", "james.s" + System.currentTimeMillis() +" @example.com");
-        int userId = userDao.insert(user);
-        CommutingLog commutingLog = new CommutingLog();
-        commutingLog.setUser(user);
-        commutingLog.setDate(new Date());
-        commutingLog.setCommuteType("Car");
-        commutingLog.setTimeSpent(50.0);
-        commutingLog.setCost(30.0);
-
-        int logId = commutingLogDao.insert(commutingLog);
-
-        // Update commuting log
-        commutingLog.setCommuteType("Bicycle");
-        commutingLogDao.update(commutingLog);
-
-        CommutingLog updatedLog = commutingLogDao.getById(logId);
-        assertEquals("Bicycle", updatedLog.getCommuteType(), "Updated commute type should match");
-    }
-
-    @Test
-    public void testDelete() {
-        User user = new User("Jo", "Doe", "jo.doe" + System.currentTimeMillis() +" @example.com");
-        int userId = userDao.insert(user);
-        CommutingLog commutingLog = new CommutingLog();
-        commutingLog.setUser(user);
-        commutingLog.setDate(new Date());
-        commutingLog.setCommuteType("Walking");
-        commutingLog.setTimeSpent(20.0);
-        commutingLog.setCost(5.0);
-
-        int logId = commutingLogDao.insert(commutingLog);
-
-        // Delete commuting log
-        commutingLogDao.deleteEntity(commutingLog);
-        CommutingLog deletedLog = commutingLogDao.getById(logId);
-        assertNull(deletedLog, "Commuting log should be null after deletion");
-    }
-
-    @Test
-    public void testGetAll() {
-        User user1 = new User("Alice", "Wonderland", "alice" + System.currentTimeMillis() +" @example.com");
-        int userId1 = userDao.insert(user1);
-        CommutingLog log1 = new CommutingLog();
-        log1.setUser(user1);
-        log1.setDate(new Date());
-        log1.setCommuteType("Car");
-        log1.setTimeSpent(30.0);
-        log1.setCost(10.0);
-        commutingLogDao.insert(log1);
-
-        User user2 = new User("Bob", "Builder", "bob" + System.currentTimeMillis() +"@example.com");
-        int userId2 = userDao.insert(user2);
-        CommutingLog log2 = new CommutingLog();
-        log2.setUser(user2);
-        log2.setDate(new Date());
-        log2.setCommuteType("Bus");
-        log2.setTimeSpent(60.0);
-        log2.setCost(15.0);
-        commutingLogDao.insert(log2);
-
+    public void testGetAllUsesSeedData() {
         List<CommutingLog> logs = commutingLogDao.getAll();
-        assertTrue(logs.size() >= 2, "There should be at least 2 commuting logs in the database");
+        // cleandb.sql seeds exactly 3 rows
+        assertEquals(3, logs.size(),
+                "cleandb.sql should produce exactly 3 commuting logs");
+    }
+
+    @Test
+    public void testGetByIdUsesSeedData() {
+        // Seed created ID=2 → Bus for user 1
+        CommutingLog log = commutingLogDao.getById(2);
+        assertNotNull(log, "Log #2 should exist");
+        assertEquals("Bus", log.getCommuteType());
+        assertEquals(1, log.getUser().getId());
+    }
+
+    @Test
+    public void testGetByIdNotFound() {
+        // No row at ID=999
+        assertNull(commutingLogDao.getById(999),
+                "Unknown ID should return null");
+    }
+
+    // —— CRUD tests (adjusted to account for initial seed of 3 rows) ——
+
+    @Test
+    public void testCreateLog() {
+        User u = new User("Charlie", "Day", "charlie.day@example.com");
+        userDao.insert(u);
+
+        CommutingLog newLog = new CommutingLog();
+        newLog.setUser(u);
+        newLog.setDate(new Date());
+        newLog.setCommuteType("Car");
+        newLog.setTimeSpent(20.0);
+        newLog.setCost(7.5);
+        int newId = commutingLogDao.insert(newLog);
+
+        assertNotEquals(0, newId);
+        // 3 seeded + 1 new → 4 total
+        assertEquals(4, commutingLogDao.getAll().size(),
+                "After create, total rows should go from 3 → 4");
+    }
+
+    @Test
+    public void testUpdateLog() {
+        // change the seeded log #1
+        CommutingLog log = commutingLogDao.getById(1);
+        log.setCommuteType("Train");
+        commutingLogDao.update(log);
+
+        CommutingLog updated = commutingLogDao.getById(1);
+        assertEquals("Train", updated.getCommuteType());
+    }
+
+    @Test
+    public void testDeleteLog() {
+        // delete seeded log #3
+        CommutingLog toDelete = commutingLogDao.getById(3);
+        commutingLogDao.deleteEntity(toDelete);
+
+        assertNull(commutingLogDao.getById(3),
+                "After delete, ID=3 should no longer exist");
+        // 3 seeded → 2 remain
+        assertEquals(2, commutingLogDao.getAll().size(),
+                "Total rows should go from 3 → 2 after delete");
     }
 }

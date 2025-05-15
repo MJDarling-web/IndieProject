@@ -54,4 +54,16 @@ part 2 https://youtu.be/rnaN0um19VE
 part 3 https://youtu.be/uuWMcFHz2tQ
 part 4 https://youtu.be/Upbo7LUu6P0
 
+Home Page ![Screenshot](https://github.com/MJDarling-web/IndieProject/blob/main/screenshots/Final%20Screenshots/Home%20page.png)
+
+Cognito Sign Up
 ![Screenshot](https://github.com/MJDarling-web/IndieProject/blob/main/screenshots/Final%20Screenshots/Cognito%20sign%20up.png)
+
+Add a Log, edit, or delete
+![Screenshot](https://github.com/MJDarling-web/IndieProject/blob/main/screenshots/Final%20Screenshots/add%20a%20log.png)
+
+Comparison of transport use
+![Screenshot](https://github.com/MJDarling-web/IndieProject/blob/main/screenshots/Final%20Screenshots/comparison.png)
+
+My Vehicle
+![Screenshot](https://github.com/MJDarling-web/IndieProject/blob/main/screenshots/Final%20Screenshots/my%20vehicle.png)

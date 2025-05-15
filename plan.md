@@ -227,40 +227,43 @@ need to update dropdown for vehicle type, and update
 - [x] Record video presentation.
 
 ### Monday - Wednesday: 
-- [ ] Jazz up site if time allows
-- [ ] review TODOs to remove
-- [ ] double check logging is implemented / commuterImpact.log update
-- [ ] review TODOs to remove
-- [ ] check design docs,
-- [ ] Complete testDaos necessary to meet project expectations
+- [x] Jazz up site if time allows
+- [x] Complete testDaos necessary to meet project expectations
 
 ### page fixes
-- [ ] fix "edit" commuteLog page
-- [ ] add column for current cost of fuel per gallon
+- [x] fix "edit" commuteLog page
+- [x] add TODO column for current cost of fuel per gallon
 
 ### logging 
 - [ ] logging for other classes throughout project
 ### javadocs
-- [ ] update for JavaDocs,
+- [x] update for JavaDocs,
 
 
 ### unit tests updates:
-- [ ] CommutingLogTest is empty, but may not be in use. Can remove if that's the case.
-- [ ] In CostAnalysisDaoTest, the testCreate() inserts a record and checks the returned id to be non-zero. This is technically correct, but it would be better if it inserted some unique data into the db, and then retrieved it to verify. The testGetAll() tests for >=2, and will succeed for any value greater than 2. Again, this is technically correct but it would be good if it tested for the exact number expected, and nothing else.
-- [ ] In UserDaoTest, the testCreate() only checks for non-zero id after inserting a user. Again, inserting some data, then retrieving the data by ID (or other unique value) and checking the other fields is the way to go. Use the testGetById() method as a template.
-- [ ] Otherwise, all the implemented unit tests do a good job of verifying functionality.
-- [ ] While the FuelApiDao currently throws an exceptions for being unable to read or write to the HttpRequest session, there is not yet any handling for if the web service is down or unavailable. I hadn't thought of this for my project, either.
-- [ ] add to AWS if time allows? Unsure, don't want to leave it up too long.
+- [x] CommutingLogTest is empty, but may not be in use. Can remove if that's the case.
+- [x] In CostAnalysisDaoTest, the testCreate() inserts a record and checks the returned id to be non-zero. This is technically correct, but it would be better if it inserted some unique data into the db, and then retrieved it to verify. The testGetAll() tests for >=2, and will succeed for any value greater than 2. Again, this is technically correct but it would be good if it tested for the exact number expected, and nothing else.
+- [x] In UserDaoTest, the testCreate() only checks for non-zero id after inserting a user. Again, inserting some data, then retrieving the data by ID (or other unique value) and checking the other fields is the way to go. Use the testGetById() method as a template.
+- [x] While the FuelApiDao currently throws an exceptions for being unable to read or write to the HttpRequest session, there is not yet any handling for if the web service is down or unavailable. I hadn't thought of this for my project, either.
+- [ ] add error page
+
+### logging
+- [ ] logging for other classes throughout project
+
+### AWS
+- [x] add to AWS if time allows? Unsure, don't want to leave it up too long.
+- [x] add link to videos
+- [ ] database connection
+- [ ] update journal
+### logging
+- [ ] logging for other classes throughout project
 ### Version 2 TODOs
-- [ ] review completed TODOs and update project for v2
+- [ ] review completed TODOs and update new TODOS project for v2
 - [ ] google maps locations for V2
-- [ ] update timelog 
 - [ ] review design docs
 - [ ] recheck for system.out.printlns and consolelogs
 - [ ] Write out wins and fails of project and how you'll move forward with next projects for portfolio pieces.
 - [ ] spellcheck project.
-- [ ] review all material one more time and submit project for grading
-- [ ] Modify initial plan and update with a V2 for moving forward
 - [ ] review all material one more time and submit project for grading
 
 

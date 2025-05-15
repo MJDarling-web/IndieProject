@@ -138,3 +138,7 @@ Does have @Entity, is mapped correctly in hibernate.cfg.xml, is in pom file, and
 ## Week 16 
 1 hour on recording and prep for project presentation
 1 hour on reviewing feedback and adjusting plan for the next 2 days before submitting final project. 
+3 hours in updates to edit/delete, log4j, and javadocs.
+2 hours AWS delployment - didn't work, having issues with auth now but moving forward for application submission and will revist in V2
+2 verifying daotests are working as needed 
+2 hours css/styling updates and checking for any spelling errors 

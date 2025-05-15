@@ -12,11 +12,12 @@
 <!-- TODO adjust cost analysis calculator ot factor in additional cost of users vehicle -->
 <%@include file="Header.jsp" %>
 <%@include file="taglib.jsp" %>
-<br><br>
-<h1>Welcome to Commuter</h1>
 <br>
-<p>A commuting cost calculator and tracker to help you understand your transportation needs</p>
-
+<h1>Welcome to Commuter</h1>
+<h3>Login or sign up to track your commuting expenses and personalize your commuting options</h3>
+<br>
+<h2><i>A commuting cost calculator and tracker to help you understand your true cost of transportation</i></h2>
+<h3>Get an estimated cost of your weekly transportation below.</h3>
 <form id="commuteForm">
     <label for="miles">Enter your commute distance (miles):</label>
     <input type="number" id="miles" name="miles" required>
@@ -96,5 +97,8 @@
     }
 
 </script>
+
+    <p>Created by Micah Darling for Enterprise Java, utilizing a free fuel price API <a href="https://www.fueleconomy.gov/feg/ws/index.shtml">FuelEconomy.gov</a></p>
+
 </body>
 </html>

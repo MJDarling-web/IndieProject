@@ -7,13 +7,11 @@
     <link rel="stylesheet" href="style/main.css" type="text/css" />
 </head>
 <body>
-<!--TODO css styling of page center all items -->
-<!--TODO delete cost section of form-->
-
+<!--TODO current price of fuel from fuelEconomy.gov api -->
 <h2>Your Commuting Logs</h2>
 
 <c:if test="${not empty commutingLogs}">
-    <table border="1">
+    <table border="1" class="centered-table">
         <thead>
         <tr>
             <th>Actions</th>

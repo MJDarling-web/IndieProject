@@ -75,5 +75,19 @@ INSERT INTO commuting_logs (user_id, duration_in_minutes, commute_type, distance
                                                                                                      (1, 30, 'Car',  10.5, 5),
                                                                                                      (1, 45, 'Bus',  12.0, 3),
                                                                                                      (2, 20, 'Bike',  5.2, 0);
+-- 7) Seed cost_analyses for DAO tests
+INSERT INTO cost_analyses
+(user_id, commute_type, one_year_cost, two_year_cost, five_year_cost, total_cost)
+VALUES
+    (1, 'Car', 1000.0, 1800.0, 4000.0,  6800.0),
+    (1, 'Bus',  800.0, 1500.0, 3500.0,  5800.0),
+    (2, 'Bike', 200.0,  360.0,  800.0,  1360.0);
+
+-- 8) Seed transportation_costs for DAO tests
+INSERT INTO transportation_costs
+(user_id, insurance_cost, vehicle_type, fuel_cost, maintenance_cost, miles_per_gallon, monthly_payment)
+VALUES
+    (1, 100.0, 'Compact',    3.2,  30.0, 35.0, 200.0),
+    (2,  50.0, 'Motorcycle',  3.0,  10.0, 55.0,   0.0);
 
 SET FOREIGN_KEY_CHECKS = 1;

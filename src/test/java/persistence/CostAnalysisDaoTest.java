@@ -4,14 +4,15 @@ import entity.CostAnalysis;
 import entity.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CostAnalysisDaoTest {
 
     private GenericDao<CostAnalysis> costAnalysisDao;
-    private GenericDao<User> userDao;
+    private GenericDao<User>         userDao;
 
     @BeforeEach
     void setUp() {
@@ -20,105 +21,66 @@ public class CostAnalysisDaoTest {
         database.runSQL("cleandb.sql");
 
         costAnalysisDao = new GenericDao<>(CostAnalysis.class);
-        userDao = new GenericDao<>(User.class);
-
-        costAnalysisDao.getAll().forEach(costAnalysisDao::deleteEntity);
+        userDao         = new GenericDao<>(User.class);
     }
 
     @Test
-    public void testCreate() {
-        User user = new User("Anna", "Taylor", "anna" + System.currentTimeMillis() + "@example.com");
-        userDao.insert(user);
-
-        CostAnalysis analysis = new CostAnalysis();
-        analysis.setUser(user);
-        analysis.setCommuteType("Car");
-        analysis.setOneYearCost(1200.0);
-        analysis.setTwoYearCost(2300.0);
-        analysis.setFiveYearCost(5000.0);
-        analysis.setTotalCost(8500.0);
-
-        int analysisId = costAnalysisDao.insert(analysis);
-        assertNotEquals(0, analysisId);
+    public void testGetAllUsesSeedData() {
+        List<CostAnalysis> list = costAnalysisDao.getAll();
+        assertEquals(3,
+                list.size(),
+                "cleandb.sql should seed exactly 3 cost analyses");
     }
 
     @Test
-    public void testGetById() {
-        User user = new User("Ben", "White", "ben" + System.currentTimeMillis() + "@example.com");
-        userDao.insert(user);
-
-        CostAnalysis analysis = new CostAnalysis();
-        analysis.setUser(user);
-        analysis.setCommuteType("Bike");
-        analysis.setOneYearCost(100.0);
-        analysis.setTwoYearCost(180.0);
-        analysis.setFiveYearCost(400.0);
-        analysis.setTotalCost(680.0);
-
-        int analysisId = costAnalysisDao.insert(analysis);
-        CostAnalysis retrieved = costAnalysisDao.getById(analysisId);
-
-        assertNotNull(retrieved);
-        assertEquals("Bike", retrieved.getCommuteType());
+    public void testGetByIdUsesSeedData() {
+        CostAnalysis ca = costAnalysisDao.getById(2);
+        assertNotNull(ca, "Row #2 should exist");
+        assertEquals("Bus", ca.getCommuteType());
+        assertEquals(1, ca.getUser().getId());
     }
 
     @Test
-    public void testUpdate() {
-        User user = new User("Chris", "Green", "chris" + System.currentTimeMillis() + "@example.com");
-        userDao.insert(user);
-
-        CostAnalysis analysis = new CostAnalysis();
-        analysis.setUser(user);
-        analysis.setCommuteType("Bus");
-        analysis.setOneYearCost(800.0);
-        analysis.setTwoYearCost(1500.0);
-        analysis.setFiveYearCost(3000.0);
-        analysis.setTotalCost(5300.0);
-
-        int analysisId = costAnalysisDao.insert(analysis);
-
-        analysis.setCommuteType("Electric Scooter");
-        costAnalysisDao.update(analysis);
-
-        CostAnalysis updated = costAnalysisDao.getById(analysisId);
-        assertEquals("Electric Scooter", updated.getCommuteType());
+    public void testGetByIdNotFound() {
+        assertNull(costAnalysisDao.getById(999),
+                "Nonexistent ID should return null");
     }
 
     @Test
-    public void testDelete() {
-        User user = new User("Dana", "Brown", "dana" + System.currentTimeMillis() + "@example.com");
-        userDao.insert(user);
+    public void testCreateAnalysis() {
+        User u = new User("Anna", "Taylor", "anna+" + System.currentTimeMillis() + "@example.com");
+        userDao.insert(u);
 
-        CostAnalysis analysis = new CostAnalysis();
-        analysis.setUser(user);
-        analysis.setCommuteType("Walk");
-        analysis.setOneYearCost(0.0);
-        analysis.setTwoYearCost(0.0);
-        analysis.setFiveYearCost(0.0);
-        analysis.setTotalCost(0.0);
+        CostAnalysis newCa = new CostAnalysis();
+        newCa.setUser(u);
+        newCa.setCommuteType("Scooter");
+        newCa.setOneYearCost(300.0);
+        newCa.setTwoYearCost(550.0);
+        newCa.setFiveYearCost(1200.0);
+        newCa.setTotalCost(2050.0);
 
-        int analysisId = costAnalysisDao.insert(analysis);
+        int newId = costAnalysisDao.insert(newCa);
+        assertNotEquals(0, newId);
 
-        costAnalysisDao.deleteEntity(analysis);
-        assertNull(costAnalysisDao.getById(analysisId));
+        assertEquals(4, costAnalysisDao.getAll().size());
     }
 
     @Test
-    public void testGetAll() {
-        User user = new User("Ella", "Brown", "ella" + System.currentTimeMillis() + "@example.com");
-        userDao.insert(user);
+    public void testUpdateAnalysis() {
+        CostAnalysis ca = costAnalysisDao.getById(1);
+        ca.setCommuteType("Electric Car");
+        costAnalysisDao.update(ca);
 
-        CostAnalysis analysis1 = new CostAnalysis();
-        analysis1.setUser(user);
-        analysis1.setCommuteType("Car");
-        costAnalysisDao.insert(analysis1);
+        CostAnalysis updated = costAnalysisDao.getById(1);
+        assertEquals("Electric Car", updated.getCommuteType());
+    }
 
-        CostAnalysis analysis2 = new CostAnalysis();
-        analysis2.setUser(user);
-        analysis2.setCommuteType("Bike");
-        costAnalysisDao.insert(analysis2);
+    @Test
+    public void testDeleteAnalysis() {
+        CostAnalysis toDelete = costAnalysisDao.getById(3);
+        costAnalysisDao.deleteEntity(toDelete);
 
-        List<CostAnalysis> analyses = costAnalysisDao.getAll();
-        assertTrue(analyses.size() >= 2);
+        assertNull(costAnalysisDao.getById(3));
+        assertEquals(2, costAnalysisDao.getAll().size());
     }
 }

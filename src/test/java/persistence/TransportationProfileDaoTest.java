@@ -5,15 +5,15 @@ import entity.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.Date;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TransportationProfileDaoTest {
 
     private GenericDao<TransportationProfile> profileDao;
-    private GenericDao<User> userDao;
+    private GenericDao<User>                  userDao;
 
     @BeforeEach
     void setUp() {
@@ -22,95 +22,73 @@ public class TransportationProfileDaoTest {
         database.runSQL("cleandb.sql");
 
         profileDao = new GenericDao<>(TransportationProfile.class);
-        userDao = new GenericDao<>(User.class);
-
-        profileDao.getAll().forEach(profileDao::deleteEntity);
+        userDao    = new GenericDao<>(User.class);
     }
 
     @Test
-    public void testCreate() {
-        User user = new User("Mark", "Lee", "mark" + System.currentTimeMillis() + "@example.com");
-        userDao.insert(user);
-
-        TransportationProfile profile = new TransportationProfile();
-        profile.setUser(user);
-        profile.setVehicleType("Sedan");
-        profile.setMilesPerGallon(30.0);
-        profile.setMonthlyPayment(300.0);
-        profile.setInsuranceCost(100.0);
-        profile.setMaintenanceCost(50.0);
-        profile.setFuelCostPerGallon(3.8);
-        profile.setLastUpdated(new Date());
-
-        int profileId = profileDao.insert(profile);
-        assertNotEquals(0, profileId);
+    public void testGetAllUsesSeedData() {
+        List<TransportationProfile> profiles = profileDao.getAll();
+        assertEquals(2,
+                profiles.size(),
+                "cleandb.sql should seed exactly 2 transportation profiles");
     }
 
     @Test
-    public void testGetById() {
-        User user = new User("Samantha", "Carter", "samantha" + System.currentTimeMillis() + "@example.com");
-        userDao.insert(user);
-
-        TransportationProfile profile = new TransportationProfile();
-        profile.setUser(user);
-        profile.setVehicleType("SUV");
-
-        int profileId = profileDao.insert(profile);
-        TransportationProfile retrieved = profileDao.getById(profileId);
-
-        assertNotNull(retrieved);
-        assertEquals("SUV", retrieved.getVehicleType());
+    public void testGetByIdUsesSeedData() {
+        TransportationProfile p1 = profileDao.getById(1);
+        assertNotNull(p1, "Profile #1 should exist");
+        assertEquals("Compact", p1.getVehicleType());
+        assertEquals(1, p1.getUser().getId());
     }
 
     @Test
-    public void testUpdate() {
-        User user = new User("Tom", "Harris", "tom" + System.currentTimeMillis() + "@example.com");
-        userDao.insert(user);
+    public void testGetByIdNotFound() {
+        assertNull(profileDao.getById(999),
+                "Unknown ID should return null");
+    }
 
-        TransportationProfile profile = new TransportationProfile();
-        profile.setUser(user);
-        profile.setVehicleType("Truck");
+    @Test
+    public void testCreateProfile() {
+        User u = new User("Mark", "Lee", "mark+" + System.currentTimeMillis() + "@example.com");
+        userDao.insert(u);
 
-        int profileId = profileDao.insert(profile);
+        TransportationProfile newProfile = new TransportationProfile();
+        newProfile.setUser(u);
+        newProfile.setVehicleType("Sedan");
+        newProfile.setMilesPerGallon(30.0);
+        newProfile.setMonthlyPayment(300.0);
+        newProfile.setInsuranceCost(100.0);
+        newProfile.setMaintenanceCost(50.0);
+        newProfile.setFuelCostPerGallon(3.8);
+        newProfile.setLastUpdated(new Date());
 
-        profile.setVehicleType("Convertible");
-        profileDao.update(profile);
+        int newId = profileDao.insert(newProfile);
+        assertNotEquals(0, newId);
 
-        TransportationProfile updated = profileDao.getById(profileId);
+        assertEquals(3,
+                profileDao.getAll().size(),
+                "After create, total profiles should go from 2 → 3");
+    }
+
+    @Test
+    public void testUpdateProfile() {
+        TransportationProfile p = profileDao.getById(1);
+        p.setVehicleType("Convertible");
+        profileDao.update(p);
+
+        TransportationProfile updated = profileDao.getById(1);
         assertEquals("Convertible", updated.getVehicleType());
     }
 
     @Test
-    public void testDelete() {
-        User user = new User("Natalie", "Jones", "natalie" + System.currentTimeMillis() + "@example.com");
-        userDao.insert(user);
+    public void testDeleteProfile() {
+        TransportationProfile toDelete = profileDao.getById(2);
+        profileDao.deleteEntity(toDelete);
 
-        TransportationProfile profile = new TransportationProfile();
-        profile.setUser(user);
-        profile.setVehicleType("Hybrid");
-
-        int profileId = profileDao.insert(profile);
-
-        profileDao.deleteEntity(profile);
-        assertNull(profileDao.getById(profileId));
-    }
-
-    @Test
-    public void testGetAll() {
-        User user = new User("Olivia", "Stone", "olivia" + System.currentTimeMillis() + "@example.com");
-        userDao.insert(user);
-
-        TransportationProfile profile1 = new TransportationProfile();
-        profile1.setUser(user);
-        profile1.setVehicleType("Compact");
-        profileDao.insert(profile1);
-
-        TransportationProfile profile2 = new TransportationProfile();
-        profile2.setUser(user);
-        profile2.setVehicleType("Motorcycle");
-        profileDao.insert(profile2);
-
-        List<TransportationProfile> profiles = profileDao.getAll();
-        assertTrue(profiles.size() >= 2);
+        assertNull(profileDao.getById(2),
+                "After delete, profile #2 should be gone");
+        assertEquals(1,
+                profileDao.getAll().size(),
+                "After delete, total profiles should go from 2 → 1");
     }
 }

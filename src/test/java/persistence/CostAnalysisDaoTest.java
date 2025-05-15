@@ -27,7 +27,7 @@ public class CostAnalysisDaoTest {
 
     @Test
     public void testCreate() {
-        User user = new User("Anna", "Taylor", "anna" + System.currentTimeMillis() + "@example.com", "password123");
+        User user = new User("Anna", "Taylor", "anna" + System.currentTimeMillis() + "@example.com");
         userDao.insert(user);
 
         CostAnalysis analysis = new CostAnalysis();
@@ -44,7 +44,7 @@ public class CostAnalysisDaoTest {
 
     @Test
     public void testGetById() {
-        User user = new User("Ben", "White", "ben" + System.currentTimeMillis() + "@example.com", "password123");
+        User user = new User("Ben", "White", "ben" + System.currentTimeMillis() + "@example.com");
         userDao.insert(user);
 
         CostAnalysis analysis = new CostAnalysis();
@@ -64,7 +64,7 @@ public class CostAnalysisDaoTest {
 
     @Test
     public void testUpdate() {
-        User user = new User("Chris", "Green", "chris" + System.currentTimeMillis() + "@example.com", "password123");
+        User user = new User("Chris", "Green", "chris" + System.currentTimeMillis() + "@example.com");
         userDao.insert(user);
 
         CostAnalysis analysis = new CostAnalysis();
@@ -86,7 +86,7 @@ public class CostAnalysisDaoTest {
 
     @Test
     public void testDelete() {
-        User user = new User("Dana", "Brown", "dana" + System.currentTimeMillis() + "@example.com", "password123");
+        User user = new User("Dana", "Brown", "dana" + System.currentTimeMillis() + "@example.com");
         userDao.insert(user);
 
         CostAnalysis analysis = new CostAnalysis();
@@ -105,7 +105,7 @@ public class CostAnalysisDaoTest {
 
     @Test
     public void testGetAll() {
-        User user = new User("Ella", "Brown", "ella" + System.currentTimeMillis() + "@example.com", "password123");
+        User user = new User("Ella", "Brown", "ella" + System.currentTimeMillis() + "@example.com");
         userDao.insert(user);
 
         CostAnalysis analysis1 = new CostAnalysis();

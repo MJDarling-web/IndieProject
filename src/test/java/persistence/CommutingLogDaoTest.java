@@ -27,7 +27,7 @@ public class CommutingLogDaoTest {
 
     @Test
     public void testCreate() {
-        User user = new User("Jake", "Smith", "Jake.smith" + System.currentTimeMillis() + "@example.com", "password123");
+        User user =  new User("Jake", "Smith", "Jake.smith" + System.currentTimeMillis() + "@example.com");
         int userId = userDao.insert(user);
         CommutingLog commutingLog = new CommutingLog();
         commutingLog.setUser(user);
@@ -42,7 +42,7 @@ public class CommutingLogDaoTest {
 
     @Test
     public void testGetById() {
-        User user = new User("Jane", "Doe", "jane.doe" + System.currentTimeMillis() + "@example.com", "password123");
+        User user = new User("Jane", "Doe", "jane.doe" + System.currentTimeMillis() + "@example.com");
         int userId = userDao.insert(user);
         CommutingLog commutingLog = new CommutingLog();
         commutingLog.setUser(user);
@@ -60,7 +60,7 @@ public class CommutingLogDaoTest {
 
     @Test
     public void testUpdate() {
-        User user = new User("James", "Snow", "james.s" + System.currentTimeMillis() +" @example.com", "password123");
+        User user = new User("James", "Snow", "james.s" + System.currentTimeMillis() +" @example.com");
         int userId = userDao.insert(user);
         CommutingLog commutingLog = new CommutingLog();
         commutingLog.setUser(user);
@@ -81,7 +81,7 @@ public class CommutingLogDaoTest {
 
     @Test
     public void testDelete() {
-        User user = new User("Jo", "Doe", "jo.doe" + System.currentTimeMillis() +" @example.com", "password123");
+        User user = new User("Jo", "Doe", "jo.doe" + System.currentTimeMillis() +" @example.com");
         int userId = userDao.insert(user);
         CommutingLog commutingLog = new CommutingLog();
         commutingLog.setUser(user);
@@ -100,7 +100,7 @@ public class CommutingLogDaoTest {
 
     @Test
     public void testGetAll() {
-        User user1 = new User("Alice", "Wonderland", "alice" + System.currentTimeMillis() +" @example.com", "password123");
+        User user1 = new User("Alice", "Wonderland", "alice" + System.currentTimeMillis() +" @example.com");
         int userId1 = userDao.insert(user1);
         CommutingLog log1 = new CommutingLog();
         log1.setUser(user1);
@@ -110,7 +110,7 @@ public class CommutingLogDaoTest {
         log1.setCost(10.0);
         commutingLogDao.insert(log1);
 
-        User user2 = new User("Bob", "Builder", "bob" + System.currentTimeMillis() +"@example.com", "password123");
+        User user2 = new User("Bob", "Builder", "bob" + System.currentTimeMillis() +"@example.com");
         int userId2 = userDao.insert(user2);
         CommutingLog log2 = new CommutingLog();
         log2.setUser(user2);

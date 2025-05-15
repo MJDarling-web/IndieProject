@@ -87,8 +87,6 @@ public class Auth extends HttpServlet implements PropertiesLoader {
                 user.setEmail(email);
                 user.setFirstName(username);  // Use username as a fallback first name
                 user.setLastName("n/a");      // Placeholder
-                user.setPassword("generated"); // Placeholder
-
                 userDao.insertUser(user);
                 logger.debug("Inserted new user into database.");
             } else {

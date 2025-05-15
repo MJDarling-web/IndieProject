@@ -5,10 +5,10 @@ import entity.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import java.util.Date;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class TransportationProfileDaoTest {
 
@@ -23,52 +23,54 @@ public class TransportationProfileDaoTest {
 
         profileDao = new GenericDao<>(TransportationProfile.class);
         userDao = new GenericDao<>(User.class);
-        profileDao.getAll().forEach(profileDao::deleteEntity);
-    }
 
-    private TransportationProfile buildValidProfile(User user, String vehicleType) {
-        TransportationProfile profile = new TransportationProfile();
-        profile.setUser(user);
-        profile.setVehicleType(vehicleType);
-        profile.setMilesPerGallon(25.0);
-        profile.setMonthlyPayment(0.0);
-        profile.setInsuranceCost(0.0);
-        profile.setMaintenanceCost(0.0);
-        profile.setFuelCostPerGallon(3.5);
-        profile.setLastUpdated(new Date());
-        return profile;
+        profileDao.getAll().forEach(profileDao::deleteEntity);
     }
 
     @Test
     public void testCreate() {
-        User user = new User("John", "Doe", "john" + System.currentTimeMillis() + "@example.com", "password123");
+        User user = new User("Mark", "Lee", "mark" + System.currentTimeMillis() + "@example.com");
         userDao.insert(user);
 
-        TransportationProfile profile = buildValidProfile(user, "Sedan");
-        int profileId = profileDao.insert(profile);
+        TransportationProfile profile = new TransportationProfile();
+        profile.setUser(user);
+        profile.setVehicleType("Sedan");
+        profile.setMilesPerGallon(30.0);
+        profile.setMonthlyPayment(300.0);
+        profile.setInsuranceCost(100.0);
+        profile.setMaintenanceCost(50.0);
+        profile.setFuelCostPerGallon(3.8);
+        profile.setLastUpdated(new Date());
 
+        int profileId = profileDao.insert(profile);
         assertNotEquals(0, profileId);
     }
 
     @Test
     public void testGetById() {
-        User user = new User("Samantha", "Carter", "samantha" + System.currentTimeMillis() + "@example.com", "password123");
+        User user = new User("Samantha", "Carter", "samantha" + System.currentTimeMillis() + "@example.com");
         userDao.insert(user);
 
-        TransportationProfile profile = buildValidProfile(user, "SUV");
-        int profileId = profileDao.insert(profile);
+        TransportationProfile profile = new TransportationProfile();
+        profile.setUser(user);
+        profile.setVehicleType("SUV");
 
+        int profileId = profileDao.insert(profile);
         TransportationProfile retrieved = profileDao.getById(profileId);
+
         assertNotNull(retrieved);
         assertEquals("SUV", retrieved.getVehicleType());
     }
 
     @Test
     public void testUpdate() {
-        User user = new User("Michael", "Knight", "michael" + System.currentTimeMillis() + "@example.com", "password123");
+        User user = new User("Tom", "Harris", "tom" + System.currentTimeMillis() + "@example.com");
         userDao.insert(user);
 
-        TransportationProfile profile = buildValidProfile(user, "Car");
+        TransportationProfile profile = new TransportationProfile();
+        profile.setUser(user);
+        profile.setVehicleType("Truck");
+
         int profileId = profileDao.insert(profile);
 
         profile.setVehicleType("Convertible");
@@ -80,10 +82,13 @@ public class TransportationProfileDaoTest {
 
     @Test
     public void testDelete() {
-        User user = new User("Sarah", "Connor", "sarah" + System.currentTimeMillis() + "@example.com", "password123");
+        User user = new User("Natalie", "Jones", "natalie" + System.currentTimeMillis() + "@example.com");
         userDao.insert(user);
 
-        TransportationProfile profile = buildValidProfile(user, "Motorcycle");
+        TransportationProfile profile = new TransportationProfile();
+        profile.setUser(user);
+        profile.setVehicleType("Hybrid");
+
         int profileId = profileDao.insert(profile);
 
         profileDao.deleteEntity(profile);
@@ -92,12 +97,17 @@ public class TransportationProfileDaoTest {
 
     @Test
     public void testGetAll() {
-        User user = new User("Bruce", "Wayne", "bruce" + System.currentTimeMillis() + "@example.com", "password123");
+        User user = new User("Olivia", "Stone", "olivia" + System.currentTimeMillis() + "@example.com");
         userDao.insert(user);
 
-        TransportationProfile profile1 = buildValidProfile(user, "Truck");
-        TransportationProfile profile2 = buildValidProfile(user, "Car");
+        TransportationProfile profile1 = new TransportationProfile();
+        profile1.setUser(user);
+        profile1.setVehicleType("Compact");
         profileDao.insert(profile1);
+
+        TransportationProfile profile2 = new TransportationProfile();
+        profile2.setUser(user);
+        profile2.setVehicleType("Motorcycle");
         profileDao.insert(profile2);
 
         List<TransportationProfile> profiles = profileDao.getAll();

@@ -45,6 +45,8 @@ Integration with a google maps API to get the users commute data for each type o
 These technologies are well-suited for developing "My Commuting Impact" web app, covering everything from front-end user interface development to back-end server-side logic, data management, and deployment. Each technology is chosen based on its strengths in achieving key features: commuters analysis, data visualization, and user tracking._
 
 Here are the links to my project presentation, if you have suggestions or areas you'd like more explanation, let me! It’s still a work in progress but demonstrates the project’s objective.
+
+
 https://github.com/MJDarling-web/IndieProject
 
 part 1 https://youtu.be/c0n8E98s-FA 
@@ -52,3 +54,4 @@ part 2 https://youtu.be/rnaN0um19VE
 part 3 https://youtu.be/uuWMcFHz2tQ
 part 4 https://youtu.be/Upbo7LUu6P0
 
+DesignDocs/final/Screenshot 2025-05-14 at 2.15.55 PM.png

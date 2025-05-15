@@ -235,7 +235,7 @@ need to update dropdown for vehicle type, and update
 - [x] add TODO column for current cost of fuel per gallon
 
 ### logging 
-- [ ] logging for other classes throughout project
+- [x] logging for other classes throughout project
 ### javadocs
 - [x] update for JavaDocs,
 
@@ -248,7 +248,7 @@ need to update dropdown for vehicle type, and update
 - [ ] add error page
 
 ### logging
-- [ ] logging for other classes throughout project
+- [x] logging for other classes throughout project
 
 ### AWS
 - [x] add to AWS if time allows? Unsure, don't want to leave it up too long.

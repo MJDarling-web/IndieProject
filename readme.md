@@ -54,4 +54,4 @@ part 2 https://youtu.be/rnaN0um19VE
 part 3 https://youtu.be/uuWMcFHz2tQ
 part 4 https://youtu.be/Upbo7LUu6P0
 
-DesignDocs/final/Screenshot 2025-05-14 at 2.15.55 PM.png
+https://github.com/MJDarling-web/IndieProject/blob/main/screenshots/Final%20Screenshots/Cognito%20sign%20up.png

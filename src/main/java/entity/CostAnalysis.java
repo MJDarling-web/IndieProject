@@ -13,8 +13,8 @@ public class CostAnalysis {
     private int analysisId;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user; // Relationship to the User entity
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private Profile user;// Relationship to the User entity
 
     @Column(name = "commute_type" )
     private String commuteType; // Type of transportation (Car, Bike, Walk, Public Transit, etc.)
@@ -40,11 +40,11 @@ public class CostAnalysis {
         this.analysisId = analysisId;
     }
 
-    public User getUser() {
+    public Profile getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(Profile user) {
         this.user = user;
     }
 

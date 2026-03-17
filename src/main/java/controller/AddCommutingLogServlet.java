@@ -1,9 +1,11 @@
 package controller;
 
-import entity.*;
+import entity.CommutingLog;
+import entity.CostAnalysis;
+import entity.Profile;
+import entity.TransportationProfile;
 import persistence.FuelApiDao;
 import persistence.GenericDao;
-import persistence.UserDao;
 import util.CommutingCostCalculator;
 
 import javax.servlet.RequestDispatcher;
@@ -30,43 +32,25 @@ import java.util.*;
 @WebServlet("/addCommutingLog")
 public class AddCommutingLogServlet extends HttpServlet {
 
-    /**
-     * @param req  an {@link HttpServletRequest} object that
-     *             contains the request the client has made
-     *             of the servlet
-     * @param resp an {@link HttpServletResponse} object that
-     *             contains the response the servlet sends
-     *             to the client
-     * @throws ServletException
-     * @throws IOException
-     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-        int userId = getLoggedInUserId(req);
+        Profile user = getLoggedInProfile(req);
 
-        // Load the user
-        User user = new UserDao().getById(userId);
+        String commuteType = req.getParameter("commuteType");
+        double timeSpent = Double.parseDouble(req.getParameter("timeSpent"));
+        double distanceInMiles = Double.parseDouble(req.getParameter("distanceInMiles"));
 
-        // Grab form inputs (no more "cost" field)
-        String commuteType      = req.getParameter("commuteType");
-        double timeSpent        = Double.parseDouble(req.getParameter("timeSpent"));
-        double distanceInMiles  = Double.parseDouble(req.getParameter("distanceInMiles"));
+        GenericDao<TransportationProfile> profDao = new GenericDao<>(TransportationProfile.class);
+        List<TransportationProfile> profiles = profDao.getByPropertyEqual("user", user);
 
-        // Fetch the user's vehicle MPG
-        GenericDao<TransportationProfile> profDao =
-                new GenericDao<>(TransportationProfile.class);
-        List<TransportationProfile> profiles = profDao.getByCustomQuery(
-                "from TransportationProfile where user.id = " + userId
-        );
         double mpg = profiles.stream()
                 .filter(p -> p.getVehicleType().equalsIgnoreCase(commuteType))
                 .map(TransportationProfile::getMilesPerGallon)
                 .findFirst()
                 .orElse(25.0);
 
-        //Compute gas cost
         double cost;
         String typeLower = commuteType.toLowerCase();
         if (typeLower.equals("walk") || typeLower.equals("bike")) {
@@ -74,8 +58,7 @@ public class AddCommutingLogServlet extends HttpServlet {
         } else if (typeLower.equals("bus")) {
             cost = 2.00;
         } else {
-            CommutingCostCalculator calculator =
-                    new CommutingCostCalculator(new FuelApiDao());
+            CommutingCostCalculator calculator = new CommutingCostCalculator(new FuelApiDao());
             try {
                 cost = calculator.computeGasCost(distanceInMiles, mpg);
             } catch (Exception e) {
@@ -83,7 +66,6 @@ public class AddCommutingLogServlet extends HttpServlet {
             }
         }
 
-        // Build and persist the CommutingLog
         CommutingLog log = new CommutingLog();
         log.setUser(user);
         log.setCommuteType(commuteType);
@@ -93,18 +75,17 @@ public class AddCommutingLogServlet extends HttpServlet {
         log.setDate(new Date());
         new GenericDao<>(CommutingLog.class).insert(log);
 
-        // Reload all logs for display
         List<CommutingLog> userLogs = new GenericDao<>(CommutingLog.class)
-                .getByCustomQuery("from CommutingLog where user.id=" + userId);
+                .getByPropertyEqual("user", user);
         req.setAttribute("commutingLogs", userLogs);
 
-        // Build commute‑type dropdown
-        List<String> commuteTypes = new ArrayList<>(Arrays.asList("walk","bike","bus"));
+        List<String> commuteTypes = new ArrayList<>(Arrays.asList("walk", "bike", "bus"));
         for (TransportationProfile p : profiles) {
             if (!commuteTypes.contains(p.getVehicleType())) {
                 commuteTypes.add(p.getVehicleType());
             }
         }
+
         if (profiles.isEmpty() && !commuteTypes.contains("car")) {
             commuteTypes.add("car");
             req.setAttribute("vehicleWarning",
@@ -112,26 +93,26 @@ public class AddCommutingLogServlet extends HttpServlet {
         }
         req.setAttribute("commuteTypes", commuteTypes);
 
-        // Recompute and persist CostAnalysis for each type
         GenericDao<CostAnalysis> costDao = new GenericDao<>(CostAnalysis.class);
         Map<String, CostAnalysis> costSummary = new HashMap<>();
+
+        List<CostAnalysis> allUserAnalyses = costDao.getByPropertyEqual("user", user);
+
         for (String type : commuteTypes) {
             double totalMiles = userLogs.stream()
-                    .filter(c -> c.getCommuteType()
-                            .equalsIgnoreCase(type))
+                    .filter(c -> c.getCommuteType().equalsIgnoreCase(type))
                     .mapToDouble(CommutingLog::getDistanceInMiles)
                     .sum();
 
-            // find matching vehicle for insurance/maintenance/fuel
             TransportationProfile vehicle = profiles.stream()
-                    .filter(p -> p.getVehicleType()
-                            .equalsIgnoreCase(type))
-                    .findFirst().orElse(null);
+                    .filter(p -> p.getVehicleType().equalsIgnoreCase(type))
+                    .findFirst()
+                    .orElse(null);
 
             double insurance = vehicle != null ? vehicle.getInsuranceCost() : 0;
             double maintenance = vehicle != null ? vehicle.getMaintenanceCost() : 0;
             double perGallon = vehicle != null ? vehicle.getFuelCostPerGallon() : 3.5;
-            double mpgForType = vehicle != null && vehicle.getMilesPerGallon()>0
+            double mpgForType = vehicle != null && vehicle.getMilesPerGallon() > 0
                     ? vehicle.getMilesPerGallon() : 25;
 
             double typeGasCost = (totalMiles / mpgForType) * perGallon;
@@ -139,20 +120,16 @@ public class AddCommutingLogServlet extends HttpServlet {
             double twoYear = oneYear * 2;
             double fiveYear = oneYear * 5;
 
-            // load or new
-            String hql = "from CostAnalysis where user.id=" + userId +
-                    " and commuteType='" + type +
-                    "' order by analysisId desc";
-            List<CostAnalysis> existing = costDao.getByCustomQuery(hql);
+            CostAnalysis ca = allUserAnalyses.stream()
+                    .filter(a -> a.getCommuteType() != null && a.getCommuteType().equalsIgnoreCase(type))
+                    .findFirst()
+                    .orElse(new CostAnalysis());
 
-            CostAnalysis ca = existing.isEmpty()
-                    ? new CostAnalysis()
-                    : existing.get(0);
-
-            if (existing.isEmpty()) {
+            if (ca.getAnalysisId() == 0) {
                 ca.setUser(user);
                 ca.setCommuteType(type);
             }
+
             ca.setOneYearCost(oneYear);
             ca.setTwoYearCost(twoYear);
             ca.setFiveYearCost(fiveYear);
@@ -163,53 +140,43 @@ public class AddCommutingLogServlet extends HttpServlet {
             } else {
                 costDao.insert(ca);
             }
+
             costSummary.put(type, ca);
         }
+
         req.setAttribute("costSummaryMap", costSummary);
 
-        // Forward to JSP
         RequestDispatcher rd = req.getRequestDispatcher("CommutingCostLog.jsp");
         rd.forward(req, resp);
     }
 
-    /**
-     * @param req  an {@link HttpServletRequest} object that
-     *             contains the request the client has made
-     *             of the servlet
-     * @param resp an {@link HttpServletResponse} object that
-     *             contains the response the servlet sends
-     *             to the client
-     * @throws ServletException
-     * @throws IOException
-     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        // simply load logs, commute types, and cost summary for display
-        int userId = getLoggedInUserId(req);
-        User user = new UserDao().getById(userId);
 
-        // edit an existing log
+        Profile user = getLoggedInProfile(req);
+
         String editLogId = req.getParameter("editLogId");
         if (editLogId != null && !editLogId.isEmpty()) {
             try {
                 int logId = Integer.parseInt(editLogId);
                 CommutingLog editLog = new GenericDao<>(CommutingLog.class).getById(logId);
-                if (editLog != null && editLog.getUser().getId() == userId) {
+                if (editLog != null && editLog.getUser().getId().equals(user.getId())) {
                     req.setAttribute("editLog", editLog);
                 }
             } catch (NumberFormatException e) {
+                // ignore bad editLogId
             }
         }
 
-
         List<CommutingLog> userLogs = new GenericDao<>(CommutingLog.class)
-                .getByCustomQuery("from CommutingLog where user.id=" + userId);
+                .getByPropertyEqual("user", user);
         req.setAttribute("commutingLogs", userLogs);
 
         List<TransportationProfile> profiles = new GenericDao<>(TransportationProfile.class)
-                .getByCustomQuery("from TransportationProfile where user.id=" + userId);
-        List<String> commuteTypes = new ArrayList<>(Arrays.asList("walk","bike","bus"));
+                .getByPropertyEqual("user", user);
+
+        List<String> commuteTypes = new ArrayList<>(Arrays.asList("walk", "bike", "bus"));
         for (TransportationProfile p : profiles) {
             if (!commuteTypes.contains(p.getVehicleType())) {
                 commuteTypes.add(p.getVehicleType());
@@ -219,33 +186,34 @@ public class AddCommutingLogServlet extends HttpServlet {
 
         Map<String, CostAnalysis> costSummary = new HashMap<>();
         GenericDao<CostAnalysis> costDao = new GenericDao<>(CostAnalysis.class);
+        List<CostAnalysis> allUserAnalyses = costDao.getByPropertyEqual("user", user);
+
         for (String type : commuteTypes) {
-            List<CostAnalysis> list = costDao.getByCustomQuery(
-                    "from CostAnalysis where user.id=" + userId +
-                            " and commuteType='" + type + "' order by analysisId desc"
-            );
-            if (!list.isEmpty()) {
-                costSummary.put(type, list.get(0));
-            }
+            allUserAnalyses.stream()
+                    .filter(a -> a.getCommuteType() != null && a.getCommuteType().equalsIgnoreCase(type))
+                    .findFirst()
+                    .ifPresent(a -> costSummary.put(type, a));
         }
+
         req.setAttribute("costSummaryMap", costSummary);
 
         req.getRequestDispatcher("CommutingCostLog.jsp").forward(req, resp);
     }
 
-    /**
-     * @param req userName
-     * @return userId
-     */
-    private int getLoggedInUserId(HttpServletRequest req) {
-        String email = (String) req.getSession().getAttribute("userName");
-        if (email == null) {
+    private Profile getLoggedInProfile(HttpServletRequest req) {
+        String email = (String) req.getSession().getAttribute("userEmail");
+
+        if (email == null || email.isBlank()) {
             throw new IllegalStateException("No user logged in");
         }
-        User user = new UserDao().getByEmail(email);
-        if (user == null) {
-            throw new IllegalStateException("User not found");
+
+        GenericDao<Profile> profileDao = new GenericDao<>(Profile.class);
+        List<Profile> profiles = profileDao.getByPropertyEqual("email", email);
+
+        if (profiles == null || profiles.isEmpty()) {
+            throw new IllegalStateException("User profile not found");
         }
-        return user.getId();
+
+        return profiles.get(0);
     }
 }

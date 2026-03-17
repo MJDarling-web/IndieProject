@@ -1,11 +1,10 @@
 package controller;
 
 import entity.CommutingLog;
+import entity.Profile;
 import entity.TransportationProfile;
-import entity.User;
 import persistence.FuelApiDao;
 import persistence.GenericDao;
-import persistence.UserDao;
 import util.CommutingCostCalculator;
 
 import javax.servlet.ServletException;
@@ -13,9 +12,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Servlet for updating an existing commuting log entry.
@@ -26,14 +27,14 @@ public class UpdateCommutingLogServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int userId = getLoggedInUserId(req);
-        User user = new UserDao().getById(userId);
+        Profile user = getLoggedInProfile(req);
+        UUID userId = user.getId();
 
         int logId = Integer.parseInt(req.getParameter("logId"));
         GenericDao<CommutingLog> commutingLogDao = new GenericDao<>(CommutingLog.class);
         CommutingLog log = commutingLogDao.getById(logId);
 
-        if (log == null || log.getUser().getId() != userId) {
+        if (log == null || !log.getUser().getId().equals(userId)) {
             resp.sendError(HttpServletResponse.SC_FORBIDDEN, "Log not found or unauthorized");
             return;
         }
@@ -42,10 +43,10 @@ public class UpdateCommutingLogServlet extends HttpServlet {
         double timeSpent = Double.parseDouble(req.getParameter("timeSpent"));
         double distanceInMiles = Double.parseDouble(req.getParameter("distanceInMiles"));
 
-        // Lookup user profile to compute cost
         GenericDao<TransportationProfile> profileDao = new GenericDao<>(TransportationProfile.class);
         List<TransportationProfile> profiles = profileDao.getByCustomQuery(
-                "from TransportationProfile where user.id = " + userId);
+                "from TransportationProfile where user.id = '" + userId + "'"
+        );
 
         double mpg = profiles.stream()
                 .filter(p -> p.getVehicleType().equalsIgnoreCase(commuteType))
@@ -68,7 +69,6 @@ public class UpdateCommutingLogServlet extends HttpServlet {
             }
         }
 
-        // Update the log
         log.setCommuteType(commuteType);
         log.setTimeSpent(timeSpent);
         log.setDistanceInMiles(distanceInMiles);
@@ -80,15 +80,26 @@ public class UpdateCommutingLogServlet extends HttpServlet {
         resp.sendRedirect("addCommutingLog");
     }
 
-    private int getLoggedInUserId(HttpServletRequest req) {
-        String email = (String) req.getSession().getAttribute("userName");
-        if (email == null) {
+    private Profile getLoggedInProfile(HttpServletRequest req) {
+        HttpSession session = req.getSession(false);
+
+        if (session == null) {
+            throw new IllegalStateException("No active session");
+        }
+
+        String email = (String) session.getAttribute("userEmail");
+
+        if (email == null || email.isBlank()) {
             throw new IllegalStateException("No user logged in");
         }
-        User user = new UserDao().getByEmail(email);
-        if (user == null) {
-            throw new IllegalStateException("User not found");
+
+        GenericDao<Profile> profileDao = new GenericDao<>(Profile.class);
+        List<Profile> profiles = profileDao.getByPropertyEqual("email", email);
+
+        if (profiles == null || profiles.isEmpty()) {
+            throw new IllegalStateException("User profile not found");
         }
-        return user.getId();
+
+        return profiles.get(0);
     }
 }

@@ -24,9 +24,9 @@ public class TransportationProfile {
     private int profileId;
 
     /** User's transportation profile. */
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", referencedColumnName = "id", unique = true, nullable = false)
-    private User user;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
+    private Profile user;
 
     /** Type of vehicle used by the user (e.g., Car, Bike, Bus). */
     @Column(name = "vehicle_type")
@@ -62,7 +62,7 @@ public class TransportationProfile {
     public TransportationProfile() {}
 
     //Full constructor
-    public TransportationProfile(User user, String vehicleType, Double milesPerGallon,
+    public TransportationProfile(Profile user, String vehicleType, Double milesPerGallon,
                                  Double monthlyPayment, Double insuranceCost, Double maintenanceCost,
                                  Double fuelCostPerGallon, Date lastUpdated) {
         this.user = user;
@@ -84,11 +84,11 @@ public class TransportationProfile {
         this.profileId = profileId;
     }
 
-    public User getUser() {
+    public Profile getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(Profile user) {
         this.user = user;
     }
 

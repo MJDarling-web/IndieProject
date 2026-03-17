@@ -12,6 +12,7 @@
     <junit-vintage-version>4.12.0</junit-vintage-version>
     <javax.version>7.0</javax.version>
     <mysql-version>8.0.16</mysql-version>
+    <postgresql-version>42.7.3</postgresql-version>
     <jstl-version>1.2</jstl-version>
     <log4j-version>2.20.0</log4j-version>
     <jupiter-version>5.0.0</jupiter-version>
@@ -129,6 +130,11 @@
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>${mysql-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>${postgresql-version}</version>
     </dependency>
     <dependency>
       <groupId>javax.servlet.jsp.jstl</groupId>

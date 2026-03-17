@@ -102,35 +102,49 @@ public class Database {
      * @param sqlFile the sql file to be read and executed line by line
      */
     public void runSQL(String sqlFile) {
+        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 
-        Statement stmt = null;
-        ClassLoader classloader = Thread.currentThread().getContextClassLoader();
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(classloader.getResourceAsStream(sqlFile))))  {
-
-            connect();
-            stmt = connection.createStatement();
-
-            String sql = "";
-            while (br.ready())
-            {
-                char inputValue = (char)br.read();
-
-                if(inputValue == ';')
-                {
-                    stmt.executeUpdate(sql);
-                    sql = "";
-                }
-                else
-                    sql += inputValue;
+        try {
+            var resource = classLoader.getResource(sqlFile);
+            if (resource == null) {
+                throw new RuntimeException("SQL file not found on classpath: " + sqlFile);
             }
 
-        } catch (SQLException se) {
-            logger.log(Level.SEVERE,"SQL Exception..." + se);
+            System.out.println("Loading SQL file from: " + resource);
+
+            StringBuilder sqlBuilder = new StringBuilder();
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(resource.openStream()))) {
+                String line;
+                while ((line = br.readLine()) != null) {
+                    String trimmed = line.trim();
+
+                    // Skip blank lines and SQL comment lines
+                    if (trimmed.isEmpty() || trimmed.startsWith("--")) {
+                        continue;
+                    }
+
+                    sqlBuilder.append(line).append("\n");
+                }
+            }
+
+            connect();
+
+            try (Statement stmt = connection.createStatement()) {
+                String[] statements = sqlBuilder.toString().split(";");
+
+                for (String statement : statements) {
+                    String sql = statement.trim();
+                    if (!sql.isEmpty()) {
+                        System.out.println("Executing SQL:\n" + sql);
+                        stmt.executeUpdate(sql);
+                    }
+                }
+            }
+
         } catch (Exception e) {
-            logger.log(Level.SEVERE,"Exception" + e);
+            throw new RuntimeException("Failed running SQL file: " + sqlFile, e);
         } finally {
             disconnect();
         }
-
     }
 }

@@ -1,9 +1,8 @@
 package controller;
 
+import entity.Profile;
 import entity.TransportationProfile;
-import entity.User;
 import persistence.GenericDao;
-import persistence.UserDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,46 +13,28 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Servlet that handles displaying and saving user's vehicle profile
  *
  * GET request updates user's existing transportationProfile or initializes default one.
  * POST request updates profile based on form input and persists the changes using generic DAO
- *
- * @author micahdarling
  */
 @WebServlet("/saveVehicleProfile")
 public class SaveVehicleProfileServlet extends HttpServlet {
 
-    /**
-     * Handles GET requests to load user's current vehicle profile
-     *
-     * @param req HttpServletRequest request the client has made of the servlet
-     * @param resp HttpServletResponse contains the response the servlet sends to the client
-     * @throws ServletException
-     * @throws IOException
-     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        HttpSession session = req.getSession();
-        String userEmail = (String) session.getAttribute("userName");
-
-        if (userEmail == null) {
-            resp.sendRedirect("logIn.jsp");
-            return;
-        }
-
-        UserDao userDao = new UserDao();
-        User user = userDao.getByEmail(userEmail);
+        Profile user = getLoggedInProfile(req);
+        UUID userId = user.getId();
 
         GenericDao<TransportationProfile> profileDao = new GenericDao<>(TransportationProfile.class);
         TransportationProfile profile;
 
-        // Check if profile exists
         List<TransportationProfile> existingProfiles = profileDao.getByCustomQuery(
-                "from TransportationProfile where user.id = " + user.getId()
+                "from TransportationProfile where user.id = '" + userId + "'"
         );
 
         if (!existingProfiles.isEmpty()) {
@@ -61,7 +42,7 @@ public class SaveVehicleProfileServlet extends HttpServlet {
         } else {
             profile = new TransportationProfile();
             profile.setUser(user);
-            profile.setVehicleType("Car"); // Default values
+            profile.setVehicleType("Car");
             profile.setMilesPerGallon(25.0);
             profile.setMonthlyPayment(0.0);
             profile.setInsuranceCost(0.0);
@@ -74,35 +55,17 @@ public class SaveVehicleProfileServlet extends HttpServlet {
         req.getRequestDispatcher("MyVehicles.jsp").forward(req, resp);
     }
 
-    /**
-     * @param req  an {@link HttpServletRequest} object that
-     *             contains the request the client has made
-     *             of the servlet
-     * @param resp an {@link HttpServletResponse} object that
-     *             contains the response the servlet sends
-     *             to the client
-     * @throws ServletException
-     * @throws IOException
-     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        HttpSession session = req.getSession();
-        String userEmail = (String) session.getAttribute("userName");
-
-        if (userEmail == null) {
-            resp.sendRedirect("logIn.jsp");
-            return;
-        }
-
-        UserDao userDao = new UserDao();
-        User user = userDao.getByEmail(userEmail);
+        Profile user = getLoggedInProfile(req);
+        UUID userId = user.getId();
 
         GenericDao<TransportationProfile> profileDao = new GenericDao<>(TransportationProfile.class);
         TransportationProfile profile;
 
         List<TransportationProfile> existingProfiles = profileDao.getByCustomQuery(
-                "from TransportationProfile where user.id = " + user.getId()
+                "from TransportationProfile where user.id = '" + userId + "'"
         );
 
         if (!existingProfiles.isEmpty()) {
@@ -112,7 +75,6 @@ public class SaveVehicleProfileServlet extends HttpServlet {
             profile.setUser(user);
         }
 
-        // Update profile fields from form
         profile.setVehicleType(req.getParameter("vehicleType"));
         profile.setMilesPerGallon(parseDoubleOrDefault(req.getParameter("milesPerGallon"), 25));
         profile.setMonthlyPayment(parseDoubleOrDefault(req.getParameter("monthlyPayment"), 0));
@@ -127,17 +89,34 @@ public class SaveVehicleProfileServlet extends HttpServlet {
             profileDao.insert(profile);
         }
 
-        // After saving, reload the form with updated data
         req.setAttribute("vehicleProfile", profile);
         req.setAttribute("successMessage", "Your vehicle profile was saved successfully!");
         req.getRequestDispatcher("MyVehicles.jsp").forward(req, resp);
     }
 
-    /**
-     * @param value
-     * @param defaultValue
-     * @return defaultValue
-     */
+    private Profile getLoggedInProfile(HttpServletRequest req) {
+        HttpSession session = req.getSession(false);
+
+        if (session == null) {
+            throw new IllegalStateException("No active session");
+        }
+
+        String email = (String) session.getAttribute("userEmail");
+
+        if (email == null || email.isBlank()) {
+            throw new IllegalStateException("No user logged in");
+        }
+
+        GenericDao<Profile> profileDao = new GenericDao<>(Profile.class);
+        List<Profile> profiles = profileDao.getByPropertyEqual("email", email);
+
+        if (profiles == null || profiles.isEmpty()) {
+            throw new IllegalStateException("User profile not found");
+        }
+
+        return profiles.get(0);
+    }
+
     private double parseDoubleOrDefault(String value, double defaultValue) {
         try {
             return Double.parseDouble(value);

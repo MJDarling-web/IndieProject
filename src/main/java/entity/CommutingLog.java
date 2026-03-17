@@ -14,8 +14,8 @@ public class CommutingLog {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private Profile user;
 
     @Column(name = "date_added")
     private Date date;
@@ -49,11 +49,11 @@ public class CommutingLog {
         this.id = id;
     }
 
-    public User getUser() {
+    public Profile getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(Profile user) {
         this.user = user;
     }
 

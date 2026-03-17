@@ -69,14 +69,14 @@ public class Auth extends HttpServlet implements PropertiesLoader {
             TokenResponse tokenResponse = getToken(authRequest);
 
             DecodedJWT jwt = JWT.decode(tokenResponse.getIdToken());
-            String email = jwt.getClaim("email").asString(); // ✅ actual email from Cognito
+            String email = jwt.getClaim("email").asString(); //
             String username = jwt.getClaim("cognito:username").asString(); // use as display name
 
             logger.debug("Authenticated email: " + email);
 
             // Save to session
             HttpSession session = req.getSession();
-            session.setAttribute("userName", email); // 🔄 now always the email address
+            session.setAttribute("userName", email); //
 
             // Look for user by email
             UserDao userDao = new UserDao();

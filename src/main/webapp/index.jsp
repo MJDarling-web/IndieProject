@@ -14,7 +14,7 @@
 <%@include file="taglib.jsp" %>
 <br>
 <h1>Welcome to Commuter</h1>
-<h3>Login or sign up to track your commuting expenses and personalize your commuting options</h3>
+<h3>Track your true commuting expenses</h3>
 <br>
 <h2><i>A commuting cost calculator and tracker to help you understand your true cost of transportation</i></h2>
 <h3>Get an estimated cost of your weekly transportation below.</h3>

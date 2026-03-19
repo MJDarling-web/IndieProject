@@ -3,7 +3,7 @@ package controller;
 import entity.CommutingLog;
 import entity.CostAnalysis;
 import entity.TransportationProfile;
-import entity.User;
+import entity.Profile;
 import persistence.GenericDao;
 
 import javax.servlet.RequestDispatcher;
@@ -64,8 +64,8 @@ public class ComparisonCostServlet extends HttpServlet {
             return;
         }
         //
-        GenericDao<User> userDao = new GenericDao<>(User.class);
-        User user = userDao.getByPropertyLike("email", userEmail).stream().findFirst().orElse(null);
+        GenericDao<Profile> userDao = new GenericDao<>(Profile.class);
+        Profile user = userDao.getByPropertyEqual("email", userEmail).stream().findFirst().orElse(null);
         if (user == null) {
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "User not found");
             return;

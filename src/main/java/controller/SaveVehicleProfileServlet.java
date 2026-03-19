@@ -28,13 +28,15 @@ public class SaveVehicleProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         Profile user = getLoggedInProfile(req);
-        UUID userId = user.getId();
+        UUID userUuid = user.getId();
 
         GenericDao<TransportationProfile> profileDao = new GenericDao<>(TransportationProfile.class);
         TransportationProfile profile;
 
         List<TransportationProfile> existingProfiles = profileDao.getByCustomQuery(
-                "from TransportationProfile where user.id = '" + userId + "'"
+                "from TransportationProfile where user.id = :userId",
+                "userId",
+                userUuid
         );
 
         if (!existingProfiles.isEmpty()) {
@@ -65,7 +67,9 @@ public class SaveVehicleProfileServlet extends HttpServlet {
         TransportationProfile profile;
 
         List<TransportationProfile> existingProfiles = profileDao.getByCustomQuery(
-                "from TransportationProfile where user.id = '" + userId + "'"
+                "from TransportationProfile where user.id = :userId",
+                "userId",
+                userId
         );
 
         if (!existingProfiles.isEmpty()) {

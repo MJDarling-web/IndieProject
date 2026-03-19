@@ -1,6 +1,5 @@
 package persistence;
 
-import entity.TransportationProfile;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Expression;
@@ -9,25 +8,27 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import jakarta.persistence.*;
 
 import java.util.List;
 
 /**
- * The type Generic dao.
+ * Generic DAO for CRUD and query operations.
  *
- * @param <T> the type parameter
+ * @param <T> the entity type
  */
 public class GenericDao<T> {
-    private Class<T> type;
+
+    private final Class<T> type;
     private final Logger logger = LogManager.getLogger(this.getClass());
+
     /**
-     * Instantiates a new Generic dao.
-     * @param type the type
+     * Instantiates a new GenericDao.
+     *
+     * @param type the entity class type
      */
     public GenericDao(Class<T> type) {
         this.type = type;
-        logger.info("connect");
+        logger.info("GenericDao initialized for {}", type.getSimpleName());
     }
 
     private Session getSession() {
@@ -35,56 +36,58 @@ public class GenericDao<T> {
     }
 
     /**
-     * Gets by id.
+     * Gets an entity by its ID.
+     * Works with Integer, UUID, etc.
      *
-     * @param id the id
-     * @return the by id
+     * @param id the entity ID
+     * @return the entity or null
      */
-    public T getById(int id) {
-        Session session = getSession();
-        T entity = session.get(type, id);
-        session.close();
-        return entity;
+    public T getById(Object id) {
+        try (Session session = getSession()) {
+            return session.get(type, id);
+        }
     }
 
     /**
-     * Insert entity
+     * Insert entity.
      *
      * @param entity the entity
-     * @return the int
+     * @return the generated identifier as Object
      */
-    public int insert(T entity) {
-        int id = 0;
-        Session session = getSession();
-        Transaction transaction = session.beginTransaction();
-        try {
-            session.persist(entity);  // Ensure this is a new entity and does not conflict with others.
-            session.flush(); // Flush changes to the database.
-            transaction.commit(); // Commit the transaction
-            id = (int) session.getIdentifier(entity); // Retrieve the ID after commit
+    public Object insert(T entity) {
+        Transaction transaction = null;
+
+        try (Session session = getSession()) {
+            transaction = session.beginTransaction();
+            session.persist(entity);
+            session.flush();
+            transaction.commit();
+            return session.getIdentifier(entity);
         } catch (Exception e) {
             if (transaction != null) {
-                transaction.rollback();  // Rollback on error
+                transaction.rollback();
             }
-            throw e;  // Propagate the error
-        } finally {
-            session.close();  // Always close the session
+            logger.error("Error inserting entity", e);
+            throw e;
         }
-        return id;
     }
 
-
     /**
-     * Update.
+     * Update entity.
      *
      * @param entity the entity
      */
     public void update(T entity) {
-        Session session = getSession();
-        Transaction transaction = session.beginTransaction();
-        session.update(entity);  // Merge is used for update and insert if the entity is detached
-        transaction.commit();
-        session.close();
+        Transaction transaction = null;
+
+        try (Session session = getSession()) {
+            transaction = session.beginTransaction();
+            session.merge(entity);
+            transaction.commit();
+        } catch (Exception e) {
+            logger.error("Error updating entity", e);
+            throw e;
+        }
     }
 
     /**
@@ -93,22 +96,17 @@ public class GenericDao<T> {
      * @param entity the entity
      */
     public void deleteEntity(T entity) {
-        Session session = getSession();
-        Transaction transaction = session.beginTransaction();
-        try {
-            session.remove(entity);
-            session.flush();  // Ensures that the entity is immediately deleted from DB
+        Transaction transaction = null;
+
+        try (Session session = getSession()) {
+            transaction = session.beginTransaction();
+            session.remove(session.contains(entity) ? entity : session.merge(entity));
             transaction.commit();
         } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
             logger.error("Error during delete operation", e);
-        } finally {
-            session.close();
+            throw e;
         }
     }
-
 
     /**
      * Gets all entities.
@@ -125,8 +123,8 @@ public class GenericDao<T> {
      * Gets entities by property like.
      *
      * @param propertyName the property name
-     * @param value        the value
-     * @return the list of entities matching the property
+     * @param value the value
+     * @return matching entities
      */
     public List<T> getByPropertyLike(String propertyName, String value) {
         try (Session session = getSession()) {
@@ -140,23 +138,11 @@ public class GenericDao<T> {
     }
 
     /**
-     * Gets a list of entities with a custom query.
-     *
-     * @param hql the HQL query string
-     * @return the list of entities matching the query
-     */
-    public List<T> getByCustomQuery(String hql) {
-        try (Session session = getSession()) {
-            return session.createQuery(hql, type).getResultList();
-        }
-    }
-
-    /**
      * Gets entities by property equal.
      *
      * @param propertyName the property name
-     * @param value        the value
-     * @return the list of entities matching the property
+     * @param value the value
+     * @return matching entities
      */
     public List<T> getByPropertyEqual(String propertyName, Object value) {
         try (Session session = getSession()) {
@@ -168,4 +154,22 @@ public class GenericDao<T> {
         }
     }
 
+    /**
+     * Gets a list of entities with a custom parameterized HQL query.
+     *
+     * Example:
+     * getByCustomQuery("from TransportationProfile where user.id = :userId", "userId", userId)
+     *
+     * @param hql the HQL query
+     * @param paramName the parameter name
+     * @param value the parameter value
+     * @return matching entities
+     */
+    public List<T> getByCustomQuery(String hql, String paramName, Object value) {
+        try (Session session = getSession()) {
+            return session.createQuery(hql, type)
+                    .setParameter(paramName, value)
+                    .getResultList();
+        }
+    }
 }

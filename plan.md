@@ -1,6 +1,16 @@
 ~~https://github.com/users/MJDarling-web/projects/2/views/1
 started plan! Started to put it in Github as issues but wanted a more central space to view and review upcoming tasks instead of github issues~~
 
+# needs for submission
+## in no order
+- [] video demo of completed project
+- [] hosted on supabase or AWS 
+- [] updated readme
+- [] better UI/UX 
+- [] junit tests
+- [] each page functional (My Vehicles, Comparison Cost)
+- [] clean up un unnecessary files
+- [] linked on website, create website.
 # Indie Project Plan
 
 - [x]Finish User Stories

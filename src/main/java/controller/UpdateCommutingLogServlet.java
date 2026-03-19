@@ -45,7 +45,9 @@ public class UpdateCommutingLogServlet extends HttpServlet {
 
         GenericDao<TransportationProfile> profileDao = new GenericDao<>(TransportationProfile.class);
         List<TransportationProfile> profiles = profileDao.getByCustomQuery(
-                "from TransportationProfile where user.id = '" + userId + "'"
+                "from TransportationProfile where user.id = :userId",
+                "userId",
+                userId
         );
 
         double mpg = profiles.stream()

@@ -72,9 +72,14 @@ public class ComparisonCostServlet extends HttpServlet {
         }
 
         // Load latest CostAnalysis per commuteType
+        // Load latest CostAnalysis per commuteType
         GenericDao<CostAnalysis> costDao = new GenericDao<>(CostAnalysis.class);
-        String hql = "from CostAnalysis where user.id = " + user.getId() + " order by analysisId desc";
-        List<CostAnalysis> analyses = costDao.getByCustomQuery(hql);
+        List<CostAnalysis> analyses = costDao.getByCustomQuery(
+                "from CostAnalysis where user.id = :userId order by analysisId desc",
+                "userId",
+                user.getId()
+        );
+
         Map<String, CostAnalysis> costSummaryMap = new HashMap<>();
         for (CostAnalysis ca : analyses) {
             costSummaryMap.putIfAbsent(ca.getCommuteType(), ca);

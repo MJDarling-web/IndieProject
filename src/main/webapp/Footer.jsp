@@ -5,15 +5,13 @@
   Time: 8:23 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@include file="taglib.jsp" %>
-<html>
-<head>
-    <title>Footer</title>
-    <link rel="stylesheet" href="style/main.css" type="text/css" />
 
-</head>
-<body>
-
-</body>
-</html>
+<footer class="site-footer">
+    <p>
+        Created by Micah Darling for Enterprise Java, utilizing a free fuel price API
+        <a href="https://www.fueleconomy.gov/feg/ws/index.shtml" target="_blank" rel="noopener noreferrer">
+            FuelEconomy.gov
+        </a>
+    </p>
+</footer>

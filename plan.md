@@ -1,17 +1,32 @@
 ~~https://github.com/users/MJDarling-web/projects/2/views/1
 started plan! Started to put it in Github as issues but wanted a more central space to view and review upcoming tasks instead of github issues~~
 
+#projects I want to do this Spring, 
+- [] portfolio
+- [] deployed commuter app
+  - [] 1 other project that uses PHP/JS/React or another language 
+      - See App ideas in Note's app.    
+      - Ex: Food Diary, exercise diary, something with AI, 
+- [] Complete the Murder Mystery app and host on site
+- [] create home server to have my portfolio on
+- 
 # needs for submission
 ## in no order
-- [] video demo of completed project
-- [] hosted on supabase or AWS 
-- [] updated readme
-- [] better UI/UX 
+
+- [x] better UI/UX - created in Figma
+- [] update UI of Commute Cost Log page 
+- [] update My Vehicles UI and functionality
+- [] update UI of comparison Results
+- [] unused fields on log page
+- [] math on log page going so high round it to a second decimal
 - [] junit tests
 - [] each page functional (My Vehicles, Comparison Cost)
-- [] clean up un unnecessary files
+- [] clean up un unnecessary files (user)
+- [] hosted on supabase or AWS
 - [] linked on website, create website.
-# Indie Project Plan
+- [] video demo of completed project
+- [] updated readme
+-# Indie Project Plan
 
 - [x]Finish User Stories
 - [x]Creat Plan for project

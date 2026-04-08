@@ -117,25 +117,16 @@
 
     <section class="value-section">
         <div class="value-item">
-            <div class="value-icon" aria-hidden="true">
-                <span class="value-icon-symbol">💰</span>
-            </div>
             <h2>Save Money</h2>
             <p>Optimize your commuting expenses</p>
         </div>
 
         <div class="value-item">
-            <div class="value-icon" aria-hidden="true">
-                <span class="value-icon-symbol">📈</span>
-            </div>
             <h2>Track Progress</h2>
             <p>Monitor trends over time</p>
         </div>
 
         <div class="value-item">
-            <div class="value-icon" aria-hidden="true">
-                <span class="value-icon-symbol">🧾</span>
-            </div>
             <h2>Make Decisions</h2>
             <p>Data-driven insights</p>
         </div>

@@ -1,6 +1,7 @@
 # Title: "My Commuting Impact: A Web App for Analyzing the True Financial Costs of Commuting"
 
-Deployed: http://commute-env.eba-pxwu5fax.us-east-2.elasticbeanstalk.com/
+~~Deployed: http://commute-env.eba-pxwu5fax.us-east-2.elasticbeanstalk.com/~~
+Deployed on Render: https://indieproject-1.onrender.com/
 ## **Problem Statement:**
 In the United States, car ownership is often seen as a necessity, with many individuals purchasing or leasing cars based on their perceived need to drive, rather than fully understanding the financial implications. People generally focus on the upfront costs or loan payments, but overlook long-term expenses such as maintenance, insurance, and fuel. Additionally, environmental and alternative commuting options are seldom considered in the financial equation. This leads to people making decisions that are not financially optimal or sustainable.
 

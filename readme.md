@@ -39,7 +39,9 @@ Integration with a google maps API to get the users commute data for each type o
 * Java for backend application development,
 * MySQL for storing user info input data and transportation cost logs
 * User Authentication
-* AWS for hosting application
+~~* AWS for hosting application~~
+* Render for hosting application
+* Supabase for user authentication and database management
 * Git and GitHub for version control
 * Maven for dependency management and build automation
 * JUnit for testing application
@@ -64,11 +66,6 @@ Here are the links to my project presentation, if you have suggestions or areas 
 
 
 https://github.com/MJDarling-web/IndieProject
-
-part 1 https://youtu.be/c0n8E98s-FA 
-part 2 https://youtu.be/rnaN0um19VE 
-part 3 https://youtu.be/uuWMcFHz2tQ
-part 4 https://youtu.be/Upbo7LUu6P0
 
 Home Page ![Screenshot](https://github.com/MJDarling-web/IndieProject/blob/main/screenshots/Final%20Screenshots/Home%20page.png)
 

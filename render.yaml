@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: commuter-impact
+    env: docker
+    plan: starter
+    dockerfilePath: ./Dockerfile
+    autoDeploy: true
+    healthCheckPath: /
+

@@ -43,12 +43,23 @@ public class Database {
         properties = new Properties();
         try {
             properties.load (this.getClass().getResourceAsStream("/database.properties"));
+            overrideFromEnv("driver", "DB_DRIVER");
+            overrideFromEnv("url", "DB_URL");
+            overrideFromEnv("username", "DB_USERNAME");
+            overrideFromEnv("password", "DB_PASSWORD");
         } catch (IOException ioe) {
             logger.log(Level.SEVERE, "Database.loadProperties()… Cannot load the properties file", ioe);
         } catch (Exception e) {
             logger.log(Level.SEVERE,"Database.loadProperties()...", e);
         }
 
+    }
+
+    private void overrideFromEnv(String propertyKey, String envKey) {
+        String value = System.getenv(envKey);
+        if (value != null && !value.isBlank()) {
+            properties.setProperty(propertyKey, value);
+        }
     }
 
     /** get the only Database object available

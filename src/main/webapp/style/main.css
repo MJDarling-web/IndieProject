@@ -514,7 +514,19 @@ select:focus {
     height: 56px;
     margin: 0 auto 1rem;
     border-radius: 14px;
-    background: transparent;
+    background: rgba(255, 107, 53, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 1.9rem;
+    line-height: 1;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.value-icon-symbol {
+    display: inline-block;
+    transform: translateY(1px);
 }
 
 .value-item h2 {

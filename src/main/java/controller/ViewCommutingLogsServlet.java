@@ -50,7 +50,7 @@ public class ViewCommutingLogsServlet extends HttpServlet {
         String userEmail = (String) request.getSession().getAttribute("userName");
 
         if (userEmail == null) {
-            response.sendRedirect("logIn.jsp");
+            response.sendRedirect("logIn");
             return;
         }
 

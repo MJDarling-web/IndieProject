@@ -1,0 +1,11 @@
+target/
+.git/
+.idea/
+*.iml
+logs/
+logs/*.log
+screenshots/
+*.DS_Store
+README.md
+readme.md
+

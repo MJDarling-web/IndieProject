@@ -43,6 +43,20 @@ Integration with a google maps API to get the users commute data for each type o
 * Maven for dependency management and build automation
 * JUnit for testing application
 
+### Render / Docker deployment
+This project now includes a Docker-based deployment path for Render:
+
+* `Dockerfile` builds the WAR and runs it on Tomcat 9.
+* `.dockerignore` keeps the image build lean.
+* `render.yaml` defines the Render web service blueprint.
+
+The app is configured to use environment-variable overrides when deployed:
+
+* Database: `DB_DRIVER`, `DB_URL`, `DB_USERNAME`, `DB_PASSWORD`
+* Cognito: `COGNITO_CLIENT_ID`, `COGNITO_CLIENT_SECRET`, `COGNITO_OAUTH_URL`, `COGNITO_LOGIN_URL`, `COGNITO_REDIRECT_URL`, `COGNITO_REGION`, `COGNITO_POOL_ID`
+
+Render should point the Cognito redirect URL to the deployed app’s `/auth` endpoint.
+
 These technologies are well-suited for developing "My Commuting Impact" web app, covering everything from front-end user interface development to back-end server-side logic, data management, and deployment. Each technology is chosen based on its strengths in achieving key features: commuters analysis, data visualization, and user tracking._
 
 Here are the links to my project presentation, if you have suggestions or areas you'd like more explanation, let me! It’s still a work in progress but demonstrates the project’s objective.

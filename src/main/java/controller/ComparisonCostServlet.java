@@ -60,7 +60,7 @@ public class ComparisonCostServlet extends HttpServlet {
         HttpSession session = req.getSession();
         String userEmail = (String) session.getAttribute("userName");
         if (userEmail == null) {
-            resp.sendRedirect("logIn.jsp");
+            resp.sendRedirect("logIn");
             return;
         }
         //

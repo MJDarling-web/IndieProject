@@ -157,9 +157,21 @@ public class Auth extends HttpServlet implements PropertiesLoader {
             REDIRECT_URL = properties.getProperty("redirectURL");
             REGION = properties.getProperty("region");
             POOL_ID = properties.getProperty("poolId");
+            CLIENT_ID = overrideFromEnv("COGNITO_CLIENT_ID", CLIENT_ID);
+            CLIENT_SECRET = overrideFromEnv("COGNITO_CLIENT_SECRET", CLIENT_SECRET);
+            OAUTH_URL = overrideFromEnv("COGNITO_OAUTH_URL", OAUTH_URL);
+            LOGIN_URL = overrideFromEnv("COGNITO_LOGIN_URL", LOGIN_URL);
+            REDIRECT_URL = overrideFromEnv("COGNITO_REDIRECT_URL", REDIRECT_URL);
+            REGION = overrideFromEnv("COGNITO_REGION", REGION);
+            POOL_ID = overrideFromEnv("COGNITO_POOL_ID", POOL_ID);
         } catch (Exception e) {
             logger.error("Failed to load Cognito properties: " + e.getMessage(), e);
         }
+    }
+
+    private String overrideFromEnv(String envKey, String currentValue) {
+        String value = System.getenv(envKey);
+        return value != null && !value.isBlank() ? value : currentValue;
     }
 }
 
